@@ -7,10 +7,12 @@
 <title>这个页面不存在 · Edboy</title>
 <meta name="theme-color" content="#f4edda" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
+<!-- 尽早应用配色，避免刷新时闪白 -->
+<script>(function(){var r=document.documentElement,p='auto';try{var s=localStorage.getItem('edboy-theme');if(s==='light'||s==='dark'||s==='auto')p=s}catch(e){}var m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null,sd=!!(m&&m.matches),d=p==='dark'||(p==='auto'&&sd),swap=p!=='auto'&&((p==='dark')!==sd);r.setAttribute('data-theme',d?'dark':'light');r.setAttribute('data-theme-pref',p);if(swap)r.setAttribute('data-theme-swap','');var ms=document.querySelectorAll('meta[name="theme-color"]');if(ms.length){ms[0].removeAttribute('media');ms[0].setAttribute('content',d?'#14120e':'#f4edda');for(var i=1;i<ms.length;i++)ms[i].parentNode.removeChild(ms[i])}})();</script>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261117-7">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>

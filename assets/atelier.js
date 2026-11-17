@@ -105,4 +105,98 @@
       }
     );
   }
+
+  /* ---- 配色切换：自动 / 浅色 / 深色 ---- */
+  var root = document.documentElement;
+  var themeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-theme-set]'));
+  var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+  var metaTheme = document.querySelector('meta[name="theme-color"]');
+  var plates = Array.prototype.slice.call(document.querySelectorAll('img[src*="assets/img/"]'));
+  var themePref = root.getAttribute('data-theme-pref') || 'auto';
+  var themeReady = false;
+
+  plates.forEach(function (img) {
+    if (!img.getAttribute('data-src-base')) {
+      img.setAttribute('data-src-base', img.getAttribute('src'));
+    }
+  });
+
+  function systemTheme() {
+    return systemDark.matches ? 'dark' : 'light';
+  }
+
+  function resolvedTheme(pref) {
+    return pref === 'dark' || (pref === 'auto' && systemDark.matches) ? 'dark' : 'light';
+  }
+
+  function markThemeReady() {
+    if (themeReady) return;
+    themeReady = true;
+    root.setAttribute('data-theme-ready', '');
+  }
+
+  function syncPlates(variant) {
+    var pending = 0;
+    plates.forEach(function (img) {
+      var base = img.getAttribute('data-src-base');
+      if (!base) return;
+      var next = variant === 'auto' ? base : base.replace(/\.svg$/, '-' + variant + '.svg');
+      if (img.getAttribute('src') === next) return;
+      var wait = img.complete && img.naturalWidth > 0;
+      if (wait) pending += 1;
+      function done() {
+        if (!wait) return;
+        wait = false;
+        pending -= 1;
+        if (pending === 0) markThemeReady();
+      }
+      if (wait) {
+        img.addEventListener('load', done);
+        img.addEventListener('error', done);
+        setTimeout(done, 4000);
+      }
+      img.setAttribute('src', next);
+    });
+    if (pending === 0) markThemeReady();
+  }
+
+  function applyTheme(pref, persist) {
+    themePref = pref;
+    var theme = resolvedTheme(pref);
+    var variant = pref !== 'auto' && theme !== systemTheme() ? theme : 'auto';
+    root.setAttribute('data-theme', theme);
+    root.setAttribute('data-theme-pref', pref);
+    if (variant === 'auto') {
+      root.removeAttribute('data-theme-swap');
+    } else {
+      root.setAttribute('data-theme-swap', '');
+    }
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'dark' ? '#14120e' : '#f4edda');
+    }
+    themeButtons.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.getAttribute('data-theme-set') === pref));
+    });
+    syncPlates(variant);
+    if (persist) {
+      try { localStorage.setItem('edboy-theme', pref); } catch (e) {}
+    }
+  }
+
+  themeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyTheme(btn.getAttribute('data-theme-set'), true);
+    });
+  });
+
+  function onSystemChange() {
+    applyTheme(themePref, false);
+  }
+  if (systemDark.addEventListener) {
+    systemDark.addEventListener('change', onSystemChange);
+  } else if (systemDark.addListener) {
+    systemDark.addListener(onSystemChange);
+  }
+
+  applyTheme(themePref, false);
 })();

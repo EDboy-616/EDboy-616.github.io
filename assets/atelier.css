@@ -1,5 +1,6 @@
 /* Atelier Zero — adapted for Edboy's trading journal */
 :root{
+  color-scheme:light;
   --paper:#f4edda; --paper-warm:#f1e9d7; --bone:#faf5e6;
   --ink:#15140f; --ink-soft:#2a2620; --ink-mute:#5a5448; --ink-faint:#6b6557;
   --coral:#ed6f5c;
@@ -75,8 +76,18 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;mix
 .nav-cta{display:inline-flex;align-items:center;gap:9px;padding:10px 17px;border-radius:999px;border:1px solid var(--ink-a24);color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;transition:background .18s ease,border-color .18s ease}
 .nav-cta:hover{background:var(--ink-a05);border-color:var(--ink-a40)}
 .nav-cta .arrow{color:var(--coral-ink);font-size:13px}
-.status-dot{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center}
-.status-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.theme-switch{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:transparent}
+.theme-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;height:24px;padding:0 8px;border-radius:999px;font-family:var(--sans);font-size:10.5px;letter-spacing:.03em;color:var(--ink-mute);white-space:nowrap;transition:background .18s ease,color .18s ease}
+.theme-btn:hover{color:var(--ink);background:var(--ink-a05)}
+:root[data-theme-pref="auto"] .theme-btn[data-theme-set="auto"],
+:root[data-theme-pref="light"] .theme-btn[data-theme-set="light"],
+:root[data-theme-pref="dark"] .theme-btn[data-theme-set="dark"]{background:var(--ink);color:var(--paper)}
+.theme-ico{width:12px;height:12px;display:block;flex:none;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+.theme-ico .fill{fill:currentColor;stroke:none}
+/* 手动配色与系统不一致时，先隐藏配图，等 JS 换成锁定配色的副本再显示 */
+:root[data-theme-swap] img[src*="assets/img/"]{opacity:0;animation:theme-img-in 0s 6s forwards}
+:root[data-theme-ready] img[src*="assets/img/"]{opacity:1;animation:none}
+@keyframes theme-img-in{to{opacity:1}}
 .nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;font-family:var(--sans);font-size:12px;letter-spacing:.08em;align-items:center;justify-content:center}
 .mobile-menu{position:absolute;left:0;right:0;top:100%;max-height:calc(100vh - 130px);overflow-y:auto;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 24px 24px;box-shadow:0 26px 40px -34px rgba(21,20,15,.6)}
 .mobile-menu ul{list-style:none;display:grid;gap:2px}
@@ -382,6 +393,8 @@ body.reader-open{overflow:hidden}
 @media (max-width:1180px){.nav-inner{gap:18px}.brand-meta{display:none}.nav-links{gap:26px}.hero h1{font-size:clamp(42px,5vw,64px)}.hero-art{max-height:540px}}
 @media (max-width:1080px){
   .container{padding:0 32px}
+  .theme-btn span{display:none}
+  .theme-btn{height:32px;padding:0 8px}
   section{padding:100px 0}
   .hero h1{font-size:clamp(38px,5vw,56px)}
   .section-header h2{font-size:clamp(34px,4.2vw,50px)}
@@ -435,6 +448,7 @@ body.reader-open{overflow:hidden}
 }
 @media (max-width:640px){
   .container{padding:0 18px}
+  .nav-side{gap:12px}
   section{padding:78px 0}
   section.tight{padding:60px 0}
   .hero h1{font-size:38px}
@@ -728,12 +742,46 @@ body.reader-open{overflow:hidden}
 }
 
 /* ============================================================
-   深色模式（跟随系统 prefers-color-scheme）
+   配色：手动模式 + 无 JS 时跟随系统
    纸底换暖黑，墨色反转，珊瑚红保留为强调色；
    只覆盖变量和少数反白区块，排版刻度完全不动。
+   注意：下面两份深色变量要保持一致（手动一份，无 JS 媒体查询一份）。
    ============================================================ */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#14120e; --paper-warm:#1a1711; --bone:#201c15;
+  --ink:#eae2d0; --ink-soft:#d3cabb; --ink-mute:#aaa08c; --ink-faint:#8d8471;
+  --coral:#ee7461;
+  --coral-ink:oklch(75% .10 32);
+  --coral-deep:oklch(62% .13 30);
+  --ok:oklch(74% .10 145);
+  --line:rgba(234,226,208,.18); --line-soft:rgba(234,226,208,.10); --line-faint:rgba(234,226,208,.06);
+  --shadow:0 30px 60px -30px rgba(0,0,0,.6);
+  --ink-a05:rgba(234,226,208,.07); --ink-a06:rgba(234,226,208,.08); --ink-a10:rgba(234,226,208,.12);
+  --ink-a24:rgba(234,226,208,.26); --ink-a30:rgba(234,226,208,.32); --ink-a36:rgba(234,226,208,.38);
+  --ink-a40:rgba(234,226,208,.42); --ink-a42:rgba(234,226,208,.44);
+  --paper-a28:rgba(18,16,12,.30); --paper-a72:rgba(18,16,12,.72);
+  --paper-a86:rgba(18,16,12,.86); --paper-a88:rgba(18,16,12,.88); --paper-a92:rgba(18,16,12,.92);
+  --field-bg:rgba(234,226,208,.05);
+  --backdrop:rgba(0,0,0,.72);
+  --on-accent:#f7f0dd;
+  --night-bg:#201c15; --night-fg:#f2ead8;
+  --night-mute:rgba(242,234,216,.66); --night-line:rgba(242,234,216,.16);
+}
+:root[data-theme="dark"] body::before{mix-blend-mode:screen;opacity:.45}
+:root[data-theme="dark"] ::selection{background:var(--coral);color:#17140e}
+:root[data-theme="dark"] .btn-primary{background:var(--coral);color:#17140e}
+:root[data-theme="dark"] .btn-primary:hover{background:oklch(80% .11 32)}
+:root[data-theme="dark"] .card:hover .arrow-mark{background:var(--coral);border-color:var(--coral);color:#17140e}
+:root[data-theme="dark"] .article-body em{color:var(--coral-ink)}
+/* 反白区块保持深底浅字，不跟着变量整块翻转 */
+:root[data-theme="dark"] .work{background:var(--bone);color:var(--ink)}
+:root[data-theme="dark"] .work-copy h2{color:var(--ink)}
+:root[data-theme="dark"] .work-card{background:var(--paper);color:var(--ink)}
+
+/* 没有 JS 时仍跟随系统 */
 @media (prefers-color-scheme: dark){
-  :root{
+  :root:not([data-theme]){
     color-scheme:dark;
     --paper:#14120e; --paper-warm:#1a1711; --bone:#201c15;
     --ink:#eae2d0; --ink-soft:#d3cabb; --ink-mute:#aaa08c; --ink-faint:#8d8471;
@@ -754,14 +802,14 @@ body.reader-open{overflow:hidden}
     --night-bg:#201c15; --night-fg:#f2ead8;
     --night-mute:rgba(242,234,216,.66); --night-line:rgba(242,234,216,.16);
   }
-  body::before{mix-blend-mode:screen;opacity:.45}
-  ::selection{background:var(--coral);color:#17140e}
-  .btn-primary{background:var(--coral);color:#17140e}
-  .btn-primary:hover{background:oklch(80% .11 32)}
-  .card:hover .arrow-mark{background:var(--coral);border-color:var(--coral);color:#17140e}
-  .article-body em{color:var(--coral-ink)}
+  :root:not([data-theme]) body::before{mix-blend-mode:screen;opacity:.45}
+  :root:not([data-theme]) ::selection{background:var(--coral);color:#17140e}
+  :root:not([data-theme]) .btn-primary{background:var(--coral);color:#17140e}
+  :root:not([data-theme]) .btn-primary:hover{background:oklch(80% .11 32)}
+  :root:not([data-theme]) .card:hover .arrow-mark{background:var(--coral);border-color:var(--coral);color:#17140e}
+  :root:not([data-theme]) .article-body em{color:var(--coral-ink)}
   /* 反白区块保持深底浅字，不跟着变量整块翻转 */
-  .work{background:var(--bone);color:var(--ink)}
-  .work-copy h2{color:var(--ink)}
-  .work-card{background:var(--paper);color:var(--ink)}
+  :root:not([data-theme]) .work{background:var(--bone);color:var(--ink)}
+  :root:not([data-theme]) .work-copy h2{color:var(--ink)}
+  :root:not([data-theme]) .work-card{background:var(--paper);color:var(--ink)}
 }

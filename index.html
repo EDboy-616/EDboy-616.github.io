@@ -8,13 +8,15 @@
 <meta name="author" content="edboy">
 <meta name="theme-color" content="#f4edda" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
+<!-- 尽早应用配色，避免刷新时闪白 -->
+<script>(function(){var r=document.documentElement,p='auto';try{var s=localStorage.getItem('edboy-theme');if(s==='light'||s==='dark'||s==='auto')p=s}catch(e){}var m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null,sd=!!(m&&m.matches),d=p==='dark'||(p==='auto'&&sd),swap=p!=='auto'&&((p==='dark')!==sd);r.setAttribute('data-theme',d?'dark':'light');r.setAttribute('data-theme-pref',p);if(swap)r.setAttribute('data-theme-swap','');var ms=document.querySelectorAll('meta[name="theme-color"]');if(ms.length){ms[0].removeAttribute('media');ms[0].setAttribute('content',d?'#14120e':'#f4edda');for(var i=1;i<ms.length;i++)ms[i].parentNode.removeChild(ms[i])}})();</script>
 <link rel="canonical" href="https://EDboy-616.github.io/">
 <link rel="alternate" type="application/rss+xml" title="Edboy 交易手记" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/atelier.css">
-<noscript><style>[data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}@media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}</style></noscript>
+<link rel="stylesheet" href="assets/atelier.css?v=20261117-7">
+<noscript><style>.theme-switch{display:none!important}[data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}@media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -56,7 +58,20 @@
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="#subscribe">订阅 <span class="arrow" aria-hidden="true">→</span></a>
-        <span class="status-dot" aria-hidden="true"></span>
+        <div class="theme-switch" role="group" aria-label="配色模式">
+          <button class="theme-btn" type="button" data-theme-set="auto" aria-pressed="true" aria-label="自动，跟随系统" title="跟随系统">
+            <svg class="theme-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.1"/><path class="fill" d="M8 2.9a5.1 5.1 0 0 1 0 10.2z"/></svg>
+            <span>自动</span>
+          </button>
+          <button class="theme-btn" type="button" data-theme-set="light" aria-pressed="false" aria-label="浅色" title="浅色">
+            <svg class="theme-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1"/></svg>
+            <span>浅色</span>
+          </button>
+          <button class="theme-btn" type="button" data-theme-set="dark" aria-pressed="false" aria-label="深色" title="深色">
+            <svg class="theme-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.3 9.6A5.6 5.6 0 0 1 6.4 2.7a5.6 5.6 0 1 0 6.9 6.9z"/></svg>
+            <span>深色</span>
+          </button>
+        </div>
         <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
       </div>
     </div>
@@ -546,6 +561,6 @@
 </div>
 
 
-<script src="assets/atelier.js" defer></script>
+<script src="assets/atelier.js?v=20261117-7" defer></script>
 </body>
 </html>

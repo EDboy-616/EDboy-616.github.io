@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="技术图纸：方向对但节奏错，真实行情">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.wick{stroke:#15140f;stroke-opacity:.55;stroke-width:.8;fill:none}
+.cnd-up{fill:#f4edda;stroke:#15140f;stroke-opacity:.72;stroke-width:.8}
+.cnd-dn{fill:#15140f;fill-opacity:.8;stroke:#15140f;stroke-opacity:.8;stroke-width:.8}
+.ma1{fill:none;stroke:#b4462f;stroke-width:1.2}
+.ma2{fill:none;stroke:#15140f;stroke-opacity:.52;stroke-width:1}
+.ma3{fill:none;stroke:#15140f;stroke-opacity:.34;stroke-width:1;stroke-dasharray:4 3}
+.guide{fill:none;stroke:#b4462f;stroke-opacity:.42;stroke-width:.8;stroke-dasharray:2 4}
+.mark-c{fill:#f4edda;stroke:#b4462f;stroke-width:1.3}
+
+.paper{fill:#14120e}
+.grid{stroke:#eae2d0;stroke-opacity:.06}
+.frame{stroke:#eae2d0;stroke-opacity:.55}
+.ln{stroke:#eae2d0;stroke-opacity:.8}
+.ln-soft{stroke:#eae2d0;stroke-opacity:.4}
+.ln-c{stroke:#e07a63}
+.fill-i{fill:#eae2d0}
+.fill-i-soft{fill:#eae2d0;fill-opacity:.55}
+.fill-c{fill:#e07a63}
+.fill-c-soft{fill:#e07a63;fill-opacity:.14}
+.tx-i{fill:#eae2d0}
+.tx-m{fill:#aaa08c}
+.tx-c{fill:#e07a63}
+.wick{stroke:#eae2d0}
+.cnd-up{fill:#14120e;stroke:#eae2d0;stroke-opacity:.72}
+.cnd-dn{fill:#eae2d0;fill-opacity:.8;stroke:#eae2d0;stroke-opacity:.8}
+.ma1{stroke:#e07a63}
+.ma2{stroke:#eae2d0;stroke-opacity:.52}
+.ma3{stroke:#eae2d0;stroke-opacity:.34}
+.guide{stroke:#e07a63;stroke-opacity:.45}
+.mark-c{fill:#14120e;stroke:#e07a63}
+
+</style>
+<rect width="400" height="500" class="paper"/><rect width="400" height="500" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 466V484H34"/><path d="M366 484H384V466"/></g>
+<text x="24" y="30" class="mono tx-i">Nº 008 / RIGHT, BUT LOST</text><text x="24" y="45" class="mono tx-m">那一笔我没错，但还是亏了</text>
+<path class="ln-soft dash" d="M40.0 310.0H328.0"/><path class="ln-soft" d="M328.0 310.0H331.0"/><text x="333.0" y="313.0" class="mono tx-m">3000</text>
+<path class="ln-soft dash" d="M40.0 253.5H328.0"/><path class="ln-soft" d="M328.0 253.5H331.0"/><text x="333.0" y="256.5" class="mono tx-m">3100</text>
+<path class="ln-soft dash" d="M40.0 197.0H328.0"/><path class="ln-soft" d="M328.0 197.0H331.0"/><text x="333.0" y="200.0" class="mono tx-m">3200</text>
+<path class="ln-soft dash" d="M40.0 140.5H328.0"/><path class="ln-soft" d="M328.0 140.5H331.0"/><text x="333.0" y="143.5" class="mono tx-m">3300</text>
+<path class="ln-soft dash" d="M40.0 84.0H328.0"/><path class="ln-soft" d="M328.0 84.0H331.0"/><text x="333.0" y="87.0" class="mono tx-m">3400</text>
+<path class="ln-soft" d="M40.0 310.0H328.0"/>
+<text x="42.7" y="321.0" class="mono tx-m" text-anchor="start">3/2</text>
+<text x="186.7" y="321.0" class="mono tx-m" text-anchor="middle">4/9</text>
+<text x="325.3" y="321.0" class="mono tx-m" text-anchor="end">5/20</text>
+<rect x="122.7" y="223.0" width="42.7" height="35.6" class="fill-c-soft"/>
+<path class="ln-c dash" d="M40.0 223.0H328.0"/>
+<path class="ln-c" d="M40.0 258.6H328.0"/>
+<text x="326" y="254.6" class="mono tx-c" text-anchor="end">止损 3091</text>
+<path class="wick" d="M42.7 254.6V281.8"/><rect x="41.0" y="267.6" width="3.3" height="4.5" class="cnd-dn"/><path class="wick" d="M48.0 265.9V277.8"/><rect x="46.3" y="268.2" width="3.3" height="2.3" class="cnd-up"/><path class="wick" d="M53.3 262.0V275.5"/><rect x="51.7" y="268.2" width="3.3" height="1.7" class="cnd-dn"/><path class="wick" d="M58.7 257.5V271.6"/><rect x="57.0" y="267.6" width="3.3" height="2.3" class="cnd-up"/><path class="wick" d="M64.0 258.0V273.8"/><rect x="62.3" y="260.3" width="3.3" height="7.3" class="cnd-up"/><path class="wick" d="M69.3 229.8V258.6"/><rect x="67.7" y="242.8" width="3.3" height="15.3" class="cnd-up"/><path class="wick" d="M74.7 241.6V258.6"/><rect x="73.0" y="242.8" width="3.3" height="8.5" class="cnd-dn"/><path class="wick" d="M80.0 243.9V255.8"/><rect x="78.3" y="245.0" width="3.3" height="5.1" class="cnd-up"/><path class="wick" d="M85.3 233.2V246.7"/><rect x="83.7" y="242.2" width="3.3" height="2.8" class="cnd-up"/><path class="wick" d="M90.7 225.2V234.3"/><rect x="89.0" y="229.8" width="3.3" height="1.0" class="cnd-up"/><path class="wick" d="M96.0 227.5V241.6"/><rect x="94.3" y="230.9" width="3.3" height="5.7" class="cnd-up"/><path class="wick" d="M101.3 225.2V234.3"/><rect x="99.7" y="226.4" width="3.3" height="4.5" class="cnd-up"/><path class="wick" d="M106.7 215.6V233.7"/><rect x="105.0" y="226.4" width="3.3" height="4.5" class="cnd-dn"/><path class="wick" d="M112.0 228.1V241.1"/><rect x="110.3" y="230.9" width="3.3" height="2.8" class="cnd-dn"/><path class="wick" d="M117.3 233.2V246.2"/><rect x="115.7" y="236.6" width="3.3" height="4.0" class="cnd-dn"/><path class="wick" d="M122.7 216.8V247.3"/><rect x="121.0" y="223.0" width="3.3" height="19.2" class="cnd-up"/><path class="wick" d="M128.0 222.4V233.7"/><rect x="126.3" y="228.1" width="3.3" height="1.0" class="cnd-up"/><path class="wick" d="M133.3 222.4V238.8"/><rect x="131.7" y="226.9" width="3.3" height="8.5" class="cnd-dn"/><path class="wick" d="M138.7 232.0V239.4"/><rect x="137.0" y="236.0" width="3.3" height="1.7" class="cnd-dn"/><path class="wick" d="M144.0 233.2V246.7"/><rect x="142.3" y="233.7" width="3.3" height="6.2" class="cnd-dn"/><path class="wick" d="M149.3 224.7V241.6"/><rect x="147.7" y="231.5" width="3.3" height="8.5" class="cnd-up"/><path class="wick" d="M154.7 228.1V244.5"/><rect x="153.0" y="228.1" width="3.3" height="13.6" class="cnd-dn"/><path class="wick" d="M160.0 230.3V244.5"/><rect x="158.3" y="241.6" width="3.3" height="1.0" class="cnd-dn"/><path class="wick" d="M165.3 238.2V261.4"/><rect x="163.7" y="238.2" width="3.3" height="11.9" class="cnd-dn"/><path class="wick" d="M170.7 228.1V242.8"/><rect x="169.0" y="228.6" width="3.3" height="11.3" class="cnd-dn"/><path class="wick" d="M176.0 234.3V245.6"/><rect x="174.3" y="239.9" width="3.3" height="5.1" class="cnd-dn"/><path class="wick" d="M181.3 242.2V255.2"/><rect x="179.7" y="242.2" width="3.3" height="3.4" class="cnd-dn"/><path class="wick" d="M186.7 242.8V257.5"/><rect x="185.0" y="242.8" width="3.3" height="13.0" class="cnd-dn"/><path class="wick" d="M192.0 250.7V263.1"/><rect x="190.3" y="252.9" width="3.3" height="1.1" class="cnd-dn"/><path class="wick" d="M197.3 248.4V260.3"/><rect x="195.7" y="253.5" width="3.3" height="2.3" class="cnd-up"/><path class="wick" d="M202.7 250.7V260.3"/><rect x="201.0" y="250.7" width="3.3" height="6.2" class="cnd-dn"/><path class="wick" d="M208.0 250.7V257.5"/><rect x="206.3" y="251.8" width="3.3" height="5.1" class="cnd-up"/><path class="wick" d="M213.3 233.2V251.8"/><rect x="211.7" y="234.9" width="3.3" height="17.0" class="cnd-up"/><path class="wick" d="M218.7 231.5V237.7"/><rect x="217.0" y="232.6" width="3.3" height="2.3" class="cnd-dn"/><path class="wick" d="M224.0 209.4V239.9"/><rect x="222.3" y="212.8" width="3.3" height="22.0" class="cnd-up"/><path class="wick" d="M229.3 206.0V214.5"/><rect x="227.7" y="210.6" width="3.3" height="2.3" class="cnd-up"/><path class="wick" d="M234.7 203.8V216.8"/><rect x="233.0" y="204.9" width="3.3" height="8.5" class="cnd-up"/><path class="wick" d="M240.0 195.3V210.6"/><rect x="238.3" y="203.2" width="3.3" height="4.5" class="cnd-dn"/><path class="wick" d="M245.3 199.3V208.9"/><rect x="243.7" y="202.1" width="3.3" height="5.7" class="cnd-up"/><path class="wick" d="M250.7 189.1V205.5"/><rect x="249.0" y="202.1" width="3.3" height="1.0" class="cnd-dn"/><path class="wick" d="M256.0 199.8V218.5"/><rect x="254.3" y="202.1" width="3.3" height="8.5" class="cnd-dn"/><path class="wick" d="M261.3 198.1V216.2"/><rect x="259.7" y="199.8" width="3.3" height="10.7" class="cnd-up"/><path class="wick" d="M266.7 185.7V202.1"/><rect x="265.0" y="189.1" width="3.3" height="10.7" class="cnd-up"/><path class="wick" d="M272.0 158.6V186.3"/><rect x="270.3" y="160.8" width="3.3" height="20.9" class="cnd-up"/><path class="wick" d="M277.3 152.9V167.1"/><rect x="275.7" y="155.8" width="3.3" height="7.3" class="cnd-up"/><path class="wick" d="M282.7 149.0V162.5"/><rect x="281.0" y="156.3" width="3.3" height="5.1" class="cnd-dn"/><path class="wick" d="M288.0 141.6V163.1"/><rect x="286.3" y="148.4" width="3.3" height="13.6" class="cnd-up"/><path class="wick" d="M293.3 145.0V171.0"/><rect x="291.7" y="149.0" width="3.3" height="17.0" class="cnd-dn"/><path class="wick" d="M298.7 159.1V176.7"/><rect x="297.0" y="164.8" width="3.3" height="3.4" class="cnd-up"/><path class="wick" d="M304.0 163.1V178.4"/><rect x="302.3" y="165.9" width="3.3" height="3.4" class="cnd-up"/><path class="wick" d="M309.3 156.3V182.3"/><rect x="307.7" y="165.9" width="3.3" height="13.0" class="cnd-dn"/><path class="wick" d="M314.7 176.1V194.7"/><rect x="313.0" y="178.9" width="3.3" height="14.7" class="cnd-dn"/><path class="wick" d="M320.0 189.7V204.3"/><rect x="318.3" y="191.3" width="3.3" height="3.4" class="cnd-dn"/><path class="wick" d="M325.3 193.6V210.0"/><rect x="323.7" y="194.2" width="3.3" height="9.0" class="cnd-dn"/>
+<circle cx="122.7" cy="223.0" r="3" class="mark-c"/>
+<text x="122.7" y="215.0" class="mono tx-c" text-anchor="middle">入场 3154</text>
+<circle cx="165.3" cy="258.6" r="3.4" class="mark-c"/>
+<text x="165.33333333333331" y="272.585" class="mono tx-c" text-anchor="middle">节奏错 / TIMING</text>
+<text x="288.0" y="131.63" class="mono tx-m" text-anchor="middle">之后新高</text>
+<path class="ln-soft dash" d="M60 340H350"/>
+<path class="ln" d="M68 356l6 6 l12 -14"/>
+<text x="106" y="366" class="mono tx-i">方向 / DIRECTION</text>
+<text x="350" y="366" class="mono tx-m" text-anchor="end">对 / OK</text>
+<path class="ln-soft dash" d="M60 380H350"/>
+<path class="ln-c" d="M68 394l12 12M80 406l-12 12"/>
+<text x="106" y="404" class="mono tx-i">节奏 / TIMING</text>
+<text x="350" y="404" class="mono tx-c" text-anchor="end">错 / OFF</text>
+<path class="ln-soft dash" d="M60 418H350"/>
+<path class="ln" d="M68 432l6 6 l12 -14"/>
+<text x="106" y="442" class="mono tx-i">执行 / EXECUTION</text>
+<text x="350" y="442" class="mono tx-m" text-anchor="end">对 / OK</text>
+<text x="40" y="76" class="mono tx-m">日线 / DAILY · RB 主力连续</text>
+<text x="24" y="476" class="mono tx-m">三层拆开，亏损才有信息 / THREE LAYERS</text>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1024" height="1024" role="img" aria-label="技术图纸：周线、日线、小时三段时间结构，真实行情">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.wick{stroke:#15140f;stroke-opacity:.55;stroke-width:.8;fill:none}
+.cnd-up{fill:#f4edda;stroke:#15140f;stroke-opacity:.72;stroke-width:.8}
+.cnd-dn{fill:#15140f;fill-opacity:.8;stroke:#15140f;stroke-opacity:.8;stroke-width:.8}
+.ma1{fill:none;stroke:#b4462f;stroke-width:1.2}
+.ma2{fill:none;stroke:#15140f;stroke-opacity:.52;stroke-width:1}
+.ma3{fill:none;stroke:#15140f;stroke-opacity:.34;stroke-width:1;stroke-dasharray:4 3}
+.guide{fill:none;stroke:#b4462f;stroke-opacity:.42;stroke-width:.8;stroke-dasharray:2 4}
+.mark-c{fill:#f4edda;stroke:#b4462f;stroke-width:1.3}
+
+.paper{fill:#14120e}
+.grid{stroke:#eae2d0;stroke-opacity:.06}
+.frame{stroke:#eae2d0;stroke-opacity:.55}
+.ln{stroke:#eae2d0;stroke-opacity:.8}
+.ln-soft{stroke:#eae2d0;stroke-opacity:.4}
+.ln-c{stroke:#e07a63}
+.fill-i{fill:#eae2d0}
+.fill-i-soft{fill:#eae2d0;fill-opacity:.55}
+.fill-c{fill:#e07a63}
+.fill-c-soft{fill:#e07a63;fill-opacity:.14}
+.tx-i{fill:#eae2d0}
+.tx-m{fill:#aaa08c}
+.tx-c{fill:#e07a63}
+.wick{stroke:#eae2d0}
+.cnd-up{fill:#14120e;stroke:#eae2d0;stroke-opacity:.72}
+.cnd-dn{fill:#eae2d0;fill-opacity:.8;stroke:#eae2d0;stroke-opacity:.8}
+.ma1{stroke:#e07a63}
+.ma2{stroke:#eae2d0;stroke-opacity:.52}
+.ma3{stroke:#eae2d0;stroke-opacity:.34}
+.guide{stroke:#e07a63;stroke-opacity:.45}
+.mark-c{fill:#14120e;stroke:#e07a63}
+
+
+.ring{fill:none;stroke:#b4462f;stroke-width:1;opacity:0}
+.ring{stroke:#e07a63}
+.anim-scan{opacity:0}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.anim-draw{animation:adraw 1.4s cubic-bezier(.35,0,.2,1) both}
+.anim-pop{transform-box:fill-box;transform-origin:center;animation:apop .7s cubic-bezier(.3,1.3,.5,1) both}
+.anim-grow-y{transform-box:fill-box;transform-origin:bottom;animation:agrowy .9s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-c{transform-box:fill-box;transform-origin:center;animation:agrowy .55s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-x{transform-box:fill-box;transform-origin:left;animation:agrowx .8s cubic-bezier(.3,0,.2,1) both}
+.anim-ring{transform-box:fill-box;transform-origin:center;animation:aring 2.8s ease-out infinite}
+.anim-breathe{animation:abreathe 6s ease-in-out infinite}
+.anim-scan{animation:ascan 8s linear infinite}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+.d5{animation-delay:.70s}
+.d6{animation-delay:.84s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+@keyframes adraw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes apop{0%{transform:scale(.35);opacity:0}60%{transform:scale(1.18);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes agrowy{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+@keyframes agrowx{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+@keyframes aring{0%{transform:scale(.55);opacity:.6}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+@keyframes abreathe{0%,100%{opacity:.82}50%{opacity:.32}}
+@keyframes ascan{0%{transform:translateX(0);opacity:0}8%{opacity:.42}90%{opacity:.42}100%{transform:translateX(var(--dx,284px));opacity:0}}
+</style>
+<rect width="400" height="400" class="paper"/><rect width="400" height="400" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 366V384H34"/><path d="M366 384H384V366"/></g>
+<text x="24" y="30" class="mono tx-i">PL. 01 / THREE CLOCKS</text><text x="24" y="45" class="mono tx-m">周线定势 · 日线验证 · 小时执行</text>
+<rect x="44" y="64" width="312" height="96" class="ln-soft" fill="none"/>
+<text x="24" y="79" class="mono tx-c">01</text>
+<text x="54" y="79" class="mono tx-i">W / 周线 · 身份</text>
+<text x="346" y="79" class="mono tx-m" text-anchor="end">定势</text>
+<rect x="44" y="168" width="312" height="96" class="ln-soft" fill="none"/>
+<text x="24" y="183" class="mono tx-c">02</text>
+<text x="54" y="183" class="mono tx-i">D / 日线 · 力度</text>
+<text x="346" y="183" class="mono tx-m" text-anchor="end">验证</text>
+<rect x="44" y="272" width="312" height="96" class="ln-soft" fill="none"/>
+<text x="24" y="287" class="mono tx-c">03</text>
+<text x="54" y="287" class="mono tx-i">1H / 小时 · 位置</text>
+<text x="346" y="287" class="mono tx-m" text-anchor="end">执行</text>
+<path class="ma1 anim-draw d1" d="M61.7 111.2L73.0 109.7L84.4 108.6L95.8 108.6L107.1 108.9L118.5 109.8L129.8 112.5L141.2 113.4L152.6 114.9L163.9 116.1L175.3 116.7L186.6 117.1L198.0 117.0L209.4 117.6L220.7 118.0L232.1 118.0L243.4 117.6L254.8 117.2L266.2 116.1L277.5 115.3L288.9 115.1L300.2 114.7L311.6 114.7L323.0 114.6L334.3 114.8" pathLength="1"/>
+<path class="ma2 anim-draw d2" d="M61.7 114.7L73.0 114.7L84.4 115.0L95.8 115.7L107.1 115.8L118.5 116.0L129.8 116.2L141.2 116.2L152.6 116.2L163.9 116.3L175.3 116.2L186.6 115.6L198.0 114.8L209.4 114.4L220.7 113.8L232.1 113.3L243.4 113.1L254.8 113.0L266.2 113.0L277.5 113.9L288.9 114.2L300.2 114.8L311.6 115.4L323.0 115.6L334.3 115.9" pathLength="1"/>
+<path class="ma3 anim-fade d3" d="M61.7 102.6L73.0 102.6L84.4 103.1L95.8 104.1L107.1 104.9L118.5 105.5L129.8 106.3L141.2 106.9L152.6 107.6L163.9 108.0L175.3 108.5L186.6 108.9L198.0 109.3L209.4 109.9L220.7 110.3L232.1 110.6L243.4 110.9L254.8 111.1L266.2 111.5L277.5 112.0L288.9 112.6L300.2 113.2L311.6 113.6L323.0 114.3L334.3 114.8"/>
+<g class="anim-fade d1">
+<path class="wick" d="M61.7 110.1V118.8"/><rect x="58.2" y="110.8" width="7.0" height="2.2" class="cnd-dn"/><path class="wick" d="M73.0 106.9V114.9"/><rect x="69.5" y="107.8" width="7.0" height="5.1" class="cnd-up"/><path class="wick" d="M84.4 104.4V114.5"/><rect x="80.9" y="107.8" width="7.0" height="6.6" class="cnd-dn"/><path class="wick" d="M95.8 114.1V119.6"/><rect x="92.2" y="114.3" width="7.0" height="4.9" class="cnd-dn"/><path class="wick" d="M107.1 113.3V119.1"/><rect x="103.6" y="115.7" width="7.0" height="1.7" class="cnd-up"/><path class="wick" d="M118.5 114.4V125.0"/><rect x="115.0" y="115.2" width="7.0" height="7.9" class="cnd-dn"/><path class="wick" d="M129.8 117.9V123.3"/><rect x="126.3" y="122.1" width="7.0" height="1.0" class="cnd-up"/><path class="wick" d="M141.2 111.1V121.9"/><rect x="137.7" y="115.3" width="7.0" height="6.3" class="cnd-up"/><path class="wick" d="M152.6 115.1V126.3"/><rect x="149.0" y="115.4" width="7.0" height="8.0" class="cnd-dn"/><path class="wick" d="M163.9 120.9V125.1"/><rect x="160.4" y="121.3" width="7.0" height="1.8" class="cnd-up"/><path class="wick" d="M175.3 115.5V122.8"/><rect x="171.8" y="120.9" width="7.0" height="1.1" class="cnd-up"/><path class="wick" d="M186.6 114.1V121.7"/><rect x="183.1" y="114.9" width="7.0" height="6.0" class="cnd-up"/><path class="wick" d="M198.0 106.7V116.0"/><rect x="194.5" y="109.5" width="7.0" height="5.2" class="cnd-up"/><path class="wick" d="M209.4 109.5V120.9"/><rect x="205.8" y="109.5" width="7.0" height="11.0" class="cnd-dn"/><path class="wick" d="M220.7 112.1V123.8"/><rect x="217.2" y="113.8" width="7.0" height="9.0" class="cnd-up"/><path class="wick" d="M232.1 110.4V117.1"/><rect x="228.6" y="113.8" width="7.0" height="1.0" class="cnd-dn"/><path class="wick" d="M243.4 110.3V114.4"/><rect x="239.9" y="113.5" width="7.0" height="1.0" class="cnd-up"/><path class="wick" d="M254.8 104.9V117.7"/><rect x="251.3" y="111.0" width="7.0" height="1.0" class="cnd-up"/><path class="wick" d="M266.2 105.3V111.4"/><rect x="262.6" y="108.9" width="7.0" height="2.0" class="cnd-up"/><path class="wick" d="M277.5 108.0V115.5"/><rect x="274.0" y="108.9" width="7.0" height="2.4" class="cnd-dn"/><path class="wick" d="M288.9 107.6V114.3"/><rect x="285.4" y="110.6" width="7.0" height="2.3" class="cnd-dn"/><path class="wick" d="M300.2 111.6V118.9"/><rect x="296.7" y="112.8" width="7.0" height="5.8" class="cnd-dn"/><path class="wick" d="M311.6 117.9V122.7"/><rect x="308.1" y="118.4" width="7.0" height="2.7" class="cnd-dn"/><path class="wick" d="M323.0 117.8V126.8"/><rect x="319.4" y="119.7" width="7.0" height="1.4" class="cnd-up"/><path class="wick" d="M334.3 116.2V121.7"/><rect x="330.8" y="117.4" width="7.0" height="1.5" class="cnd-up"/></g>
+<g class="anim-scan" style="--dx:283px;animation-duration:9s;animation-delay:0s"><path class="ln-c dash" d="M57.0 82.0V150.0"/></g>
+<text x="58" y="94" class="mono tx-m">缠绕 / TANGLE</text>
+<text x="336" y="94" class="mono tx-m" text-anchor="end">2025.09—2026.03</text>
+<path class="ma1 anim-draw d2" d="M61.9 230.1L73.8 230.6L85.6 231.2L97.4 231.3L109.2 231.2L121.1 230.8L132.9 230.3L144.8 230.0L156.6 229.8L168.4 229.4L180.2 228.7L192.1 228.0L203.9 227.3L215.8 226.3L227.6 225.2L239.4 223.2L251.2 221.5L263.1 220.0L274.9 218.8L286.8 217.3L298.6 216.4L310.4 215.2L322.2 214.1L334.1 213.4" pathLength="1"/>
+<path class="ma2 anim-draw d3" d="M61.9 225.4L73.8 225.8L85.6 226.4L97.4 227.0L109.2 227.6L121.1 228.0L132.9 228.4L144.8 228.8L156.6 229.1L168.4 229.3L180.2 229.4L192.1 229.3L203.9 229.2L215.8 228.8L227.6 228.2L239.4 227.0L251.2 225.9L263.1 225.0L274.9 224.3L286.8 223.4L298.6 222.5L310.4 221.6L322.2 220.7L334.1 219.9" pathLength="1"/>
+<path class="ma3 anim-fade d4" d="M61.9 219.0L73.8 219.4L85.6 219.8L97.4 220.1L109.2 220.4L121.1 220.7L132.9 221.1L144.8 221.3L156.6 221.5L168.4 221.7L180.2 221.9L192.1 222.1L203.9 222.3L215.8 222.4L227.6 222.5L239.4 222.5L251.2 222.4L263.1 222.5L274.9 222.5L286.8 222.5L298.6 222.6L310.4 222.6L322.2 222.6L334.1 222.6"/>
+<g class="anim-fade d2">
+<path class="wick" d="M61.9 229.5V232.1"/><rect x="58.2" y="230.2" width="7.3" height="1.5" class="cnd-dn"/><path class="wick" d="M73.8 229.2V233.0"/><rect x="70.1" y="229.5" width="7.3" height="2.2" class="cnd-up"/><path class="wick" d="M85.6 229.2V231.0"/><rect x="81.9" y="229.5" width="7.3" height="1.0" class="cnd-dn"/><path class="wick" d="M97.4 229.7V232.4"/><rect x="93.7" y="230.5" width="7.3" height="1.0" class="cnd-dn"/><path class="wick" d="M109.2 227.1V231.3"/><rect x="105.6" y="229.6" width="7.3" height="1.5" class="cnd-up"/><path class="wick" d="M121.1 228.4V230.4"/><rect x="117.4" y="229.5" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M132.9 228.5V232.0"/><rect x="129.2" y="228.7" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M144.8 226.6V229.9"/><rect x="141.1" y="228.7" width="7.3" height="1.0" class="cnd-dn"/><path class="wick" d="M156.6 227.1V229.9"/><rect x="152.9" y="227.7" width="7.3" height="1.7" class="cnd-up"/><path class="wick" d="M168.4 226.1V227.8"/><rect x="164.7" y="226.9" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M180.2 222.7V227.5"/><rect x="176.6" y="223.9" width="7.3" height="3.3" class="cnd-up"/><path class="wick" d="M192.1 222.4V224.3"/><rect x="188.4" y="223.3" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M203.9 222.3V224.9"/><rect x="200.2" y="222.7" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M215.8 221.1V223.3"/><rect x="212.1" y="221.4" width="7.3" height="1.9" class="cnd-up"/><path class="wick" d="M227.6 216.7V222.2"/><rect x="223.9" y="218.6" width="7.3" height="3.5" class="cnd-up"/><path class="wick" d="M239.4 208.3V213.3"/><rect x="235.7" y="209.0" width="7.3" height="4.2" class="cnd-up"/><path class="wick" d="M251.2 208.7V213.4"/><rect x="247.6" y="209.0" width="7.3" height="2.6" class="cnd-dn"/><path class="wick" d="M263.1 210.9V215.9"/><rect x="259.4" y="212.0" width="7.3" height="3.3" class="cnd-dn"/><path class="wick" d="M274.9 214.1V217.3"/><rect x="271.2" y="215.2" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M286.8 210.9V215.8"/><rect x="283.1" y="212.5" width="7.3" height="2.4" class="cnd-up"/><path class="wick" d="M298.6 210.6V215.4"/><rect x="294.9" y="212.7" width="7.3" height="1.2" class="cnd-dn"/><path class="wick" d="M310.4 211.0V214.9"/><rect x="306.7" y="211.3" width="7.3" height="2.8" class="cnd-up"/><path class="wick" d="M322.2 211.5V213.8"/><rect x="318.6" y="212.2" width="7.3" height="1.0" class="cnd-up"/><path class="wick" d="M334.1 212.4V215.8"/><rect x="330.4" y="212.6" width="7.3" height="2.2" class="cnd-dn"/></g>
+<g class="anim-scan" style="--dx:283px;animation-duration:9s;animation-delay:0.8s"><path class="ln-c dash" d="M57.0 186.0V254.0"/></g>
+<text x="58" y="198" class="mono tx-m">排列 + 力度 / ORDER + FORCE</text>
+<text x="336" y="198" class="mono tx-m" text-anchor="end">2026.08—09</text>
+<path class="ma1 anim-draw d3" d="M64.9 317.5L82.6 318.1L100.4 318.8L118.1 318.9L135.9 319.0L153.6 319.0L171.4 319.1L189.1 319.4L206.9 319.3L224.6 317.9L242.4 317.0L260.1 316.2L277.9 315.4L295.6 315.8L313.4 316.4L331.1 316.7" pathLength="1"/>
+<g class="anim-fade d3">
+<path class="wick" d="M64.9 320.6V328.8"/><rect x="60.4" y="325.4" width="9.0" height="2.0" class="cnd-up"/><path class="wick" d="M82.6 324.0V328.8"/><rect x="78.1" y="324.7" width="9.0" height="1.0" class="cnd-up"/><path class="wick" d="M100.4 323.3V327.4"/><rect x="95.9" y="324.7" width="9.0" height="1.4" class="cnd-dn"/><path class="wick" d="M118.1 319.2V329.4"/><rect x="113.6" y="319.9" width="9.0" height="6.1" class="cnd-up"/><path class="wick" d="M135.9 315.8V324.0"/><rect x="131.4" y="319.2" width="9.0" height="1.0" class="cnd-dn"/><path class="wick" d="M153.6 317.9V321.3"/><rect x="149.1" y="319.2" width="9.0" height="1.0" class="cnd-up"/><path class="wick" d="M171.4 319.2V326.0"/><rect x="166.9" y="319.2" width="9.0" height="1.0" class="cnd-up"/><path class="wick" d="M189.1 317.2V324.0"/><rect x="184.6" y="319.2" width="9.0" height="3.4" class="cnd-dn"/><path class="wick" d="M206.9 317.2V324.7"/><rect x="202.4" y="318.6" width="9.0" height="4.8" class="cnd-up"/><path class="wick" d="M224.6 296.1V319.2"/><rect x="220.1" y="303.6" width="9.0" height="15.0" class="cnd-up"/><path class="wick" d="M242.4 302.2V308.4"/><rect x="237.9" y="307.0" width="9.0" height="1.0" class="cnd-dn"/><path class="wick" d="M260.1 306.3V309.7"/><rect x="255.6" y="308.4" width="9.0" height="1.0" class="cnd-dn"/><path class="wick" d="M277.9 305.0V311.8"/><rect x="273.4" y="307.0" width="9.0" height="1.4" class="cnd-up"/><path class="wick" d="M295.6 306.3V320.6"/><rect x="291.1" y="307.0" width="9.0" height="12.9" class="cnd-dn"/><path class="wick" d="M313.4 317.2V322.6"/><rect x="308.9" y="320.6" width="9.0" height="2.0" class="cnd-dn"/><path class="wick" d="M331.1 318.6V322.6"/><rect x="326.6" y="319.9" width="9.0" height="2.0" class="cnd-up"/></g>
+<g class="anim-scan" style="--dx:283px;animation-duration:9s;animation-delay:1.6s"><path class="ln-c dash" d="M57.0 290.0V358.0"/></g>
+<g class="anim-fade d4">
+<path class="ln-c dash" d="M56.0 319.2H340.0"/>
+</g>
+<g class="anim-fade d4">
+<path class="ln-c" d="M56.0 326.0H340.0"/>
+</g>
+<circle cx="171.4" cy="326.0" r="3" class="mark-c anim-pop d5"/>
+<text x="171.4" y="320.0" class="mono tx-c" text-anchor="middle">形态</text>
+<circle cx="171.4" cy="333.0" r="5" class="ring anim-ring"/>
+<text x="58" y="302" class="mono tx-m">回踩 + 形态 / PULLBACK</text>
+<text x="336" y="302" class="mono tx-m" text-anchor="end">2026.06.09—11</text>
+<text x="336" y="362" class="mono tx-c" text-anchor="end">入场 3157 / 止损 3147</text>
+<text x="24" y="376" class="mono tx-m">三段时间讲不出同一个故事，就不动手 / THREE CLOCKS</text>
+</svg>

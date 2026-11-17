@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1024" height="1024" role="img" aria-label="技术图纸：四个栏目，真实样例">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.wick{stroke:#15140f;stroke-opacity:.55;stroke-width:.8;fill:none}
+.cnd-up{fill:#f4edda;stroke:#15140f;stroke-opacity:.72;stroke-width:.8}
+.cnd-dn{fill:#15140f;fill-opacity:.8;stroke:#15140f;stroke-opacity:.8;stroke-width:.8}
+.ma1{fill:none;stroke:#b4462f;stroke-width:1.2}
+.ma2{fill:none;stroke:#15140f;stroke-opacity:.52;stroke-width:1}
+.ma3{fill:none;stroke:#15140f;stroke-opacity:.34;stroke-width:1;stroke-dasharray:4 3}
+.guide{fill:none;stroke:#b4462f;stroke-opacity:.42;stroke-width:.8;stroke-dasharray:2 4}
+.mark-c{fill:#f4edda;stroke:#b4462f;stroke-width:1.3}
+
+.paper{fill:#14120e}
+.grid{stroke:#eae2d0;stroke-opacity:.06}
+.frame{stroke:#eae2d0;stroke-opacity:.55}
+.ln{stroke:#eae2d0;stroke-opacity:.8}
+.ln-soft{stroke:#eae2d0;stroke-opacity:.4}
+.ln-c{stroke:#e07a63}
+.fill-i{fill:#eae2d0}
+.fill-i-soft{fill:#eae2d0;fill-opacity:.55}
+.fill-c{fill:#e07a63}
+.fill-c-soft{fill:#e07a63;fill-opacity:.14}
+.tx-i{fill:#eae2d0}
+.tx-m{fill:#aaa08c}
+.tx-c{fill:#e07a63}
+.wick{stroke:#eae2d0}
+.cnd-up{fill:#14120e;stroke:#eae2d0;stroke-opacity:.72}
+.cnd-dn{fill:#eae2d0;fill-opacity:.8;stroke:#eae2d0;stroke-opacity:.8}
+.ma1{stroke:#e07a63}
+.ma2{stroke:#eae2d0;stroke-opacity:.52}
+.ma3{stroke:#eae2d0;stroke-opacity:.34}
+.guide{stroke:#e07a63;stroke-opacity:.45}
+.mark-c{fill:#14120e;stroke:#e07a63}
+
+
+.ring{fill:none;stroke:#b4462f;stroke-width:1;opacity:0}
+.ring{stroke:#e07a63}
+.anim-scan{opacity:0}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.anim-draw{animation:adraw 1.4s cubic-bezier(.35,0,.2,1) both}
+.anim-pop{transform-box:fill-box;transform-origin:center;animation:apop .7s cubic-bezier(.3,1.3,.5,1) both}
+.anim-grow-y{transform-box:fill-box;transform-origin:bottom;animation:agrowy .9s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-c{transform-box:fill-box;transform-origin:center;animation:agrowy .55s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-x{transform-box:fill-box;transform-origin:left;animation:agrowx .8s cubic-bezier(.3,0,.2,1) both}
+.anim-ring{transform-box:fill-box;transform-origin:center;animation:aring 2.8s ease-out infinite}
+.anim-breathe{animation:abreathe 6s ease-in-out infinite}
+.anim-scan{animation:ascan 8s linear infinite}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+.d5{animation-delay:.70s}
+.d6{animation-delay:.84s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+@keyframes adraw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes apop{0%{transform:scale(.35);opacity:0}60%{transform:scale(1.18);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes agrowy{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+@keyframes agrowx{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+@keyframes aring{0%{transform:scale(.55);opacity:.6}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+@keyframes abreathe{0%,100%{opacity:.82}50%{opacity:.32}}
+@keyframes ascan{0%{transform:translateX(0);opacity:0}8%{opacity:.42}90%{opacity:.42}100%{transform:translateX(var(--dx,284px));opacity:0}}
+</style>
+<rect width="400" height="400" class="paper"/><rect width="400" height="400" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 366V384H34"/><path d="M366 384H384V366"/></g>
+<text x="24" y="30" class="mono tx-i">PL. 03 / FOUR LENSES</text><text x="24" y="45" class="mono tx-m">四个栏目，一条主线</text>
+<path class="ln-soft" d="M200 60V340M44 200H356"/>
+<text x="52" y="84" class="mono tx-m">01 趋势 / TREND</text>
+<text x="212" y="84" class="mono tx-m">02 风控 / RISK</text>
+<text x="52" y="222" class="mono tx-m">03 品种 / MARKET</text>
+<text x="212" y="222" class="mono tx-m">04 复盘 / REVIEW</text>
+<path class="ln anim-draw d1" d="M55.0 168.3L56.9 166.2L58.8 164.0L60.7 156.6L62.6 158.5L64.5 161.9L66.5 156.0L68.4 157.9L70.3 160.3L72.2 156.3L74.1 156.0L76.0 153.9L77.9 155.7L79.9 151.1L81.8 148.9L83.7 140.6L85.6 139.1L87.5 137.5L89.4 133.8L91.4 126.5L93.3 100.3L95.2 107.4L97.1 117.2L99.0 117.2L100.9 109.8L102.8 113.8L104.8 106.4L106.7 108.9L108.6 116.0L110.5 127.7L112.4 131.7L114.3 127.1L116.3 122.1L118.2 123.4L120.1 131.4L122.0 124.9L123.9 125.8L125.8 126.1L127.7 124.6L129.7 128.3L131.6 128.6L133.5 126.5L135.4 142.2L137.3 136.3L139.2 133.2L141.2 133.5L143.1 138.5L145.0 139.1L146.9 138.2L148.8 140.0L150.7 139.4L152.6 136.0L154.6 142.8L156.5 146.5L158.4 149.5L160.3 148.6L162.2 147.7L164.1 143.7L166.1 151.7L168.0 158.8L169.9 163.7L171.8 158.5L173.7 148.0L175.6 149.2L177.5 149.5L179.5 149.9L181.4 147.1L183.3 153.5L185.2 150.2L187.1 156.6L189.0 171.7" pathLength="1"/>
+<circle cx="189.0" cy="171.7" r="2.8" class="mark-c anim-pop d2"/>
+<circle cx="189.0" cy="171.7" r="5" class="ring anim-ring"/>
+<rect x="222" y="104" width="118" height="26" class="fill-c-soft anim-fade d2"/>
+<path class="ln-c dash anim-fade d2" d="M222 104H340"/>
+<path class="ln-c anim-fade d3" d="M222 130H340"/>
+<g class="anim-fade d3"><g class="ln-soft"><path class="dash" d="M214 104V130"/><path d="M210 104H218M210 130H218"/></g><text x="225" y="117.0" class="mono tx-m" text-anchor="middle" transform="rotate(90 225 117.0)">1R</text></g>
+<text x="222" y="98" class="mono tx-c">入场</text>
+<text x="340" y="144" class="mono tx-c" text-anchor="end">止损</text>
+<text x="222" y="160" class="mono tx-m">先定价，再手数</text>
+<rect x="54" y="245.3" width="11" height="68.7" class="fill-i-soft anim-grow-y" style="animation-delay:0.30s"/>
+<rect x="73" y="269.1" width="11" height="44.9" class="fill-i-soft anim-grow-y" style="animation-delay:0.39s"/>
+<rect x="92" y="278.8" width="11" height="35.2" class="fill-i-soft anim-grow-y" style="animation-delay:0.48s"/>
+<rect x="111" y="286.8" width="11" height="27.2" class="fill-i-soft anim-grow-y" style="animation-delay:0.57s"/>
+<rect x="130" y="294.5" width="11" height="19.5" class="fill-c anim-grow-y" style="animation-delay:0.66s"/>
+<rect x="149" y="300.4" width="11" height="13.6" class="fill-c anim-grow-y" style="animation-delay:0.75s"/>
+<rect x="168" y="306.1" width="11" height="7.9" class="fill-c anim-grow-y" style="animation-delay:0.84s"/>
+<path class="ln-soft anim-fade d4" d="M54 314H186"/>
+<text x="54" y="330" class="mono tx-m">库存同向 / INVENTORY</text>
+<path class="ln anim-fade d3" d="M222 244l6 6 l12 -14"/>
+<text x="244" y="252" class="mono tx-i">方向 / DIRECTION  对</text>
+<path class="ln-c anim-fade d4" d="M222 274l12 12M234 286l-12 12"/>
+<text x="244" y="282" class="mono tx-c">节奏 / TIMING  错</text>
+<path class="ln anim-fade d5" d="M222 304l6 6 l12 -14"/>
+<text x="244" y="312" class="mono tx-i">执行 / EXECUTION  对</text>
+<text x="24" y="376" class="mono tx-m">四个角度，同一套复查步骤 / ONE METHOD</text>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="1024" height="768" role="img" aria-label="技术图纸：低波动之后的剧烈错价，真实行情">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.wick{stroke:#15140f;stroke-opacity:.55;stroke-width:.8;fill:none}
+.cnd-up{fill:#f4edda;stroke:#15140f;stroke-opacity:.72;stroke-width:.8}
+.cnd-dn{fill:#15140f;fill-opacity:.8;stroke:#15140f;stroke-opacity:.8;stroke-width:.8}
+.ma1{fill:none;stroke:#b4462f;stroke-width:1.2}
+.ma2{fill:none;stroke:#15140f;stroke-opacity:.52;stroke-width:1}
+.ma3{fill:none;stroke:#15140f;stroke-opacity:.34;stroke-width:1;stroke-dasharray:4 3}
+.guide{fill:none;stroke:#b4462f;stroke-opacity:.42;stroke-width:.8;stroke-dasharray:2 4}
+.mark-c{fill:#f4edda;stroke:#b4462f;stroke-width:1.3}
+
+.paper{fill:#14120e}
+.grid{stroke:#eae2d0;stroke-opacity:.06}
+.frame{stroke:#eae2d0;stroke-opacity:.55}
+.ln{stroke:#eae2d0;stroke-opacity:.8}
+.ln-soft{stroke:#eae2d0;stroke-opacity:.4}
+.ln-c{stroke:#e07a63}
+.fill-i{fill:#eae2d0}
+.fill-i-soft{fill:#eae2d0;fill-opacity:.55}
+.fill-c{fill:#e07a63}
+.fill-c-soft{fill:#e07a63;fill-opacity:.14}
+.tx-i{fill:#eae2d0}
+.tx-m{fill:#aaa08c}
+.tx-c{fill:#e07a63}
+.wick{stroke:#eae2d0}
+.cnd-up{fill:#14120e;stroke:#eae2d0;stroke-opacity:.72}
+.cnd-dn{fill:#eae2d0;fill-opacity:.8;stroke:#eae2d0;stroke-opacity:.8}
+.ma1{stroke:#e07a63}
+.ma2{stroke:#eae2d0;stroke-opacity:.52}
+.ma3{stroke:#eae2d0;stroke-opacity:.34}
+.guide{stroke:#e07a63;stroke-opacity:.45}
+.mark-c{fill:#14120e;stroke:#e07a63}
+
+
+.ring{fill:none;stroke:#b4462f;stroke-width:1;opacity:0}
+.ring{stroke:#e07a63}
+.anim-scan{opacity:0}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.anim-draw{animation:adraw 1.4s cubic-bezier(.35,0,.2,1) both}
+.anim-pop{transform-box:fill-box;transform-origin:center;animation:apop .7s cubic-bezier(.3,1.3,.5,1) both}
+.anim-grow-y{transform-box:fill-box;transform-origin:bottom;animation:agrowy .9s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-c{transform-box:fill-box;transform-origin:center;animation:agrowy .55s cubic-bezier(.3,0,.2,1) both}
+.anim-grow-x{transform-box:fill-box;transform-origin:left;animation:agrowx .8s cubic-bezier(.3,0,.2,1) both}
+.anim-ring{transform-box:fill-box;transform-origin:center;animation:aring 2.8s ease-out infinite}
+.anim-breathe{animation:abreathe 6s ease-in-out infinite}
+.anim-scan{animation:ascan 8s linear infinite}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+.d5{animation-delay:.70s}
+.d6{animation-delay:.84s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+@keyframes adraw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes apop{0%{transform:scale(.35);opacity:0}60%{transform:scale(1.18);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes agrowy{from{transform:scaleY(.02)}to{transform:scaleY(1)}}
+@keyframes agrowx{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+@keyframes aring{0%{transform:scale(.55);opacity:.6}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.7);opacity:0}}
+@keyframes abreathe{0%,100%{opacity:.82}50%{opacity:.32}}
+@keyframes ascan{0%{transform:translateX(0);opacity:0}8%{opacity:.42}90%{opacity:.42}100%{transform:translateX(var(--dx,284px));opacity:0}}
+</style>
+<rect width="400" height="300" class="paper"/><rect width="400" height="300" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 266V284H34"/><path d="M366 284H384V266"/></g>
+<text x="24" y="30" class="mono tx-i">FIG. B / QUIET, THEN LOUD</text><text x="24" y="45" class="mono tx-m">低波动不等于低风险</text>
+<rect x="46.6" y="82.0" width="201.5" height="98.0" class="fill-i-soft anim-fade d1" fill-opacity=".06"/>
+<text x="55.74193548387097" y="68" class="mono tx-m">压缩 / COIL</text>
+<text x="252.12903225806454" y="68" class="mono tx-c">平静之后 / THEN</text>
+<path class="ln-soft dash" d="M42.0 180.0H326.0"/><path class="ln-soft" d="M326.0 180.0H329.0"/><text x="331.0" y="183.0" class="mono tx-m">2750</text>
+<path class="ln-soft dash" d="M42.0 160.4H326.0"/><path class="ln-soft" d="M326.0 160.4H329.0"/><text x="331.0" y="163.4" class="mono tx-m">3000</text>
+<path class="ln-soft dash" d="M42.0 140.8H326.0"/><path class="ln-soft" d="M326.0 140.8H329.0"/><text x="331.0" y="143.8" class="mono tx-m">3250</text>
+<path class="ln-soft dash" d="M42.0 121.2H326.0"/><path class="ln-soft" d="M326.0 121.2H329.0"/><text x="331.0" y="124.2" class="mono tx-m">3500</text>
+<path class="ln-soft dash" d="M42.0 101.6H326.0"/><path class="ln-soft" d="M326.0 101.6H329.0"/><text x="331.0" y="104.6" class="mono tx-m">3750</text>
+<path class="ln-soft dash" d="M42.0 82.0H326.0"/><path class="ln-soft" d="M326.0 82.0H329.0"/><text x="331.0" y="85.0" class="mono tx-m">4000</text>
+<path class="ln-soft" d="M42.0 180.0H326.0"/>
+<text x="46.6" y="191.0" class="mono tx-m" text-anchor="start">8/20</text>
+<text x="248.1" y="191.0" class="mono tx-m" text-anchor="middle">9/23</text>
+<text x="321.4" y="191.0" class="mono tx-m" text-anchor="end">10/10</text>
+<g class="anim-fade d1">
+<path class="wick" d="M46.6 146.1V149.9"/><rect x="43.7" y="146.9" width="5.7" height="1.3" class="cnd-up"/><path class="wick" d="M55.7 141.7V146.9"/><rect x="52.9" y="142.0" width="5.7" height="3.6" class="cnd-up"/><path class="wick" d="M64.9 142.1V147.2"/><rect x="62.1" y="142.7" width="5.7" height="4.1" class="cnd-dn"/><path class="wick" d="M74.1 145.1V148.4"/><rect x="71.2" y="146.7" width="5.7" height="1.6" class="cnd-dn"/><path class="wick" d="M83.2 139.5V149.1"/><rect x="80.4" y="139.7" width="5.7" height="8.1" class="cnd-up"/><path class="wick" d="M92.4 137.7V141.7"/><rect x="89.5" y="140.1" width="5.7" height="1.0" class="cnd-dn"/><path class="wick" d="M101.5 138.6V141.0"/><rect x="98.7" y="139.7" width="5.7" height="1.1" class="cnd-up"/><path class="wick" d="M110.7 138.1V142.0"/><rect x="107.9" y="140.0" width="5.7" height="1.0" class="cnd-dn"/><path class="wick" d="M119.9 138.9V144.2"/><rect x="117.0" y="140.6" width="5.7" height="2.4" class="cnd-dn"/><path class="wick" d="M129.0 141.6V147.9"/><rect x="126.2" y="142.4" width="5.7" height="4.0" class="cnd-dn"/><path class="wick" d="M138.2 141.7V149.3"/><rect x="135.4" y="142.9" width="5.7" height="5.8" class="cnd-dn"/><path class="wick" d="M147.4 147.9V153.6"/><rect x="144.5" y="149.4" width="5.7" height="2.4" class="cnd-dn"/><path class="wick" d="M156.5 149.3V154.7"/><rect x="153.7" y="151.8" width="5.7" height="2.1" class="cnd-dn"/><path class="wick" d="M165.7 150.7V159.3"/><rect x="162.8" y="152.5" width="5.7" height="3.9" class="cnd-dn"/><path class="wick" d="M174.8 153.0V161.3"/><rect x="172.0" y="154.3" width="5.7" height="1.4" class="cnd-up"/><path class="wick" d="M184.0 151.3V155.9"/><rect x="181.2" y="153.8" width="5.7" height="1.0" class="cnd-dn"/><path class="wick" d="M193.2 149.6V157.4"/><rect x="190.3" y="149.7" width="5.7" height="4.5" class="cnd-up"/><path class="wick" d="M202.3 145.2V150.5"/><rect x="199.5" y="145.9" width="5.7" height="3.6" class="cnd-up"/><path class="wick" d="M211.5 143.2V147.1"/><rect x="208.6" y="145.5" width="5.7" height="1.0" class="cnd-up"/><path class="wick" d="M220.6 142.3V150.8"/><rect x="217.8" y="145.9" width="5.7" height="2.7" class="cnd-dn"/><path class="wick" d="M229.8 143.9V150.4"/><rect x="227.0" y="144.2" width="5.7" height="3.8" class="cnd-up"/><path class="wick" d="M239.0 141.8V149.3"/><rect x="236.1" y="143.9" width="5.7" height="3.5" class="cnd-dn"/><path class="wick" d="M248.1 147.3V153.8"/><rect x="245.3" y="147.6" width="5.7" height="6.0" class="cnd-dn"/><path class="wick" d="M257.3 143.2V153.5"/><rect x="254.5" y="143.4" width="5.7" height="10.0" class="cnd-up"/><path class="wick" d="M266.5 137.8V143.5"/><rect x="263.6" y="142.7" width="5.7" height="1.0" class="cnd-up"/><path class="wick" d="M275.6 137.1V143.9"/><rect x="272.8" y="138.4" width="5.7" height="4.5" class="cnd-up"/><path class="wick" d="M284.8 133.0V137.3"/><rect x="281.9" y="133.7" width="5.7" height="2.8" class="cnd-up"/><path class="wick" d="M293.9 117.2V135.1"/><rect x="291.1" y="117.2" width="5.7" height="16.5" class="cnd-up"/><path class="wick" d="M303.1 99.2V126.4"/><rect x="300.3" y="107.1" width="5.7" height="15.2" class="cnd-dn"/><path class="wick" d="M312.3 117.7V125.1"/><rect x="309.4" y="121.2" width="5.7" height="2.7" class="cnd-dn"/><path class="wick" d="M321.4 120.3V128.1"/><rect x="318.6" y="125.1" width="5.7" height="1.0" class="cnd-dn"/></g>
+<g class="anim-fade d3">
+<path class="guide" d="M248.1 82.0V180.0"/>
+</g>
+<text x="42" y="212" class="mono tx-c">波动 / ATR</text>
+<path class="ln-c anim-draw d2" d="M46.6 241.0L55.7 241.0L64.9 241.0L74.1 241.6L83.2 240.4L92.4 240.8L101.5 241.6L110.7 241.9L119.9 241.8L129.0 241.5L138.2 240.9L147.4 240.8L156.5 240.9L165.7 240.0L174.8 239.3L184.0 239.6L193.2 239.1L202.3 239.2L211.5 239.7L220.6 239.0L229.8 238.9L239.0 238.5L248.1 238.3L257.3 237.2L266.5 237.4L275.6 237.3L284.8 237.6L293.9 234.6L303.1 229.5L312.3 229.8L321.4 230.0" pathLength="1"/>
+<path class="ln-soft" d="M42.0 260.0H326.0"/>
+<text x="39.0" y="263.0" class="mono tx-m" text-anchor="end">50</text>
+<text x="39.0" y="224.0" class="mono tx-m" text-anchor="end">100</text>
+<circle cx="303.1" cy="229.5" r="2.6" class="mark-c anim-pop d3"/>
+<text x="303.1" y="223.5" class="mono tx-c" text-anchor="middle">ATR 109</text>
+<circle cx="303.1" cy="234.0" r="4" class="ring anim-ring"/>
+<text x="24" y="276" class="mono tx-m">低波动 ≠ 低风险 / QUIET IS NOT SAFE</text>
+</svg>
