@@ -20,9 +20,6 @@ echo.
 git clone https://github.com/EDboy-616/EDboy-616.github.io.git "%USERPROFILE%\blog"
 if errorlevel 1 goto clonefail
 
-echo  正在补上私人备份仓库的地址…
-git -C "%USERPROFILE%\blog" remote add backup https://github.com/EDboy-616/blog-backup.git >nul 2>&1
-
 echo.
 echo  ============================================
 echo   装好了。项目位置： %USERPROFILE%\blog

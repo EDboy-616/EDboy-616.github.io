@@ -53,7 +53,8 @@ python -m http.server 8123
 ## 上线（已完成，这里只是记录）
 
 站点已在线：https://EDboy-616.github.io ，由公开仓库 `EDboy-616.github.io` 的
-master 分支驱动 GitHub Pages。代码同时备份在私人仓库 `blog-backup`。
+master 分支驱动 GitHub Pages。**这是唯一的仓库、也是唯一的存档处**——GitHub Pages
+要求仓库公开，所以不再另外维护私人备份库，避免两份版本互相追。
 站点里的 `<link rel="canonical">` 和 `feed.xml` 已填好这个域名；
 若以后换自定义域名，记得同步替换。
 
@@ -77,8 +78,8 @@ GitHub 仓库就是两台电脑之间的中转站。日常规矩只有两条，�
 （U盘 / 微信"文件传输" / 邮件都行）：
 
 - 把 `在家第一次用-双击这个.bat` 拷到新电脑，双击它。
-- 它会自动：检查有没有装 Git（没有会告诉你怎么装）→ 从公开仓库
-  下载整个项目到 `%USERPROFILE%\blog` → 配好私人备份仓库地址。
+- 它会自动：检查有没有装 Git（没有会告诉你怎么装）→ 从仓库
+  下载整个项目到 `%USERPROFILE%\blog`。
 - 完成后，`%USERPROFILE%\blog` 里就有全部三个脚本，以后照常双击即可。
 
 > 前提：新电脑装好 Git。没有的话在 PowerShell 里跑
@@ -91,7 +92,6 @@ GitHub 仓库就是两台电脑之间的中转站。日常规矩只有两条，�
 ```bash
 git clone https://github.com/EDboy-616/EDboy-616.github.io.git
 cd EDboy-616.github.io
-git remote add backup https://github.com/EDboy-616/blog-backup.git
 ```
 
 ### 关于 .bat 的编码（改脚本前必读）

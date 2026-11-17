@@ -5,8 +5,6 @@ echo.
 echo  开工前拉取：从 GitHub 取回最新版本
 echo.
 
-git remote get-url backup >nul 2>&1 || git remote add backup https://github.com/EDboy-616/blog-backup.git
-
 git pull origin master
 if errorlevel 1 goto fail
 
