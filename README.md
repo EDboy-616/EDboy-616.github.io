@@ -100,6 +100,10 @@ git remote add backup https://github.com/EDboy-616/blog-backup.git
 的硬性要求。如果用编辑器把它们存成 UTF-8、或加了 `chcp 65001`，含中文的
 行会字节错位、把注释当命令执行。改脚本时保持 GBK+CRLF，别动这个设置。
 
+仓库根目录的 `.gitattributes` 写了 `*.bat -text`，让 git 对这三个文件一个字节
+都不做换行转换——所以不管哪台电脑的 git 怎么配置，clone 出来的 .bat 都是原样。
+**别删这一行**，删了之后在 `core.autocrlf=false` 的电脑上会拿到 LF 换行的脚本。
+
 ## 加新页面（作品集、清单等）
 
 都放在这个仓库里，用子文件夹分类，例如：
