@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RSS 订阅源：新文章就复制一段 <item>，放到最前面。
+     注意这里的日期必须是英文星期和 GMT 时区，照抄格式改数字即可。 -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>我的网志</title>
+  <link>https://EDboy-616.github.io/</link>
+  <description>读过的、想通的、做过的。</description>
+  <language>zh-CN</language>
+  <lastBuildDate>Tue, 17 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <atom:link href="https://EDboy-616.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>开站说明：这个博客是怎么搭起来的</title>
+    <link>https://EDboy-616.github.io/posts/2026-11-17-hello.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/2026-11-17-hello.html</guid>
+    <pubDate>Tue, 17 Nov 2026 12:00:00 GMT</pubDate>
+    <description>全站没有一个字节的 JavaScript，没有构建工具，没有外部字体和图片。</description>
+  </item>
+
+</channel>
+</rss>
