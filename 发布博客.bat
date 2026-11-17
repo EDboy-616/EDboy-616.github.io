@@ -1,31 +1,35 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
 
 echo.
-echo  æ­£åœ¨å‘å¸ƒåšå®¢â€¦
+echo  ÕıÔÚ·¢²¼²©¿Í¡­
 echo.
 
-rem æ–°ç”µè„‘ä¸Šç¬¬ä¸€æ¬¡è·‘ï¼šè‡ªåŠ¨è¡¥ä¸Šç§äººå¤‡ä»½ä»“åº“çš„åœ°å€
 git remote get-url backup >nul 2>&1 || git remote add backup https://github.com/EDboy-616/blog-backup.git
 
 git add -A
-git commit -m "æ›´æ–°åšå®¢ %date% %time:~0,5%"
+git commit -m "¸üĞÂ²©¿Í %date% %time:~0,5%"
 
-echo  æ¨é€åˆ°å…¬å¼€ç«™ç‚¹â€¦
+echo  ÍÆËÍµ½¹«¿ªÕ¾µã¡­
 git push origin master
-echo  æ¨é€åˆ°ç§äººå¤‡ä»½â€¦
+if errorlevel 1 goto fail
+
+echo  ÍÆËÍµ½Ë½ÈË±¸·İ¡­
 git push backup master
+if errorlevel 1 goto fail
 
 echo.
-if errorlevel 1 (
-    echo  å‘å¸ƒæ²¡æœ‰æˆåŠŸã€‚å¦‚æœæç¤º "rejected" æˆ– "non-fast-forward"ï¼Œ
-    echo  è¯´æ˜å¦ä¸€å°ç”µè„‘å…ˆæ”¹äº†ä¸œè¥¿ï¼šå…ˆåŒå‡»ã€Œå¼€å·¥å‰å…ˆåŒå‡»è¿™ä¸ªã€æ‹‰ä¸‹æ¥ï¼Œå†å›æ¥å‘å¸ƒã€‚
-    echo  å…¶ä»–æƒ…å†µè¯·æŠŠä¸Šé¢çš„å­—æˆªå›¾å‘ç»™æˆ‘ã€‚
-) else (
-    echo  å·²å‘å¸ƒåˆ°å…¬å¼€ç«™ç‚¹ï¼Œå¹¶å·²å­˜å…¥ç§äººå¤‡ä»½ä»“åº“ã€‚
-    echo  ä¸€ä¸¤åˆ†é’Ÿååˆ·æ–° https://edboy-616.github.io å°±èƒ½çœ‹åˆ°ã€‚
-    echo  å¦‚æœæ˜¾ç¤º "Everything up-to-date"ï¼Œè¯´æ˜ä½ æ²¡æ”¹åŠ¨ä»»ä½•æ–‡ä»¶ã€‚
-)
+echo  ÒÑ·¢²¼µ½¹«¿ªÕ¾µã£¬²¢ÒÑ´æÈëË½ÈË±¸·İ²Ö¿â¡£
+echo  Ò»Á½·ÖÖÓºóË¢ĞÂ https://edboy-616.github.io ¾ÍÄÜ¿´µ½¡£
+echo  ÈôÉÏÃæÏÔÊ¾ Everything up-to-date£¬ËµÃ÷ÄãÃ»¸Ä¶¯ÈÎºÎÎÄ¼ş¡£
+echo.
+pause
+exit /b 0
+
+:fail
+echo.
+echo  ·¢²¼Ã»ÓĞ³É¹¦¡£Èç¹ûÌáÊ¾ rejected »ò non-fast-forward£¬
+echo  ËµÃ÷ÁíÒ»Ì¨µçÄÔÏÈ¸ÄÁË¶«Î÷£ºÏÈË«»÷¡¸¿ª¹¤Ç°ÏÈË«»÷Õâ¸ö¡¹À­ÏÂÀ´£¬ÔÙ»ØÀ´·¢²¼¡£
+echo  ÆäËûÇé¿öÇë°ÑÉÏÃæµÄ×Ö½ØÍ¼·¢¸øÎÒ¡£
 echo.
 pause
