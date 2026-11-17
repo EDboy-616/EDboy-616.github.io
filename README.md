@@ -34,11 +34,45 @@ python -m http.server 8123
 
 然后浏览器打开 http://127.0.0.1:8123
 
-## 上线
+## 上线（已完成，这里只是记录）
 
-把这个文件夹变成一个名为 `EDboy-616.github.io` 的 GitHub 仓库并开启 Pages，
-访问地址就是 https://EDboy-616.github.io 。站点里的 `<link rel="canonical">`
-和 `feed.xml` 已经填好这个域名；若以后换自定义域名，记得同步替换。
+站点已在线：https://EDboy-616.github.io ，由公开仓库 `EDboy-616.github.io` 的
+master 分支驱动 GitHub Pages。代码同时备份在私人仓库 `blog-backup`。
+站点里的 `<link rel="canonical">` 和 `feed.xml` 已填好这个域名；
+若以后换自定义域名，记得同步替换。
+
+## 两台电脑协作
+
+GitHub 仓库就是两台电脑之间的中转站。规矩只有两条：
+
+1. **开工前**双击「开工前先双击这个.bat」——从 GitHub 拉最新版本
+2. **收工后**双击「发布博客.bat」——推回 GitHub，一两分钟后线上生效
+
+同一时间只在一台电脑上改，改完就推，几乎永远不会冲突。
+万一推送被拒绝（提示 rejected / non-fast-forward），说明另一台先改了：
+先跑一遍「开工前」脚本，再发布。
+
+新电脑第一次配置（装好 git 和 gh 并登录后）：
+
+```bash
+gh repo clone EDboy-616/EDboy-616.github.io
+cd EDboy-616.github.io
+git remote add backup https://github.com/EDboy-616/blog-backup.git
+```
+
+之后两个脚本直接可用（脚本会自动检查并补上 backup 远程）。
+
+## 加新页面（作品集、清单等）
+
+都放在这个仓库里，用子文件夹分类，例如：
+
+```
+portfolio/index.html   →  https://EDboy-616.github.io/portfolio/
+notes/index.html       →  https://EDboy-616.github.io/notes/
+```
+
+页面内引用样式写 `/assets/style.css`（绝对路径，全站共用一份样式）。
+只有当某个东西需要完全独立的域名或独立私密策略时，才值得拆成新仓库。
 
 ## 国内访问的实话
 
