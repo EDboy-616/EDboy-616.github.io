@@ -1,0 +1,4 @@
+# 批处理脚本必须原样保存：GBK 编码 + CRLF 换行（中文 Windows 的 cmd 硬要求）。
+# -text 让 git 一个字节都不改，clone 出来跟这里完全一致。
+# 若少了这一行，在 core.autocrlf=false 的电脑上 clone 会得到 LF 换行的 .bat，脚本会出错。
+*.bat -text
