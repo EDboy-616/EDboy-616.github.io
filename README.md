@@ -44,10 +44,6 @@
 
 双击 `index.html` 也能看，但样式和脚本用的是绝对路径 `/assets/`，最好起个本地服务器：
 
-## 本地预览
-
-双击 `index.html` 也能看，但样式用的是绝对路径 `/assets/`，最好起个本地服务器：
-
 ```bash
 python -m http.server 8123
 ```
