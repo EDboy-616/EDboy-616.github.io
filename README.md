@@ -43,24 +43,43 @@ master 分支驱动 GitHub Pages。代码同时备份在私人仓库 `blog-backu
 
 ## 两台电脑协作
 
-GitHub 仓库就是两台电脑之间的中转站。规矩只有两条：
+GitHub 仓库就是两台电脑之间的中转站。日常规矩只有两条，都在项目文件夹里双击：
 
 1. **开工前**双击「开工前先双击这个.bat」——从 GitHub 拉最新版本
 2. **收工后**双击「发布博客.bat」——推回 GitHub，一两分钟后线上生效
 
 同一时间只在一台电脑上改，改完就推，几乎永远不会冲突。
 万一推送被拒绝（提示 rejected / non-fast-forward），说明另一台先改了：
-先跑一遍「开工前」脚本，再发布。
+先跑「开工前」脚本拉下来，再发布。
 
-新电脑第一次配置（装好 git 和 gh 并登录后）：
+### 第一次在新电脑上用（回家那次）
+
+新电脑上还没有这个项目，需要先把它弄下来。**只需拷一个文件过去**
+（U盘 / 微信"文件传输" / 邮件都行）：
+
+- 把 `在家第一次用-双击这个.bat` 拷到新电脑，双击它。
+- 它会自动：检查有没有装 Git（没有会告诉你怎么装）→ 从公开仓库
+  下载整个项目到 `%USERPROFILE%\blog` → 配好私人备份仓库地址。
+- 完成后，`%USERPROFILE%\blog` 里就有全部三个脚本，以后照常双击即可。
+
+> 前提：新电脑装好 Git。没有的话在 PowerShell 里跑
+> `winget install --id Git.Git -e`，或去 git-scm.com 下载安装。
+> 博客仓库是公开的，clone 不需要登录；第一次「发布」时才会弹浏览器
+> 让你授权一次 GitHub 账号。
+
+手动版（不想拷脚本、愿意打命令的话，等价）：
 
 ```bash
-gh repo clone EDboy-616/EDboy-616.github.io
+git clone https://github.com/EDboy-616/EDboy-616.github.io.git
 cd EDboy-616.github.io
 git remote add backup https://github.com/EDboy-616/blog-backup.git
 ```
 
-之后两个脚本直接可用（脚本会自动检查并补上 backup 远程）。
+### 关于 .bat 的编码（改脚本前必读）
+
+三个脚本都是 **GBK 编码 + CRLF 换行**，这是中文 Windows 的 cmd 解析批处理
+的硬性要求。如果用编辑器把它们存成 UTF-8、或加了 `chcp 65001`，含中文的
+行会字节错位、把注释当命令执行。改脚本时保持 GBK+CRLF，别动这个设置。
 
 ## 加新页面（作品集、清单等）
 
