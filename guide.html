@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>两台电脑，一个博客 · 操作手册</title>
+<meta name="description" content="办公电脑与家用电脑协作维护博客的操作手册。">
+<style>
+/* ===== 变量：与博客同一套配色，打印时强制转黑白 ===== */
+:root{
+  --paper:#F4F5F2;
+  --panel:#EDEFEA;
+  --ink:#16202B;
+  --soft:#55616C;
+  --faint:#8E99A2;
+  --rule:#D6DAD3;
+  --accent:#1F5C7A;
+  --mark:#D9E7EA;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",
+         "HarmonyOS Sans SC","Hiragino Sans GB","Noto Sans CJK SC",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#10151B; --panel:#182028; --ink:#E4E8E4; --soft:#A2ADB6;
+    --faint:#6C7883; --rule:#25303A; --accent:#7FBDD6; --mark:#1B2C34;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.85;
+  -webkit-text-size-adjust:100%;
+}
+
+.wrap{
+  max-width:46rem;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 5rem;
+}
+
+/* ===== 页眉：手册式条带 ===== */
+.doc-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  padding-bottom:.6rem;
+  border-bottom:1px solid var(--ink);
+  font-size:.75rem;
+  letter-spacing:.18em;
+  color:var(--soft);
+}
+.doc-head .date{
+  font-family:var(--mono);
+  letter-spacing:.04em;
+  color:var(--faint);
+}
+
+h1{
+  margin:1.6rem 0 0;
+  font-size:clamp(1.75rem,1.35rem + 1.6vw,2.35rem);
+  font-weight:600;
+  line-height:1.35;
+  letter-spacing:.01em;
+}
+.lede{
+  margin:.9rem 0 0;
+  max-width:34em;
+  font-size:1.0625rem;
+  color:var(--soft);
+}
+
+h2{
+  margin:3.2rem 0 1rem;
+  padding-left:.75em;
+  border-left:3px solid var(--accent);
+  font-size:1.1875rem;
+  font-weight:600;
+  line-height:1.5;
+}
+
+p{ margin:1.1em 0; max-width:36em; }
+
+code{
+  font-family:var(--mono);
+  font-size:.86em;
+  padding:.1em .4em;
+  background:var(--mark);
+  border-radius:3px;
+  white-space:nowrap;
+}
+
+/* ===== 原理图 ===== */
+.diagram{
+  display:grid;
+  grid-template-columns:1fr auto 1.15fr auto 1fr;
+  align-items:center;
+  gap:.5rem;
+  margin:1.6rem 0 1rem;
+  padding:1.4rem 1rem;
+  border:1px solid var(--rule);
+  background:var(--panel);
+}
+.node{
+  text-align:center;
+  padding:.85rem .5rem;
+  border:1px solid var(--rule);
+  background:var(--paper);
+  font-size:.9375rem;
+  font-weight:600;
+  line-height:1.5;
+}
+.node small{
+  display:block;
+  margin-top:.15rem;
+  font-weight:400;
+  font-size:.75rem;
+  color:var(--soft);
+}
+.node.hub{
+  border-color:var(--accent);
+  border-width:2px;
+  background:var(--mark);
+}
+.node.hub small{ color:var(--accent); }
+
+.arrow{
+  text-align:center;
+  font-size:1.25rem;
+  color:var(--accent);
+  line-height:1.2;
+}
+.arrow small{
+  display:block;
+  margin-top:.2rem;
+  font-size:.6875rem;
+  font-family:var(--mono);
+  letter-spacing:.02em;
+  color:var(--soft);
+  white-space:nowrap;
+}
+.diagram-note{
+  margin:.4rem 0 0;
+  font-size:.875rem;
+  color:var(--soft);
+}
+
+/* ===== 步骤 ===== */
+.steps{
+  list-style:none;
+  margin:1.2rem 0 0;
+  padding:0;
+  counter-reset:step;
+}
+.steps > li{
+  position:relative;
+  padding:1.15rem 0 1.15rem 3rem;
+  border-top:1px solid var(--rule);
+}
+.steps > li:last-child{ border-bottom:1px solid var(--rule); }
+.steps > li::before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  left:0;
+  top:1.05rem;
+  width:1.9rem;
+  height:1.9rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--accent);
+  border-radius:50%;
+  font-family:var(--mono);
+  font-size:.8125rem;
+  color:var(--accent);
+}
+.steps h3{
+  margin:0;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.7;
+}
+.steps p{
+  margin:.35rem 0 0;
+  font-size:.9375rem;
+  color:var(--soft);
+  max-width:34em;
+}
+
+/* 双击动作：突出显示的文件名 */
+.dbl{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:.875em;
+  padding:.15em .55em;
+  border:1px solid var(--accent);
+  border-radius:4px;
+  color:var(--accent);
+  background:var(--paper);
+  white-space:nowrap;
+}
+
+/* ===== 提示 / 警告块 ===== */
+.callout{
+  margin:1.4rem 0;
+  padding:.9rem 1.1rem;
+  border-left:3px solid var(--accent);
+  background:var(--panel);
+  font-size:.9375rem;
+}
+.callout p{ margin:.3em 0; max-width:none; }
+.callout strong{ font-weight:600; }
+.callout .tag{
+  display:block;
+  margin-bottom:.25rem;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  color:var(--accent);
+}
+
+/* ===== 错误表 ===== */
+table{
+  width:100%;
+  margin:1.2rem 0;
+  border-collapse:collapse;
+  font-size:.9375rem;
+}
+th,td{
+  padding:.7rem .8rem;
+  border-bottom:1px solid var(--rule);
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  border-bottom:1px solid var(--ink);
+  font-size:.8125rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:var(--soft);
+}
+td:first-child{ white-space:nowrap; font-family:var(--mono); font-size:.8125rem; }
+
+/* ===== 页脚 ===== */
+.doc-foot{
+  margin-top:4rem;
+  padding-top:1.2rem;
+  border-top:1px solid var(--ink);
+  font-size:.8125rem;
+  color:var(--faint);
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+/* ===== 打印按钮（仅屏幕显示） ===== */
+.print-btn{
+  position:fixed;
+  right:1.25rem;
+  bottom:1.25rem;
+  padding:.6rem 1.1rem;
+  border:1px solid var(--accent);
+  border-radius:4px;
+  background:var(--paper);
+  color:var(--accent);
+  font-family:var(--sans);
+  font-size:.875rem;
+  cursor:pointer;
+}
+.print-btn:hover{ background:var(--mark); }
+
+/* ===== 窄屏：原理图转竖排 ===== */
+@media (max-width:620px){
+  .diagram{
+    grid-template-columns:1fr;
+    gap:.35rem;
+    padding:1rem .75rem;
+  }
+  .arrow{ transform:rotate(90deg); padding:.1rem 0; }
+  .arrow small{ display:none; }
+  .wrap{ padding:1.75rem 1.15rem 4rem; }
+
+  /* 表格改为逐条卡片式，避免四列挤成一字一行 */
+  table, tbody, tr, td{ display:block; width:100%; }
+  thead{ display:none; }
+  tr{
+    padding:.9rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  td{
+    border:0;
+    padding:.15rem 0;
+    font-size:.9375rem;
+    line-height:1.7;
+  }
+  td:first-child{
+    font-family:var(--mono);
+    font-size:.875rem;
+    font-weight:600;
+    color:var(--accent);
+    white-space:normal;
+  }
+  td:not(:first-child)::before{
+    content:attr(data-label) "：";
+    color:var(--soft);
+  }
+
+  /* 手机不打印，按钮藏起来免得挡正文 */
+  .print-btn{ display:none; }
+}
+
+/* ===== 打印：白纸黑字，去掉屏幕装饰 ===== */
+@media print{
+  :root{
+    --paper:#fff; --panel:#fff; --ink:#000; --soft:#333;
+    --faint:#555; --rule:#bbb; --accent:#000; --mark:#f0f0f0;
+  }
+  body{ font-size:11pt; line-height:1.7; }
+  .wrap{ max-width:none; padding:0; }
+  .print-btn{ display:none; }
+  .steps > li, .diagram, .callout, table{ break-inside:avoid; }
+  h2{ break-after:avoid; }
+  a{ color:#000; text-decoration:none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="doc-head">
+    <span>操作手册 · 两台电脑维护一个博客</span>
+    <span class="date">2026-11-17</span>
+  </header>
+
+  <h1>两台电脑，一个博客</h1>
+  <p class="lede">
+    办公电脑上改，回家也能接着改。所有版本都存在 GitHub 上，
+    换哪台电脑、在哪个城市，都能从同一个最新版继续。
+  </p>
+
+  <h2>原理：GitHub 是中间那个柜子</h2>
+
+  <div class="diagram" role="img" aria-label="办公电脑与家用电脑通过 GitHub 同步">
+    <div class="node">办公电脑<small>改完推上去</small></div>
+    <div class="arrow">⇄<small>push</small></div>
+    <div class="node hub">GitHub<small>唯一的存档处</small></div>
+    <div class="arrow">⇄<small>pull</small></div>
+    <div class="node">家用电脑<small>开工先拉下来</small></div>
+  </div>
+  <p class="diagram-note">
+    两台电脑不直接连接，都只跟 GitHub 打交道。谁先改了谁推上去，另一台拉下来就同步了。
+  </p>
+
+  <h2>日常只有两步</h2>
+
+  <ol class="steps">
+    <li>
+      <h3>坐下开工前，双击 <span class="dbl">开工前先双击这个.bat</span></h3>
+      <p>从 GitHub 取回最新版本。这一步能防止你在一台电脑上改的是旧版。</p>
+    </li>
+    <li>
+      <h3>改完要上线，双击 <span class="dbl">发布博客.bat</span></h3>
+      <p>自动提交、推送到公开站点和私人备份两处。约一两分钟后刷新
+      <code>edboy-616.github.io</code> 就能看到。</p>
+    </li>
+  </ol>
+
+  <div class="callout">
+    <span class="tag">最重要的一条</span>
+    <p><strong>同一时间只在一台电脑上改。</strong>
+    改完就推，换电脑先拉。只要守住这条，几乎永远不会出乱子。</p>
+  </div>
+
+  <h2>回家第一次：只拷一个文件</h2>
+
+  <p>另一台电脑上还没有这个项目，需要先把它弄下来。做法：</p>
+
+  <ol class="steps">
+    <li>
+      <h3>把 <span class="dbl">在家第一次用-双击这个.bat</span> 拷到家里电脑</h3>
+      <p>U 盘、微信「文件传输助手」、邮件给自己，都行。</p>
+    </li>
+    <li>
+      <h3>在家用电脑上双击它</h3>
+      <p>它会自动检查有没有装 Git（没装会告诉你怎么装）、把整个项目下载到
+      <code>C:\Users\你的名字\blog</code>、配好私人备份地址。</p>
+    </li>
+    <li>
+      <h3>以后就在那个文件夹里，照常双击那两个脚本</h3>
+      <p>和办公电脑完全一样。这个说明页也会跟着一起下载过去。</p>
+    </li>
+  </ol>
+
+  <div class="callout">
+    <span class="tag">前提</span>
+    <p>家里电脑要先装 <strong>Git</strong>。没有的话，在 PowerShell 里粘贴这一行回车：</p>
+    <p><code>winget install --id Git.Git -e</code></p>
+    <p>或者去 <code>git-scm.com</code> 下载 Windows 版，一路下一步。</p>
+  </div>
+
+  <div class="callout">
+    <span class="tag">第一次发布会让你登录一次</span>
+    <p>下载公开仓库不用登录，但<strong>推送到你的私人备份</strong>要验证身份。
+    第一次双击「发布博客」时，会弹出浏览器让你授权 GitHub 账号，用
+    <code>EDboy-616</code> 授权一次，以后不再问。</p>
+  </div>
+
+  <h2>出错了怎么办</h2>
+
+  <table>
+    <thead>
+      <tr><th>屏幕上出现</th><th>原因</th><th>怎么办</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>rejected<br>non-fast-forward</td>
+        <td data-label="原因">另一台电脑先改了，你这边落后</td>
+        <td data-label="怎么办">先双击「开工前」，再双击「发布博客」</td>
+      </tr>
+      <tr>
+        <td>Everything<br>up-to-date</td>
+        <td data-label="原因">你没有任何改动</td>
+        <td data-label="怎么办">正常现象，不用管</td>
+      </tr>
+      <tr>
+        <td>连不上 github.com</td>
+        <td data-label="原因">这台电脑网络到 GitHub 不通</td>
+        <td data-label="怎么办">换手机热点试一次，通常就能成</td>
+      </tr>
+      <tr>
+        <td>找不到 Git</td>
+        <td data-label="原因">新电脑没装</td>
+        <td data-label="怎么办">按上面「前提」那节装一次</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>加新页面（作品集等）</h2>
+
+  <p>都放在这个项目里，建子文件夹分类即可，不用另开仓库：</p>
+
+  <p>
+    <code>portfolio/index.html</code> → <code>edboy-616.github.io/portfolio/</code><br>
+    <code>notes/index.html</code> → <code>edboy-616.github.io/notes/</code>
+  </p>
+
+  <p>页面里引用样式统一写 <code>/assets/style.css</code>，全站共用一份，加载快。</p>
+
+  <footer class="doc-foot">
+    <span>博客：https://edboy-616.github.io</span>
+    <span>本页也在仓库里，可随时翻看</span>
+  </footer>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">打印这一页</button>
+</body>
+</html>
