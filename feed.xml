@@ -1,21 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- RSS 订阅源：新文章就复制一段 <item>，放到最前面。
-     注意这里的日期必须是英文星期和 GMT 时区，照抄格式改数字即可。 -->
+<!-- RSS 订阅源：新文章就在最前面复制一段 <item>。
+     日期必须写成英文星期 + 月份 + GMT 时区，照抄格式改数字即可。 -->
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>我的网志</title>
+  <title>Edboy · 交易与市场研究手记</title>
   <link>https://EDboy-616.github.io/</link>
-  <description>读过的、想通的、做过的。</description>
+  <description>商品期货的趋势结构、风险控制、品种观察与复盘。周线定势，日线验证，小时执行。</description>
   <language>zh-CN</language>
   <lastBuildDate>Tue, 17 Nov 2026 12:00:00 GMT</lastBuildDate>
   <atom:link href="https://EDboy-616.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
-    <title>开站说明：这个博客是怎么搭起来的</title>
-    <link>https://EDboy-616.github.io/posts/2026-11-17-hello.html</link>
-    <guid isPermaLink="true">https://EDboy-616.github.io/posts/2026-11-17-hello.html</guid>
-    <pubDate>Tue, 17 Nov 2026 12:00:00 GMT</pubDate>
-    <description>全站没有一个字节的 JavaScript，没有构建工具，没有外部字体和图片。</description>
+    <title>均线缠绕时，最好的仓位是零</title>
+    <link>https://EDboy-616.github.io/posts/012-ma-tangle.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/012-ma-tangle.html</guid>
+    <pubDate>Sun, 08 Mar 2026 12:00:00 GMT</pubDate>
+    <category>趋势解剖</category>
+    <description>周线三线纠缠、斜率走平，方向尚未选择。此时开仓，本质上是在为无聊付费。</description>
+  </item>
+
+  <item>
+    <title>止损不是认错，是把错误定价</title>
+    <link>https://EDboy-616.github.io/posts/011-stop-loss.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/011-stop-loss.html</guid>
+    <pubDate>Sun, 22 Feb 2026 12:00:00 GMT</pubDate>
+    <category>风控手记</category>
+    <description>一次失败的突破，让我重新计算了「看对」与「活下来」之间的汇率。</description>
+  </item>
+
+  <item>
+    <title>螺纹的库存，比 K 线更早说话</title>
+    <link>https://EDboy-616.github.io/posts/010-rebar-inventory.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/010-rebar-inventory.html</guid>
+    <pubDate>Mon, 09 Feb 2026 12:00:00 GMT</pubDate>
+    <category>品种观察</category>
+    <description>当盘面还在震荡，钢厂与社会库存已经连续三周给出同一个方向。</description>
+  </item>
+
+  <item>
+    <title>假突破的第二种读法</title>
+    <link>https://EDboy-616.github.io/posts/009-false-break.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/009-false-break.html</guid>
+    <pubDate>Tue, 27 Jan 2026 12:00:00 GMT</pubDate>
+    <category>趋势解剖</category>
+    <description>不是每一次回落都叫失败。有时它只是把不坚定的仓位请下车。</description>
+  </item>
+
+  <item>
+    <title>那一笔我没错，但还是亏了</title>
+    <link>https://EDboy-616.github.io/posts/008-right-but-lost.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/008-right-but-lost.html</guid>
+    <pubDate>Mon, 12 Jan 2026 12:00:00 GMT</pubDate>
+    <category>复盘档案</category>
+    <description>方向对了，节奏错了。复盘最难的部分，是承认两者可以同时成立。</description>
+  </item>
+
+  <item>
+    <title>趋势的三种假动作</title>
+    <link>https://EDboy-616.github.io/posts/long-006-fake-moves.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/long-006-fake-moves.html</guid>
+    <pubDate>Sun, 15 Mar 2026 12:00:00 GMT</pubDate>
+    <category>长文 · 趋势</category>
+    <description>斜率向上、间距收缩、波动率抬升——当三者互相矛盾，哪一个是谎言？</description>
+  </item>
+
+  <item>
+    <title>当波动率说谎时</title>
+    <link>https://EDboy-616.github.io/posts/long-005-volatility.html</link>
+    <guid isPermaLink="true">https://EDboy-616.github.io/posts/long-005-volatility.html</guid>
+    <pubDate>Sun, 22 Mar 2026 12:00:00 GMT</pubDate>
+    <category>长文 · 风险</category>
+    <description>低波动不等于低风险。一次平静的盘整，如何酝酿出最剧烈的错价。</description>
   </item>
 
 </channel>

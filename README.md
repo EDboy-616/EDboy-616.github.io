@@ -1,29 +1,45 @@
-# 我的网志
+# Edboy · 交易与市场研究手记
 
-一个手写 HTML 的个人博客。没有构建工具，没有 JavaScript，没有外部字体和图片。
-全站首页 + 样式表约 10KB，任何免费托管额度都用不完。
+一个手写 HTML 的静态站：首页是杂志式长页，每篇手记是独立网页。
+无构建工具、无框架、无 Google Fonts（国内加载不出来），全站只有系统字体。
 
 ## 文件结构
 
 ```
 .
-├── index.html      首页（文章列表）
-├── about.html      关于页
-├── 404.html        找不到页面时显示
-├── guide.html      两台电脑协作的图文操作手册
-├── feed.xml        RSS 订阅源
+├── index.html          首页（封面 / 关于 / 栏目 / 手记 / 方法 / 长文 / 订阅）
+├── 404.html            找不到页面时显示
+├── guide.html          两台电脑协作的图文操作手册
+├── feed.xml            RSS 订阅源
 ├── assets/
-│   └── style.css   全站样式，换配色只改这个文件顶部的变量
+│   ├── atelier.css     全站样式（含文章页），换配色改顶部变量
+│   ├── atelier.js      滚动渐显、导航收起、栏目筛选
+│   └── img/            16 张拼贴图，已压成 WebP（共约 0.95MB）
 └── posts/
-    └── *.html      文章，文件名以日期开头
+    └── *.html          七篇手记，各自独立网址
 ```
 
 ## 写一篇新文章
 
-1. 复制 `posts/` 里任意一篇，重命名为 `2026-11-20-标题.html`。
-2. 改掉里面的标题、`<meta name="description">`、日期和正文。
-3. 打开 `index.html`，复制列表里第一个 `<li>…</li>`，改好日期、链接、标题、摘要，放到最前面。
-4. 想让文章进 RSS，就在 `feed.xml` 复制一段 `<item>` 放到最前面（日期格式照抄，星期和月份是英文）。
+1. 复制 `posts/` 里任意一篇（比如 `012-ma-tangle.html`），重命名为
+   `013-你的标题.html`。
+2. 改掉里面的 `<title>`、`<meta name="description">`、日期、栏目标签和正文段落。
+3. 打开 `index.html`，找到「手记」区块（`id="notes"`），复制一个 `<article class="lab"…>`
+   整块，改好图片、编号、日期、标题、摘要和链接，放到列表最前面。
+4. 想让文章进 RSS，就在 `feed.xml` 复制一段 `<item>` 放到最前面
+   （日期格式照抄，星期和月份是英文）。
+5. 新配图放进 `assets/img/`，压成 WebP 再用；图片必须写 `loading="lazy"`，
+   否则首屏会变慢。
+
+## 性能约定（别破坏它）
+
+- **图片一律 WebP + 懒加载**，首屏只加载 `hero.webp`。
+- **不引外部字体、不引 CDN 脚本**——中国大陆加载不了，会把首屏卡住。
+- 全站 CSS 和 JS 各一个文件，走浏览器缓存。
+
+## 本地预览
+
+双击 `index.html` 也能看，但样式和脚本用的是绝对路径 `/assets/`，最好起个本地服务器：
 
 ## 本地预览
 
@@ -94,7 +110,7 @@ portfolio/index.html   →  https://EDboy-616.github.io/portfolio/
 notes/index.html       →  https://EDboy-616.github.io/notes/
 ```
 
-页面内引用样式写 `/assets/style.css`（绝对路径，全站共用一份样式）。
+页面内引用样式写 `/assets/atelier.css`（绝对路径，全站共用一份样式）。
 只有当某个东西需要完全独立的域名或独立私密策略时，才值得拆成新仓库。
 
 ## 国内访问的实话

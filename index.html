@@ -3,45 +3,557 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>我的网志</title>
-<meta name="description" content="一个手写 HTML 的个人博客，记录读过的、想通的、做过的。">
+<title>Edboy · 交易与市场研究手记</title>
+<meta name="description" content="edboy 的个人交易手记：写商品期货的趋势结构、风险控制、品种观察与复盘。周线定势，日线验证，小时执行。">
+<meta name="author" content="edboy">
+<meta name="theme-color" content="#f4edda">
 <link rel="canonical" href="https://EDboy-616.github.io/">
-<link rel="stylesheet" href="/assets/style.css">
-<link rel="alternate" type="application/rss+xml" title="我的网志" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Edboy 交易手记" href="/feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4edda'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23933c2b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/atelier.css">
+<noscript><style>[data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}@media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}</style></noscript>
 </head>
 <body>
-<div class="shell">
+<a class="skip" href="#main">跳到正文</a>
 
-  <header class="masthead">
-    <a class="wordmark" href="/">我的网志</a>
-    <p class="tagline">读过的 想通的 做过的</p>
+<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · VOL. 03 · ISSUE Nº 12 · 独立写作</span></div>
+<div class="side-rail left" aria-hidden="true"><span class="rail-text">趋势 · 结构 · 风险 · 纪律 · 复盘</span></div>
+
+<div class="shell">
+  <div class="topbar" data-od-id="topbar">
+    <div class="container topbar-inner">
+      <span><b>EDBOY / 2026</b> &nbsp;·&nbsp; VOL. 03 / ISSUE Nº 12</span>
+      <span class="mid">
+        <span>归档于 <b class="coral">趋势 · 风险 · 复盘</b></span>
+        <span>商品期货 · 长文优先</span>
+      </span>
+      <span class="right">
+        <span><span class="pulse"></span>逢周末更新</span>
+        <span>中文</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="nav" id="siteNav" data-od-id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Edboy 首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>Edboy</span>
+        <span class="brand-meta"><b>交易手记</b>趋势 · 风险 · 复盘</span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="#about">关于<span class="num">02</span></a></li>
+          <li><a href="#columns">栏目<span class="num">03</span></a></li>
+          <li><a href="#notes">手记<span class="num">04</span></a></li>
+          <li><a href="#method">方法<span class="num">05</span></a></li>
+          <li><a href="#essays">长文<span class="num">06</span></a></li>
+        </ul>
+      </nav>
+      <div class="nav-side">
+        <a class="nav-cta" href="#subscribe">订阅 <span class="arrow" aria-hidden="true">↗</span></a>
+        <span class="status-dot" aria-hidden="true"></span>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
+      <ul>
+        <li><a href="#about">关于<span>02</span></a></li>
+        <li><a href="#columns">栏目<span>03</span></a></li>
+        <li><a href="#notes">手记<span>04</span></a></li>
+        <li><a href="#method">方法<span>05</span></a></li>
+        <li><a href="#essays">长文<span>06</span></a></li>
+      </ul>
+      <a class="nav-cta" href="#subscribe">订阅每周手记 <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
   </header>
 
-  <main>
-    <ol class="entries">
+  <main id="main">
+    <section class="hero" id="top" data-od-id="hero">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">I.</span>
+          <span class="meta-grp"><span>封面 / COVER PLATE</span><span class="dot-mark">•</span><span>EDBOY / VOLUME 03</span></span>
+          <span>001 / 008</span>
+        </div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="label" data-reveal>交易与市场研究 · 独立写作 <span class="ix">Nº 01</span></span>
+          <h1 class="display" data-reveal data-od-id="hero-title">在噪声里，<br>练习读<em>趋势</em><span class="dot">。</span></h1>
+          <p class="lead" data-reveal>一个交易者的观察笔记。写商品期货的周线结构、<span class="keep">日线验证</span>与小时级执行，也写判断失误之后，如何把<span class="keep">纪律</span>重新放回桌面上。</p>
+          <div class="hero-actions" data-reveal>
+            <a class="btn btn-primary" href="#notes" data-od-id="hero-primary-cta">读最新一篇
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+            </a>
+            <a class="btn btn-ghost" href="#about">关于这份手记
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
+          <div class="hero-stats" data-reveal>
+            <div class="stat"><span class="ring solid">周</span><span class="stat-label"><b>周线</b>定势</span></div>
+            <div class="stat"><span class="ring">日</span><span class="stat-label"><b>日线</b>验证</span></div>
+            <div class="stat"><span class="ring coral">时</span><span class="stat-label"><b>小时</b>执行</span></div>
+          </div>
+          <div class="hero-foot" data-reveal>
+            <span class="meta">↳ 逢周末更新 · 长文优先 · 不喊单</span>
+            <span class="meta">长期主义 / 独立写作</span>
+          </div>
+        </div>
+        <div class="hero-art" data-reveal="scale" aria-hidden="true">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <span class="annot annot-tl coord">FIG. 01 / EDBOY—26</span>
+          <span class="annot annot-tr">PLATE Nº 07</span>
+          <span class="annot annot-bl coord">趋势 · 结构 · 风险</span>
+          <span class="annot annot-br">纸艺拼贴 / 编辑部制版</span>
+          <img src="assets/img/hero.webp" alt="" width="1024" height="1024" decoding="async">
+          <div class="index" aria-hidden="true">
+            <span class="on"><span class="n">01</span>观察</span>
+            <span><span class="n">02</span>假设</span>
+            <span><span class="n">03</span>执行</span>
+            <span><span class="n">04</span>复盘</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <li>
-        <a href="/posts/2026-11-17-hello.html">
-          <time datetime="2026-11-17">2026-11-17</time>
-          <h2>开站说明：这个博客是怎么搭起来的</h2>
-          <p class="summary">全站没有一个字节的 JavaScript，没有构建工具，没有外部字体和图片。总共四个文件、两万字节出头，免费额度用不完，慢网络也是秒开。</p>
-        </a>
-      </li>
+    <section class="wire" data-od-id="watchlist" aria-label="观察清单">
+      <div class="container wire-inner">
+        <div class="wire-left">
+          <span class="wire-mark" aria-hidden="true"><span class="wire-pulse"></span></span>
+          <span class="wire-title"><b>观察清单</b><span>趋势不是预测，是分类</span></span>
+        </div>
+        <div class="wire-rows">
+          <div class="wire-row">
+            <div class="marquee-track">
+              <span class="wire-set">
+                <span class="wire-item"><span class="wire-dot">·</span>周线斜率</span>
+                <span class="wire-item"><span class="wire-dot">·</span>均线顺序</span>
+                <span class="wire-item"><span class="wire-dot">·</span>波动率</span>
+                <span class="wire-item"><span class="wire-dot">·</span>持仓量</span>
+                <span class="wire-item"><span class="wire-dot">·</span>基差</span>
+                <span class="wire-item"><span class="wire-dot">·</span>库存</span>
+                <span class="wire-item"><span class="wire-dot">·</span>期限结构</span>
+                <span class="wire-item"><span class="wire-dot">·</span>突破</span>
+                <span class="wire-item"><span class="wire-dot">·</span>假突破</span>
+                <span class="wire-item"><span class="wire-dot">·</span>回撤</span>
+                <span class="wire-item"><span class="wire-dot">·</span>仓位</span>
+                <span class="wire-item"><span class="wire-dot">·</span>止损</span>
+                <span class="wire-item"><span class="wire-dot">·</span>复盘</span>
+              </span>
+              <span class="wire-set" aria-hidden="true">
+                <span class="wire-item"><span class="wire-dot">·</span>周线斜率</span>
+                <span class="wire-item"><span class="wire-dot">·</span>均线顺序</span>
+                <span class="wire-item"><span class="wire-dot">·</span>波动率</span>
+                <span class="wire-item"><span class="wire-dot">·</span>持仓量</span>
+                <span class="wire-item"><span class="wire-dot">·</span>基差</span>
+                <span class="wire-item"><span class="wire-dot">·</span>库存</span>
+                <span class="wire-item"><span class="wire-dot">·</span>期限结构</span>
+                <span class="wire-item"><span class="wire-dot">·</span>突破</span>
+                <span class="wire-item"><span class="wire-dot">·</span>假突破</span>
+                <span class="wire-item"><span class="wire-dot">·</span>回撤</span>
+                <span class="wire-item"><span class="wire-dot">·</span>仓位</span>
+                <span class="wire-item"><span class="wire-dot">·</span>止损</span>
+                <span class="wire-item"><span class="wire-dot">·</span>复盘</span>
+              </span>
+            </div>
+          </div>
+          <div class="wire-row reverse">
+            <div class="marquee-track">
+              <span class="wire-set">
+                <span class="wire-item"><span class="wire-dot">·</span><b>RB</b>螺纹钢</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>I</b>铁矿石</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>SC</b>原油</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>CU</b>铜</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>AU</b>黄金</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>M</b>豆粕</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>P</b>棕榈油</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>SR</b>白糖</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>CF</b>棉花</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>RU</b>橡胶</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>AL</b>铝</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>ZN</b>锌</span>
+              </span>
+              <span class="wire-set" aria-hidden="true">
+                <span class="wire-item"><span class="wire-dot">·</span><b>RB</b>螺纹钢</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>I</b>铁矿石</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>SC</b>原油</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>CU</b>铜</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>AU</b>黄金</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>M</b>豆粕</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>P</b>棕榈油</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>SR</b>白糖</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>CF</b>棉花</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>RU</b>橡胶</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>AL</b>铝</span>
+                <span class="wire-item"><span class="wire-dot">·</span><b>ZN</b>锌</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- 复制上面一整块 <li>…</li>，改日期、链接、标题、摘要，放到列表最前面，就是一篇新文章。 -->
+    <section class="about" id="about" data-od-id="about">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">II.</span>
+          <span class="meta-grp"><span>关于 / ABOUT</span><span class="dot-mark">•</span><span>为什么写，以及怎么写</span></span>
+          <span>002 / 008</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <span class="label">关于这份手记 <span class="ix">Nº 02</span></span>
+            <h2 class="display" data-od-id="about-title">我不预测明天，<br>只辨认<em>现在</em>的位置<span class="dot">。</span></h2>
+            <p class="lead">Edboy 是一份关于商品期货的长期笔记。核心问题只有一个：趋势方向。周线定势、日线验证、小时执行；当三段时间讲不出一致的故事，就空仓等待。这里记录方法，也记录那些当时看似正确、事后必须承认错误的判断。</p>
+            <a class="btn btn-ghost" href="#method">读写作原则
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+            </a>
+            <div class="footer-row">
+              <span class="mark" aria-hidden="true">E</span>
+              <span>趋势 · 结构 · 风险 · 纪律</span>
+              <span class="stamp"><span>独立写作</span><span>不构成投资建议</span></span>
+            </div>
+          </div>
+          <div class="about-art" data-reveal="right">
+            <img src="assets/img/about.webp" loading="lazy" alt="" width="1024" height="1024" decoding="async">
+            <div class="about-note"><b>阅读顺序</b>先问方向<br>再问位置<br>最后才问仓位</div>
+            <div class="about-caption"><b>形式、结构与被忽略的信号。</b>(EDBOY, MMXXVI)</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </ol>
+    <section class="capabilities" id="columns" data-od-id="columns">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">III.</span>
+          <span class="meta-grp"><span>栏目 / COLUMNS</span><span class="dot-mark">•</span><span>四个固定栏目</span></span>
+          <span>003 / 008</span>
+        </div>
+        <div class="capabilities-grid">
+          <div class="capabilities-art" data-reveal="left">
+            <span class="corner tl"></span><span class="corner br"></span>
+            <img src="assets/img/capabilities.webp" loading="lazy" alt="" width="1024" height="1024" decoding="async">
+            <div class="ribbon"><b>EDBOY</b> &nbsp;·&nbsp; JOURNAL INDEX &nbsp;·&nbsp; TRADING NOTES</div>
+          </div>
+          <div class="capabilities-copy" data-reveal>
+            <span class="label">栏目 <span class="ix">Nº 03</span></span>
+            <h2 class="display" data-od-id="columns-title">四个栏目，一条<em>不变</em>的主线<span class="dot">。</span></h2>
+            <p class="lead">所有文章都围绕同一件事：在不确定里，把判断拆成可以复查的步骤。</p>
+            <div class="cards">
+              <a class="card" href="#notes" data-filter-card="trend" data-od-id="column-card-trend">
+                <div class="num">01<span class="tag">方法</span></div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 19h18"/><path d="M4 16l5-5 4 3 7-8"/><circle cx="20" cy="6" r="1.6"/></svg>
+                <h3>趋势解剖</h3>
+                <p>周线斜率、均线顺序与缠绕期。先判断有没有趋势，再谈在哪里上车。</p>
+                <span class="arrow-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+              </a>
+              <a class="card" href="#notes" data-filter-card="risk" data-od-id="column-card-risk">
+                <div class="num">02<span class="tag">风险</span></div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6z"/><path d="M9 12l2 2 4-5"/></svg>
+                <h3>风控手记</h3>
+                <p>仓位、止损与回撤。所有关于“这次不一样”的冲动，都在这里被记录下来。</p>
+                <span class="arrow-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+              </a>
+              <a class="card" href="#notes" data-filter-card="market" data-od-id="column-card-market">
+                <div class="num">03<span class="tag">品种</span></div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M6 12h12M8 17h8"/><path d="M12 3v18"/></svg>
+                <h3>品种观察</h3>
+                <p>螺纹、铁矿、原油、铜与农产品。库存、基差和期限结构，构成品种的底色。</p>
+                <span class="arrow-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+              </a>
+              <a class="card" href="#notes" data-filter-card="review" data-od-id="column-card-review">
+                <div class="num">04<span class="tag">复盘</span></div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v4h-4"/><path d="M12 8v4l3 2"/></svg>
+                <h3>复盘档案</h3>
+                <p>把判断和结果分开看。错在哪一步：方向、节奏，还是执行时的犹豫。</p>
+                <span class="arrow-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="labs" id="notes" data-od-id="notes">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">IV.</span>
+          <span class="meta-grp"><span>手记 / NOTES</span><span class="dot-mark">•</span><span>五篇近作</span></span>
+          <span>004 / 008</span>
+        </div>
+        <div class="labs-head">
+          <div data-reveal>
+            <span class="label">近期手记 <span class="ix">Nº 04</span></span>
+            <h2 class="display" data-od-id="notes-title">最近的<em>五篇</em>手记<span class="dot">。</span></h2>
+          </div>
+          <div class="pills" data-reveal="right" role="group" aria-label="按栏目筛选手记">
+            <button class="pill active" type="button" data-filter="all" aria-pressed="true">全部<span class="count">5</span></button>
+            <button class="pill" type="button" data-filter="trend" aria-pressed="false">趋势<span class="count">2</span></button>
+            <button class="pill" type="button" data-filter="risk" aria-pressed="false">风控<span class="count">1</span></button>
+            <button class="pill" type="button" data-filter="market" aria-pressed="false">品种<span class="count">1</span></button>
+            <button class="pill" type="button" data-filter="review" aria-pressed="false">复盘<span class="count">1</span></button>
+          </div>
+        </div>
+        <div class="labs-meta">
+          <div class="meta-text"><b>五篇近作，均可全文阅读</b>方向、节奏、执行分开写，亏损也要写得明白。</div>
+          <span class="live-count" id="noteCount" aria-live="polite">显示 5 / 5 篇</span>
+        </div>
+        <div class="labs-grid" id="noteGrid">
+          <article class="lab" data-category="trend" data-reveal data-od-id="note-card-ma-tangle">
+            <div class="lab-img"><span class="badge">趋势</span><img src="assets/img/note-01.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+            <div class="num-row"><span>Nº 012</span><span>2026.03.08</span></div>
+            <h3>均线缠绕时，最好的仓位是零</h3>
+            <p>周线三线纠缠、斜率走平，方向尚未选择。此时开仓，本质上是在为无聊付费。</p>
+            <a class="lab-more" href="posts/012-ma-tangle.html" aria-label="试读：均线缠绕时，最好的仓位是零">阅读全文 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="lab" data-category="risk" data-reveal data-od-id="note-card-stop-loss">
+            <div class="lab-img"><span class="badge">风控</span><img src="assets/img/note-02.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+            <div class="num-row"><span>Nº 011</span><span>2026.02.22</span></div>
+            <h3>止损不是认错，是把错误定价</h3>
+            <p>一次失败的突破，让我重新计算了“看对”与“活下来”之间的汇率。</p>
+            <a class="lab-more" href="posts/011-stop-loss.html" aria-label="试读：止损不是认错，是把错误定价">阅读全文 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="lab" data-category="market" data-reveal data-od-id="note-card-rebar-inventory">
+            <div class="lab-img"><span class="badge">品种</span><img src="assets/img/note-03.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+            <div class="num-row"><span>Nº 010</span><span>2026.02.09</span></div>
+            <h3>螺纹的库存，比 K 线更早说话</h3>
+            <p>当盘面还在震荡，钢厂与社会库存已经连续三周给出同一个方向。</p>
+            <a class="lab-more" href="posts/010-rebar-inventory.html" aria-label="试读：螺纹的库存，比 K 线更早说话">阅读全文 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="lab" data-category="trend" data-reveal data-od-id="note-card-false-break">
+            <div class="lab-img"><span class="badge">趋势</span><img src="assets/img/note-04.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+            <div class="num-row"><span>Nº 009</span><span>2026.01.27</span></div>
+            <h3>假突破的第二种读法</h3>
+            <p>不是每一次回落都叫失败。有时它只是把不坚定的仓位请下车。</p>
+            <a class="lab-more" href="posts/009-false-break.html" aria-label="试读：假突破的第二种读法">阅读全文 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="lab" data-category="review" data-reveal data-od-id="note-card-right-but-lost">
+            <div class="lab-img"><span class="badge">复盘</span><img src="assets/img/note-05.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+            <div class="num-row"><span>Nº 008</span><span>2026.01.12</span></div>
+            <h3>那一笔我没错，但还是亏了</h3>
+            <p>方向对了，节奏错了。复盘最难的部分，是承认两者可以同时成立。</p>
+            <a class="lab-more" href="posts/008-right-but-lost.html" aria-label="试读：那一笔我没错，但还是亏了">阅读全文 <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <div class="labs-foot">
+          <span>每周更新 · 长文优先 · 不喊单</span>
+          <span class="meta">每篇都标了栏目 · <span class="dot-mark">●</span> 周末更新</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="method" id="method" data-od-id="method">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">V.</span>
+          <span class="meta-grp"><span>方法 / METHOD</span><span class="dot-mark">•</span><span>四个阶段，顺序不可颠倒</span></span>
+          <span>005 / 008</span>
+        </div>
+        <div class="method-head">
+          <div data-reveal>
+            <span class="label">方法札记 <span class="ix">Nº 05</span></span>
+            <h2 class="display" data-od-id="method-title">一套顺序，四种<em>耐心</em><span class="dot">。</span></h2>
+          </div>
+          <div class="right" data-reveal="right">
+            <span class="plus" aria-hidden="true">+</span>
+            <p>方向、强度、位置，最后才是仓位。顺序颠倒，判断就会变成借口。</p>
+          </div>
+        </div>
+        <div class="method-grid">
+          <div class="method-step" data-reveal>
+            <div class="num">01</div>
+            <h4>定势 <span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>周线先回答“有没有趋势”。看斜率与均线排列；斜率走平、三线缠绕，就标记为无趋势，不开仓。</p>
+            <div class="img"><img src="assets/img/method-01.webp" loading="lazy" alt="" width="816" height="816" decoding="async"></div>
+          </div>
+          <div class="method-step" data-reveal>
+            <div class="num">02</div>
+            <h4>验证 <span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>日线回答“趋势够不够强”。强度不足时，周线方向只是背景，不是入场许可。</p>
+            <div class="img"><img src="assets/img/method-02.webp" loading="lazy" alt="" width="816" height="816" decoding="async"></div>
+          </div>
+          <div class="method-step" data-reveal>
+            <div class="num">03</div>
+            <h4>执行 <span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>小时图回答“在哪里做”。等回踩与同向信号；止损放在结构失效处，而不是心理舒服处。</p>
+            <div class="img"><img src="assets/img/method-03.webp" loading="lazy" alt="" width="816" height="816" decoding="async"></div>
+          </div>
+          <div class="method-step" data-reveal>
+            <div class="num">04</div>
+            <h4>复盘</h4>
+            <p>收盘后回答“哪一步判断错了”。方向、节奏、执行分开记；亏得明白，才算成本。</p>
+            <div class="img"><img src="assets/img/method-04.webp" loading="lazy" alt="" width="816" height="816" decoding="async"></div>
+          </div>
+        </div>
+        <div class="method-foot">
+          <span class="left"><span class="ring" aria-hidden="true"></span>先活下来，再谈看对。</span>
+          <span class="right"><b>EDBOY / 方法札记</b> &nbsp;·&nbsp; 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tight" id="essays" data-od-id="essays">
+      <div class="container wide">
+        <div class="work">
+          <div class="work-rule">
+            <span class="roman">VI.</span>
+            <span style="display:inline-flex;gap:22px;flex-wrap:wrap;"><span>长文 / LONG READS</span><span style="color:var(--coral)">•</span><span>两篇 / 2026 春</span></span>
+            <span>006 / 008</span>
+          </div>
+          <div class="work-grid">
+            <div class="work-copy" data-reveal>
+              <span class="label">精选长文</span>
+              <h2 data-od-id="essays-title">两篇值得<br><em>慢读</em>的长文<span class="dot">。</span></h2>
+              <p class="lead">当判断被拆到足够细，运气和能力的边界才会显形。两篇关于趋势与风险的较长记录。</p>
+            </div>
+            <article class="work-card" data-reveal data-od-id="essay-card-fake-moves">
+              <div class="label-row"><span class="small-label">趋势 · 长文</span><span class="index">Nº 006</span></div>
+              <h3>趋势的三种假动作</h3>
+              <p>斜率向上、间距收缩、波动率抬升——当三者互相矛盾，哪一个是谎言？</p>
+              <div class="img"><img src="assets/img/essay-01.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+              <a class="work-open" href="posts/long-006-fake-moves.html" aria-label="读长文：趋势的三种假动作">读长文 <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="work-card alt" data-reveal data-od-id="essay-card-volatility">
+              <div class="label-row"><span class="small-label">风险 · 长文</span><span class="index">Nº 005</span></div>
+              <h3>当波动率说谎时</h3>
+              <p>低波动不等于低风险。一次平静的盘整，如何酝酿出最剧烈的错价。</p>
+              <div class="img"><img src="assets/img/essay-02.webp" loading="lazy" alt="" width="768" height="1024" decoding="async"></div>
+              <a class="work-open" href="posts/long-005-volatility.html" aria-label="读长文：当波动率说谎时">读长文 <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote" id="colophon" data-od-id="colophon">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">VII.</span>
+          <span class="meta-grp"><span>编辑手记 / COLOPHON</span><span class="dot-mark">•</span><span>写作原则</span></span>
+          <span>007 / 008</span>
+        </div>
+        <div class="quote-grid">
+          <div class="quote-copy" data-reveal>
+            <h2 class="display" data-od-id="quote-title">市场不奖励聪明，<br>它奖励<em>一致性</em><span class="dot">。</span></h2>
+            <p class="lead">这份手记不提供信号，也不预测点位。它只做一件事：把判断过程写下来，让下一次的自己在同样的位置，少犯一次同样的错。</p>
+            <div class="author">
+              <span class="avatar" aria-hidden="true">e</span>
+              <p>edboy<span>作者，也是一名交易者 · 商品期货 / 趋势研究</span></p>
+            </div>
+            <div class="divider"></div>
+            <p class="partners-text">五个反复出现的关键词，构成了这份手记的骨架。</p>
+            <div class="partners">
+              <div class="partner"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20L10 11l5 4 6-9"/><path d="M17 6h4v4"/></svg></span><span>趋势</span><small>TREND</small></div>
+              <div class="partner"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></span><span>结构</span><small>STRUCTURE</small></div>
+              <div class="partner"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 17H3z"/><path d="M12 9v5M12 17v.5"/></svg></span><span>风险</span><small>RISK</small></div>
+              <div class="partner"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v16M12 4v16M18 4v16"/><path d="M3 8h18M3 16h18"/></svg></span><span>纪律</span><small>DISCIPLINE</small></div>
+              <div class="partner"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v4h-4"/></svg></span><span>复盘</span><small>REVIEW</small></div>
+            </div>
+            <a class="read-more" href="#about">读写作原则</a>
+          </div>
+          <div class="quote-art" data-reveal="right">
+            <img src="assets/img/quote.webp" loading="lazy" alt="" width="1024" height="1024" decoding="async">
+            <p class="caption">PLATE Nº 12 · 纸艺拼贴 · EDBOY</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe" id="subscribe" data-od-id="subscribe">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">VIII.</span>
+          <span class="meta-grp"><span>订阅 / DISPATCH</span><span class="dot-mark">•</span><span>每周一封</span></span>
+          <span>008 / 008</span>
+        </div>
+        <div class="subscribe-grid">
+          <div data-reveal>
+            <span class="label">订阅手记 <span class="ix">Nº 08</span></span>
+            <h2 class="display" data-od-id="subscribe-title">把下一封<em>手记</em>，<br>寄到你的邮箱<span class="dot">。</span></h2>
+            <p class="lead">周末更新，一封只写一件事：这周市场教会了我什么。没有喊单，没有代码，随时可以退订。</p>
+            <div class="sub-actions">
+              <a class="btn btn-primary" href="/feed.xml">RSS 订阅 <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11"/></svg></span></a>
+              <a class="btn btn-ghost" href="https://github.com/EDboy-616">GitHub <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            </div>
+            <p class="sub-note">没有邮件列表。更新通过 RSS 推送，也可以直接在 GitHub 上找我。</p>
+            <div class="cta-foot">
+              <span>逢周末 · 中文 · 免费</span>
+              <span class="stamp">不构成投资建议</span>
+              <span>可随时退订</span>
+            </div>
+          </div>
+          <div class="subscribe-art" data-reveal="right">
+            <div class="ribbon">EDBOY · DISPATCH · WEEKLY</div>
+            <span class="index" aria-hidden="true">Nº 12</span>
+            <img src="assets/img/subscribe.webp" loading="lazy" alt="" width="1024" height="1024" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="sitefoot">
-    <nav>
-      <a href="/">文章</a>
-      <a href="/about.html">关于</a>
-      <a href="/feed.xml">订阅</a>
-    </nav>
-    <span class="fine">© 2026</span>
+  <footer data-od-id="footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#top" class="brand" aria-label="Edboy 首页">
+            <span class="brand-mark" aria-hidden="true">E</span>
+            <span>Edboy</span>
+          </a>
+          <p>一份关于商品期货、趋势结构与决策纪律的个人笔记。写于复盘之后，发布于周末之前。</p>
+        </div>
+        <div class="foot-col">
+          <h5>栏目</h5>
+          <ul>
+            <li><a href="#notes" data-filter-link="trend">趋势解剖</a></li>
+            <li><a href="#notes" data-filter-link="risk">风控手记</a></li>
+            <li><a href="#notes" data-filter-link="market">品种观察</a></li>
+            <li><a href="#notes" data-filter-link="review">复盘档案</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>阅读</h5>
+          <ul>
+            <li><a href="#notes">近期手记</a></li>
+            <li><a href="#essays">精选长文</a></li>
+            <li><a href="#method">方法札记</a></li>
+            <li><a href="#colophon">写作原则</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>关于</h5>
+          <ul>
+            <li><a href="#about">关于这份手记</a></li>
+            <li><a href="#colophon">作者</a></li>
+            <li><a href="#colophon">写作原则</a></li>
+            <li><a href="#subscribe">风险提示</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>订阅</h5>
+          <ul>
+            <li><a href="#subscribe">每周一封</a></li>
+            <li><a href="#subscribe">更新节奏</a></li>
+            <li><a href="/feed.xml">RSS 订阅</a></li>
+            <li><a href="https://github.com/EDboy-616">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 edboy · 独立写作</span>
+        <span class="right"><span>本站为个人研究记录，不构成投资建议。</span><span><span class="pulse"></span>纸与耐心</span></span>
+      </div>
+      <div class="foot-mega" aria-hidden="true">
+        <div class="word">Edboy<span class="dot">.</span></div>
+        <div class="tagline">交易与市场研究 · 趋势 · 结构 · 风险 · 复盘</div>
+      </div>
+    </div>
   </footer>
-
 </div>
+
+
+<script src="assets/atelier.js" defer></script>
 </body>
 </html>
