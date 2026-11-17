@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="技术图纸：突破后回踩不破，真实行情">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.wick{stroke:#15140f;stroke-opacity:.55;stroke-width:.8;fill:none}
+.cnd-up{fill:#f4edda;stroke:#15140f;stroke-opacity:.72;stroke-width:.8}
+.cnd-dn{fill:#15140f;fill-opacity:.8;stroke:#15140f;stroke-opacity:.8;stroke-width:.8}
+.ma1{fill:none;stroke:#b4462f;stroke-width:1.2}
+.ma2{fill:none;stroke:#15140f;stroke-opacity:.52;stroke-width:1}
+.ma3{fill:none;stroke:#15140f;stroke-opacity:.34;stroke-width:1;stroke-dasharray:4 3}
+.guide{fill:none;stroke:#b4462f;stroke-opacity:.42;stroke-width:.8;stroke-dasharray:2 4}
+.mark-c{fill:#f4edda;stroke:#b4462f;stroke-width:1.3}
+@media (prefers-color-scheme: dark){
+.paper{fill:#14120e}
+.grid{stroke:#eae2d0;stroke-opacity:.06}
+.frame{stroke:#eae2d0;stroke-opacity:.55}
+.ln{stroke:#eae2d0;stroke-opacity:.8}
+.ln-soft{stroke:#eae2d0;stroke-opacity:.4}
+.ln-c{stroke:#e07a63}
+.fill-i{fill:#eae2d0}
+.fill-i-soft{fill:#eae2d0;fill-opacity:.55}
+.fill-c{fill:#e07a63}
+.fill-c-soft{fill:#e07a63;fill-opacity:.14}
+.tx-i{fill:#eae2d0}
+.tx-m{fill:#aaa08c}
+.tx-c{fill:#e07a63}
+.wick{stroke:#eae2d0}
+.cnd-up{fill:#14120e;stroke:#eae2d0;stroke-opacity:.72}
+.cnd-dn{fill:#eae2d0;fill-opacity:.8;stroke:#eae2d0;stroke-opacity:.8}
+.ma1{stroke:#e07a63}
+.ma2{stroke:#eae2d0;stroke-opacity:.52}
+.ma3{stroke:#eae2d0;stroke-opacity:.34}
+.guide{stroke:#e07a63;stroke-opacity:.45}
+.mark-c{fill:#14120e;stroke:#e07a63}
+}
+</style>
+<rect width="400" height="500" class="paper"/><rect width="400" height="500" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 466V484H34"/><path d="M366 484H384V466"/></g>
+<text x="24" y="30" class="mono tx-i">Nº 009 / FALSE BREAK</text><text x="24" y="45" class="mono tx-m">假突破的第二种读法</text>
+<path class="ln-soft dash" d="M40.0 378.0H328.0"/><path class="ln-soft" d="M328.0 378.0H331.0"/><text x="333.0" y="381.0" class="mono tx-m">2800</text>
+<path class="ln-soft dash" d="M40.0 304.5H328.0"/><path class="ln-soft" d="M328.0 304.5H331.0"/><text x="333.0" y="307.5" class="mono tx-m">3000</text>
+<path class="ln-soft dash" d="M40.0 231.0H328.0"/><path class="ln-soft" d="M328.0 231.0H331.0"/><text x="333.0" y="234.0" class="mono tx-m">3200</text>
+<path class="ln-soft dash" d="M40.0 157.5H328.0"/><path class="ln-soft" d="M328.0 157.5H331.0"/><text x="333.0" y="160.5" class="mono tx-m">3400</text>
+<path class="ln-soft dash" d="M40.0 84.0H328.0"/><path class="ln-soft" d="M328.0 84.0H331.0"/><text x="333.0" y="87.0" class="mono tx-m">3600</text>
+<path class="ln-soft" d="M40.0 378.0H328.0"/>
+<text x="43.6" y="389.0" class="mono tx-m" text-anchor="start">6/3</text>
+<text x="137.2" y="389.0" class="mono tx-m" text-anchor="middle">6/20</text>
+<text x="230.8" y="389.0" class="mono tx-m" text-anchor="middle">7/9</text>
+<text x="324.4" y="389.0" class="mono tx-m" text-anchor="end">7/28</text>
+<rect x="43.6" y="294.6" width="144.0" height="42.3" fill="none" class="ln-soft"/>
+<path class="ln-soft dash" d="M40.0 294.6H328.0"/>
+<text x="326" y="290.6" class="mono tx-c" text-anchor="end">区间上沿 3027</text>
+<path class="ln-soft dash" d="M40.0 336.8H328.0"/>
+<text x="326" y="332.8" class="mono tx-c" text-anchor="end">区间下沿 2912</text>
+<path class="wick" d="M43.6 323.6V336.8"/><rect x="41.4" y="323.6" width="4.5" height="7.3" class="cnd-dn"/><path class="wick" d="M50.8 308.9V332.1"/><rect x="48.6" y="314.1" width="4.5" height="16.2" class="cnd-up"/><path class="wick" d="M58.0 312.2V328.4"/><rect x="55.8" y="314.1" width="4.5" height="5.5" class="cnd-dn"/><path class="wick" d="M65.2 303.8V318.1"/><rect x="63.0" y="313.7" width="4.5" height="2.2" class="cnd-up"/><path class="wick" d="M72.4 308.2V318.5"/><rect x="70.2" y="311.5" width="4.5" height="2.2" class="cnd-up"/><path class="wick" d="M79.6 308.9V320.3"/><rect x="77.4" y="310.7" width="4.5" height="3.3" class="cnd-dn"/><path class="wick" d="M86.8 301.6V314.1"/><rect x="84.6" y="307.8" width="4.5" height="6.2" class="cnd-up"/><path class="wick" d="M94.0 306.7V318.1"/><rect x="91.8" y="306.7" width="4.5" height="9.6" class="cnd-dn"/><path class="wick" d="M101.2 310.0V326.6"/><rect x="99.0" y="315.5" width="4.5" height="1.0" class="cnd-dn"/><path class="wick" d="M108.4 306.7V322.5"/><rect x="106.2" y="308.2" width="4.5" height="10.7" class="cnd-up"/><path class="wick" d="M115.6 306.7V314.8"/><rect x="113.4" y="309.6" width="4.5" height="1.8" class="cnd-dn"/><path class="wick" d="M122.8 306.0V315.9"/><rect x="120.6" y="309.6" width="4.5" height="2.6" class="cnd-up"/><path class="wick" d="M130.0 303.8V313.7"/><rect x="127.8" y="309.6" width="4.5" height="1.0" class="cnd-up"/><path class="wick" d="M137.2 300.8V311.1"/><rect x="135.0" y="307.4" width="4.5" height="1.0" class="cnd-up"/><path class="wick" d="M144.4 302.3V310.7"/><rect x="142.2" y="306.3" width="4.5" height="1.5" class="cnd-up"/><path class="wick" d="M151.6 302.7V313.7"/><rect x="149.4" y="307.4" width="4.5" height="5.5" class="cnd-dn"/><path class="wick" d="M158.8 311.9V319.2"/><rect x="156.6" y="313.3" width="4.5" height="1.0" class="cnd-up"/><path class="wick" d="M166.0 313.0V322.1"/><rect x="163.8" y="313.3" width="4.5" height="1.1" class="cnd-dn"/><path class="wick" d="M173.2 302.7V315.2"/><rect x="171.0" y="306.3" width="4.5" height="7.4" class="cnd-up"/><path class="wick" d="M180.4 294.6V306.7"/><rect x="178.2" y="305.2" width="4.5" height="1.0" class="cnd-dn"/><path class="wick" d="M187.6 303.0V313.0"/><rect x="185.4" y="303.4" width="4.5" height="3.7" class="cnd-up"/><path class="wick" d="M194.8 278.4V303.4"/><rect x="192.6" y="280.6" width="4.5" height="22.8" class="cnd-up"/><path class="wick" d="M202.0 272.9V286.1"/><rect x="199.8" y="276.6" width="4.5" height="1.0" class="cnd-up"/><path class="wick" d="M209.2 269.6V278.8"/><rect x="207.0" y="277.7" width="4.5" height="1.0" class="cnd-dn"/><path class="wick" d="M216.4 273.3V285.0"/><rect x="214.2" y="278.8" width="4.5" height="3.3" class="cnd-dn"/><path class="wick" d="M223.6 277.3V286.1"/><rect x="221.4" y="281.3" width="4.5" height="1.5" class="cnd-up"/><path class="wick" d="M230.8 276.2V284.7"/><rect x="228.6" y="281.3" width="4.5" height="1.0" class="cnd-up"/><path class="wick" d="M238.0 256.7V282.4"/><rect x="235.8" y="259.3" width="4.5" height="23.2" class="cnd-up"/><path class="wick" d="M245.2 249.7V261.9"/><rect x="243.0" y="255.6" width="4.5" height="6.2" class="cnd-up"/><path class="wick" d="M252.4 251.9V259.7"/><rect x="250.2" y="253.8" width="4.5" height="1.8" class="cnd-up"/><path class="wick" d="M259.6 253.8V267.0"/><rect x="257.4" y="256.4" width="4.5" height="6.2" class="cnd-dn"/><path class="wick" d="M266.8 259.7V270.0"/><rect x="264.6" y="262.2" width="4.5" height="3.3" class="cnd-dn"/><path class="wick" d="M274.0 254.9V265.9"/><rect x="271.8" y="255.6" width="4.5" height="10.3" class="cnd-up"/><path class="wick" d="M281.2 239.5V254.9"/><rect x="279.0" y="250.5" width="4.5" height="4.4" class="cnd-up"/><path class="wick" d="M288.4 216.3V247.2"/><rect x="286.2" y="222.2" width="4.5" height="23.9" class="cnd-up"/><path class="wick" d="M295.6 181.4V225.5"/><rect x="293.4" y="191.7" width="4.5" height="30.5" class="cnd-up"/><path class="wick" d="M302.8 183.2V214.5"/><rect x="300.6" y="186.9" width="4.5" height="16.9" class="cnd-dn"/><path class="wick" d="M310.0 183.2V213.0"/><rect x="307.8" y="196.5" width="4.5" height="6.2" class="cnd-up"/><path class="wick" d="M317.2 172.9V198.7"/><rect x="315.0" y="173.7" width="4.5" height="14.0" class="cnd-up"/><path class="wick" d="M324.4 175.1V220.0"/><rect x="322.2" y="175.1" width="4.5" height="38.2" class="cnd-dn"/>
+<circle cx="194.8" cy="280.6" r="3" class="mark-c"/>
+<text x="194.8" y="272.6" class="mono tx-c" text-anchor="middle">突破</text>
+<circle cx="216.4" cy="285.0" r="3" class="mark-c"/>
+<text x="216.4" y="299.0" class="mono tx-c" text-anchor="middle">回踩 3053</text>
+<text x="242.0" y="246.72500000000002" class="mono tx-c">继续 / HOLDS</text>
+<text x="40" y="76" class="mono tx-m">日线 / DAILY · RB 主力连续</text>
+<text x="24" y="476" class="mono tx-m">跌回区间内才是失败 / BACK INSIDE = FAIL</text>
+</svg>
