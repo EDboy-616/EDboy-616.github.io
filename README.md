@@ -15,9 +15,11 @@
 ├── 404.html            找不到页面时显示
 ├── guide.html          两台电脑协作的图文操作手册
 ├── feed.xml            RSS 订阅源
+├── favicon.ico         旧浏览器兜底图标（16 / 32 / 48）
 ├── assets/
 │   ├── atelier.css     全站样式（含文章页与框架页），换配色改顶部变量
 │   ├── atelier.js      滚动渐显、导航收起、栏目筛选
+│   ├── favicon.svg     站点图标（墨色底 + 纸色 E.），另有 32px PNG 与 apple-touch 尺寸
 │   └── img/            21 张技术图纸 SVG（约 210KB，gzip 后约 60KB，随系统浅/深色自动换色）
 └── posts/
     └── *.html          七篇手记，各自独立网址
