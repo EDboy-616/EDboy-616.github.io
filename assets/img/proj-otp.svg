@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="localotp 卡面：信封密钥剖面、scrypt 与 AES、6 位码倒计时">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.mono-l{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:.12em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.card{fill:#faf5e6;fill-opacity:.7;stroke:#15140f;stroke-opacity:.4;stroke-width:1}
+.card-c{fill:#faf5e6;fill-opacity:.7;stroke:#b4462f;stroke-opacity:.55;stroke-width:1}
+.bar{fill:#15140f;fill-opacity:.16}
+.bar-c{fill:#b4462f;fill-opacity:.28}
+.chip{fill:#15140f;fill-opacity:.85}
+.chip-tx{fill:#f4edda}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+</style>
+<rect width="400" height="500" class="paper"/><rect width="400" height="500" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 466V484H34"/><path d="M366 484H384V466"/></g>
+<text x="24" y="30" class="mono tx-i">PL. 03 / LOCAL OTP</text><text x="24" y="45" class="mono tx-m">localotp · 本机生成 6 位码</text>
+<path class="card" d="M120 100h160v110H120z"/>
+<path class="ln-soft" d="M120 100l80 62 80-62"/>
+<path class="ln-c" d="M200 210V258"/>
+<circle cx="200" cy="278" r="20" class="ln-c"/><path class="ln-c" d="M200 298v40M192 320h12M192 330h12"/>
+<text x="150" y="276" class="mono tx-m">scrypt</text>
+<text x="236" y="276" class="mono tx-m">AES</text>
+<rect x="150" y="300" width="100" height="34" class="card-c"/>
+<text x="200" y="323" class="mono-l tx-c" text-anchor="middle">482916</text>
+<path class="ln-c" d="M218 320A10 10 0 0 1 230 320"/>
+<path class="ln-c" d="M240 320A10 10 0 0 1 252 320"/>
+<path class="ln-c" d="M262 320A10 10 0 0 1 274 320"/>
+<path class="ln-soft" d="M284 320A10 10 0 0 1 296 320"/>
+<path class="ln-soft" d="M306 320A10 10 0 0 1 318 320"/>
+<text x="200" y="370" class="mono tx-m" text-anchor="middle">口令派生 · 本机加密落盘 · 不联网</text>
+<rect x="110" y="392" width="180" height="52" class="card"/>
+<text x="122" y="412" class="mono tx-i">密码库文件</text>
+<path class="bar" d="M122 420h64v4h-64zM122 430h96v4h-96z"/>
+<text x="30" y="478" class="mono tx-m">数据不出本机 / NO NETWORK</text>
+</svg>

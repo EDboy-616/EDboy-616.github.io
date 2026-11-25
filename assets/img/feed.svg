@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="1024" height="1024" role="img" aria-label="订阅区图纸：RSS 波纹与条目列表，不收集邮箱">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.mono-l{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:.12em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.card{fill:#faf5e6;fill-opacity:.7;stroke:#15140f;stroke-opacity:.4;stroke-width:1}
+.card-c{fill:#faf5e6;fill-opacity:.7;stroke:#b4462f;stroke-opacity:.55;stroke-width:1}
+.bar{fill:#15140f;fill-opacity:.16}
+.bar-c{fill:#b4462f;fill-opacity:.28}
+.chip{fill:#15140f;fill-opacity:.85}
+.chip-tx{fill:#f4edda}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+</style>
+<rect width="400" height="400" class="paper"/><rect width="400" height="400" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 366V384H34"/><path d="M366 384H384V366"/></g>
+<text x="24" y="30" class="mono tx-i">PL. 08 / RSS 2.0</text><text x="24" y="45" class="mono tx-m">更新走 RSS · 不收集邮箱</text>
+<circle cx="88" cy="300" r="8" class="fill-c"/>
+<path class="ln-c" d="M88 266A34 34 0 0 0 122 300"/>
+<path class="ln-soft" d="M88 240A60 60 0 0 0 148 300"/>
+<path class="ln-soft" d="M88 214A86 86 0 0 0 174 300"/>
+<rect x="210" y="78" width="156" height="40" class="card"/>
+<text x="220" y="96" class="mono tx-c">latest</text>
+<text x="220" y="110" class="mono tx-i">localotp</text>
+<rect x="210" y="138" width="156" height="34" class="card"/>
+<circle cx="224" cy="155" r="4" class="ln-soft"/>
+<text x="238" y="153" class="mono tx-i">tiny-ledger</text>
+<text x="238" y="165" class="mono tx-m">11/20</text>
+<rect x="210" y="184" width="156" height="34" class="card"/>
+<circle cx="224" cy="201" r="4" class="ln-soft"/>
+<text x="238" y="199" class="mono tx-i">work-companion</text>
+<text x="238" y="211" class="mono tx-m">11/16</text>
+<rect x="210" y="230" width="156" height="34" class="card"/>
+<circle cx="224" cy="247" r="4" class="ln-soft"/>
+<text x="238" y="245" class="mono tx-i">finance-daily</text>
+<text x="238" y="257" class="mono tx-m">11/14</text>
+<rect x="210" y="276" width="156" height="34" class="card"/>
+<circle cx="224" cy="293" r="4" class="ln-soft"/>
+<text x="238" y="291" class="mono tx-i">本站改版说明</text>
+<text x="238" y="303" class="mono tx-m">11/25</text>
+<path class="ln-c dash" d="M88 300h100v-40"/>
+<text x="24" y="358" class="mono tx-m">RSS 阅读器订阅 · 无表单</text>
+<text x="376" y="358" class="mono tx-m" text-anchor="end">feed.xml</text>
+</svg>

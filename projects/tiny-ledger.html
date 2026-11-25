@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>账本不出门 · tiny-ledger · Edboy</title>
+<meta name="description" content="tiny-ledger：单人手机记账应用。一份 UI 源同时跑在 Android 与桌面，没有一行网络代码，账本只写本机。">
+<meta name="author" content="edboy">
+<meta name="theme-color" content="#f4edda">
+<link rel="canonical" href="https://EDboy-616.github.io/projects/tiny-ledger.html">
+<link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<noscript><style>
+  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
+  .to-top{display:none!important}
+  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
+</style></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"首页","item":"https://EDboy-616.github.io/"},
+{"@type":"ListItem","position":2,"name":"项目","item":"https://EDboy-616.github.io/#projects"},
+{"@type":"ListItem","position":3,"name":"Nº 03 · tiny-ledger"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · 项目小站</span></div>
+<div class="side-rail left" aria-hidden="true"><span class="rail-text">自建 · 本地优先 · 单一真源 · 可审计</span></div>
+
+<div class="shell">
+  <div class="top-sentinel" aria-hidden="true"></div>
+  <div class="topbar" data-od-id="topbar">
+    <div class="container topbar-inner">
+      <span><b>EDBOY / 2026</b></span>
+      <span class="mid">
+        <span>项目 / <b class="coral">tiny-ledger</b></span>
+        <span>移动端 · 私有仓库 · Nº 03</span>
+      </span>
+      <span class="right">
+        <span><span class="pulse"></span>数据只写本机</span>
+        <span>中文</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="dock" id="siteNav" data-od-id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="Edboy 首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>Edboy</span>
+        <span class="brand-meta"><b>项目小站</b>自建仓库 · 本机优先</span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="/#projects">项目</a></li>
+          <li><a href="/#updates">更新</a></li>
+          <li><a href="/#about">关于</a></li>
+          <li><a href="/#subscribe">订阅</a></li>
+          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <div class="nav-side">
+        <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
+      <ul>
+        <li><a href="/#projects">项目</a></li>
+        <li><a href="/#updates">更新</a></li>
+        <li><a href="/#about">关于</a></li>
+        <li><a href="/#subscribe">订阅</a></li>
+      </ul>
+      <a class="nav-cta" href="https://github.com/EDboy-616">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="system-hero" id="top" data-od-id="ledger-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="面包屑">
+          <a href="/" class="mid">首页</a>
+          <span class="sep mid" aria-hidden="true">•</span>
+          <a href="/#projects" class="mid">项目</a>
+          <span class="sep" aria-hidden="true">•</span>
+          <span aria-current="page">Nº 03 · tiny-ledger</span>
+        </nav>
+        <div class="sec-rule">
+          <span class="roman">I.</span>
+          <span class="meta-grp"><span>项目 / PROJECT</span><span class="dot-mark">•</span><span>Nº 03</span><span class="dot-mark">•</span><span>移动端</span><span class="dot-mark">•</span><span>私有仓库</span></span>
+          <span>001 / 008</span>
+        </div>
+        <div class="proj-hero">
+          <div class="proj-hero-copy">
+            <a class="back-link" href="/#projects"><span class="arw" aria-hidden="true">←</span>全部项目</a>
+            <span class="label" data-reveal>PROJECT Nº 03 · 私有仓库 <span class="ix">TINY-LEDGER</span></span>
+            <h1 class="display" data-reveal data-od-id="ledger-title">账本<em>不</em>出门<span class="dot">。</span></h1>
+            <p class="lead" data-reveal>一个单人手机记账应用：界面只有一份源，Android 与桌面共用；<span class="keep">没有任何网络代码</span>，账本只写在本机上。这是五个自建仓库里产品完整度最高的一个。</p>
+            <div class="hero-actions" data-reveal style="--reveal-delay:210ms">
+              <a class="btn btn-primary" href="/feed.xml" data-od-id="ledger-primary-cta">订阅更新
+                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+              <a class="btn btn-ghost" href="/#about">关于这个小站
+                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+          <figure class="proj-plate" data-reveal="scale">
+            <img src="/assets/img/proj-ledger.svg" alt="tiny-ledger 一份界面源同时输出到 Android 与桌面的图纸" width="768" height="960" decoding="async">
+            <figcaption><b>图纸 · 一份 UI，两处落地</b><span>SVG · 768×960</span></figcaption>
+          </figure>
+        </div>
+        <div class="meta-strip" data-reveal style="--strip-cols:6;--reveal-delay:280ms">
+          <div><span class="k">版本</span><b class="v">5.11.21<small>CHANGELOG 按时间排开</small></b></div>
+          <div><span class="k">语言</span><b class="v">同一份 UI 源<small>HTML/JS 界面 + Kotlin 壳</small></b></div>
+          <div><span class="k">平台</span><b class="v">Android WebView + Electron<small>Android 8.0+（API 26），iOS 未开工</small></b></div>
+          <div><span class="k">网络</span><b class="v">无网络请求<small>装机默认空账本，数据不出本机</small></b></div>
+          <div><span class="k">许可证</span><b class="v">私有<small>GitHub 私有仓库，访客不可见</small></b></div>
+          <div><span class="k">更新日</span><b class="v">2026.11.20<small>本页所述以 README 实读为准</small></b></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proj-flow">
+      <div class="toc-rail">
+        <nav class="page-toc" aria-label="页内目录">
+          <a href="#what">002 · 是什么</a>
+          <a href="#why">003 · 先划地界</a>
+          <a href="#how">004 · 四步上手</a>
+          <a href="#highlights">005 · 三处取舍</a>
+          <a href="#data">006 · 数据安全</a>
+          <a href="#verify">007 · 闸门与文档</a>
+          <a href="#scope">008 · 平台与公开</a>
+        </nav>
+      </div>
+
+    <section class="proj-sec sys-what" id="what" data-od-id="ledger-what">
+      <div class="container">
+        <div class="page-narrow">
+          <div class="sys-head">
+            <div data-reveal>
+              <span class="label">功能范围 <span class="ix">FOUR PAGES</span></span>
+              <h2 class="display">记账、流水、统计、预算，<br>四个页面<span class="dot">。</span></h2>
+            </div>
+            <p class="lead" data-reveal="right">面向单个用户的手机记账。装机时是空账本，示例数据可在引导时选装。功能围绕日常录入与月度回看展开。</p>
+          </div>
+          <table class="repo-table" data-reveal>
+            <thead><tr><th scope="col">页面</th><th scope="col">承担什么</th><th scope="col">使用要点</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><b>记账</b> <span class="n">Entry</span></td>
+                <td>收支录入</td>
+                <td>跨类别滑动选分类、数字键盘直录，长金额自适应字号，单手也能记。</td>
+              </tr>
+              <tr>
+                <td><b>流水</b> <span class="n">Search</span></td>
+                <td>历史与检索</td>
+                <td>按月组浏览历史流水；关键词与金额双路搜索，可同时按文字和数额筛。</td>
+              </tr>
+              <tr>
+                <td><b>统计</b> <span class="n">Stats</span></td>
+                <td>月度回看</td>
+                <td>分类环形、30 日趋势、日历热力，加上月度体检与同环比对照。</td>
+              </tr>
+              <tr>
+                <td><b>预算</b> <span class="n">Budget</span></td>
+                <td>额度与建议</td>
+                <td>剩余额度与每日可用金额，给出健康分与调整建议。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="sys-veto" id="why" data-od-id="ledger-why">
+      <div class="container wide">
+        <div class="panel">
+          <div class="sys-veto-rule">
+            <span class="roman">III.</span>
+            <span>为什么 / WHY &nbsp;·&nbsp; 先划清数据的地界</span>
+            <span>003 / 008</span>
+          </div>
+          <h2 data-reveal>它先回答<em>不做什么</em>。</h2>
+          <p class="lead" data-reveal>记账工具常见的麻烦不在功能少，而在数据要交给谁。tiny-ledger 把这三件事挡在门外。</p>
+          <div class="veto-rows">
+            <div class="veto-row" data-reveal>
+              <span class="n">01</span>
+              <h3>不强制注册账号</h3>
+              <p>主流记账 App 往往要先注册账号。这里没有账号、没有同步、没有远端配置——装上就能记。</p>
+            </div>
+            <div class="veto-row" data-reveal>
+              <span class="n">02</span>
+              <h3>不把数据交给云端</h3>
+              <p>账本只写在本机，代码里没有一行联网请求，也就谈不上把消费记录拿去做画像。</p>
+            </div>
+            <div class="veto-row" data-reveal>
+              <span class="n">03</span>
+              <h3>不让误删无从挽回</h3>
+              <p>回收站保留 30 天，配合自动备份与损坏自愈，删错了或文件坏了都有退路。</p>
+            </div>
+          </div>
+          <p class="veto-quote" data-reveal>本地优先不是少做功能，<br>是把数据的<span class="mark">地界</span>画清楚。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-sec sys-how" id="how" data-od-id="ledger-how">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">IV.</span>
+          <span class="meta-grp"><span>怎么用 / HOW TO USE</span><span class="dot-mark">•</span><span>四步上手</span></span>
+          <span>004 / 008</span>
+        </div>
+        <div class="page-narrow">
+          <div class="sys-head">
+            <div data-reveal>
+              <span class="label">日常路径 <span class="ix">INSTALL → GUIDE → DAILY → BACKUP</span></span>
+              <h2 class="display">从装到日常，<br>四步<span class="dot">。</span></h2>
+            </div>
+            <p class="lead" data-reveal="right">面向使用者的流程。开发侧只补一句：本地预览与提交前闸门都在仓库内跑，页面不提供可点的仓库链接。</p>
+          </div>
+          <div class="proj-steps">
+            <div class="method-step" data-reveal style="--reveal-delay:0ms">
+              <div class="num">01</div>
+              <h4>装到手机 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <p>以 APK 侧载安装；覆盖安装需要和已装版本用同一证书。</p>
+            </div>
+            <div class="method-step" data-reveal style="--reveal-delay:90ms">
+              <div class="num">02</div>
+              <h4>首次引导 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <p>默认从空账本开始，示例数据在引导里可选装，用来熟悉界面。</p>
+            </div>
+            <div class="method-step" data-reveal style="--reveal-delay:180ms">
+              <div class="num">03</div>
+              <h4>日常四页 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <p>记账 → 流水 → 统计 → 我的。录入走记账，回看走流水与统计。</p>
+            </div>
+            <div class="method-step" data-reveal style="--reveal-delay:270ms">
+              <div class="num">04</div>
+              <h4>备份与迁移</h4>
+              <p>可导出 JSON 备份恢复，或导出 CSV/XLSX；导入前自动备份，写失败全量回滚。</p>
+            </div>
+          </div>
+          <div class="sys-confirm" data-reveal>
+            <span class="tag">开发侧</span>
+            <p>浏览器预览跑在本地 <code>127.0.0.1:8933</code>；提交前过闸门 <code>npm --prefix app run check</code>。仓库在 GitHub 上是私有的，所以这里不放指向它的链接——放了访客也点不开。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-sec sys-gates" id="highlights" data-od-id="ledger-highlights">
+      <div class="container">
+        <div class="sys-head">
+          <div data-reveal>
+            <span class="label">设计核心 <span class="ix">ONE SOURCE · SAME SEMANTICS · FIVE SKINS</span></span>
+            <h2 class="display">一份界面源，<br>跨<em>两端</em>落地<span class="dot">。</span></h2>
+          </div>
+          <p class="lead" data-reveal="right">它真正想验证的是一件事：同一套 HTML/JS，能不能既做 Android 界面、又做桌面界面，而且数据安全语义在两端完全一致。</p>
+        </div>
+        <div class="proj-hero" style="padding:0 0 40px">
+          <article class="sys-gate" data-reveal>
+            <span class="k">其一 / UI 真源</span>
+            <h3>一份 UI 真源</h3>
+            <span class="sub">Single Source</span>
+            <ul>
+              <li><code>app/renderer/index.html</code> 装结构、内联逻辑与基础样式。</li>
+              <li><code>styles/</code> 分片按 <code>build-css.js</code> 的注册顺序组装。</li>
+              <li><code>sync:assets</code> 把成品逐字节同步进 Android 工程。</li>
+            </ul>
+            <span class="verdict"><span>界面改一处</span><b>两端同步</b></span>
+          </article>
+          <figure class="proj-plate" data-reveal="scale">
+            <img src="/assets/img/plate-pipeline.svg" loading="lazy" alt="从 renderer 单一源经 build-css、sync:assets 同步进 Android 工程的流程图纸" width="800" height="600" decoding="async">
+            <figcaption><b>图纸 · 单一源到两端</b><span>SVG · 400×300</span></figcaption>
+          </figure>
+        </div>
+        <div class="proj-hero" style="padding:0 0 40px">
+          <article class="sys-gate" data-reveal>
+            <span class="k">其二 / 存储一致</span>
+            <h3>存储语义一致</h3>
+            <span class="sub">Same Storage Rules</span>
+            <ul>
+              <li>Android 的 <code>StoreFiles.kt</code> 与桌面的 <code>storage.js</code> 共享同一套约定。</li>
+              <li>原子写、<code>.bak</code>、损坏自愈、备份轮换，两端都按同一规则走。</li>
+              <li>渲染层 IO 适配 Android bridge / Electron IPC / localStorage 三种宿主。</li>
+            </ul>
+            <span class="verdict"><span>换宿主</span><b>语义不变</b></span>
+          </article>
+          <figure class="proj-plate" data-reveal="scale">
+            <img src="/assets/img/plate-lock.svg" loading="lazy" alt="Android 与桌面共享原子写、备份轮换与自愈的存储图纸" width="800" height="600" decoding="async">
+            <figcaption><b>图纸 · 原子写与备份轮换</b><span>SVG · 400×300</span></figcaption>
+          </figure>
+        </div>
+        <div class="proj-hero" style="padding:0">
+          <article class="sys-gate" data-reveal>
+            <span class="k">其三 / 皮肤</span>
+            <h3>五套皮肤一档不落</h3>
+            <span class="sub">Five Skins</span>
+            <ul>
+              <li>Swiss Grid（terminal / terminal-dark）、Minimal Lines（ink / paper）、Geometric Bauhaus（bauhaus / bauhaus-dark）浅深两档都有。</li>
+              <li>Pixel 只提供深色，Mist Blue 只提供浅色，缺的那一档不做硬凑。</li>
+              <li>用 ◐ 在档间切换，并记住上次选择。</li>
+            </ul>
+            <span class="verdict"><span>切档</span><b>记忆偏好</b></span>
+          </article>
+          <figure class="proj-plate" data-reveal="scale">
+            <img src="/assets/img/plate-matrix.svg" loading="lazy" alt="五套皮肤在浅深两档下的矩阵图纸" width="800" height="600" decoding="async">
+            <figcaption><b>图纸 · 皮肤与宿主矩阵</b><span>SVG · 400×300</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-sec sys-risk" id="data" data-od-id="ledger-data">
+      <div class="container">
+        <div class="page-narrow">
+          <div class="sys-head">
+            <div data-reveal>
+              <span class="label">五条防线 <span class="ix">BACKUP · EXPORT · GUARD · TRASH · HEAL</span></span>
+              <h2 class="display">账本在本地，<br>更要<em>守得住</em><span class="dot">。</span></h2>
+            </div>
+            <p class="lead" data-reveal="right">数据不出机器，意味着没有云端那份兜底。下面五条，是把"只存本机"这件事做扎实的部分。</p>
+          </div>
+          <ul class="risk-list" data-reveal>
+            <li><span class="n">01</span><div><b>自动备份</b><p>私有目录保留最近 3 份日快照；Downloads 目录会尝试再放 3 份。</p></div></li>
+            <li><span class="n">02</span><div><b>手动导出</b><p>可导出 JSON 备份用于恢复，或导出 CSV / XLSX 用于外部查看。</p></div></li>
+            <li><span class="n">03</span><div><b>导入守卫</b><p>导入前校验格式、自动备份当前数据；一旦写入失败，全量回滚。</p></div></li>
+            <li><span class="n">04</span><div><b>回收站</b><p>删除的记录在回收站保留 30 天，可恢复，也可到期彻底清除。</p></div></li>
+            <li><span class="n">05</span><div><b>损坏自愈</b><p>发现账本文件损坏时先保留原文件，再从最新备份恢复。</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-sec sys-boundary" id="verify" data-od-id="ledger-verify">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">VII.</span>
+          <span class="meta-grp"><span>验证与文档 / VERIFY</span><span class="dot-mark">•</span><span>怎么证明它没坏</span></span>
+          <span>007 / 008</span>
+        </div>
+        <div class="page-narrow">
+          <span class="label" data-reveal>质量口径 <span class="ix">GATES &amp; DOCS</span></span>
+          <h2 class="display" data-reveal>改动之前先过闸门，<br>留痕交给<em>文档</em><span class="dot">。</span></h2>
+          <p class="lead" data-reveal>一个 UI 跨两端的项目，靠手点回归撑不住。质量分两栏：一栏是可重复跑的闸门，一栏是写给下一个自己的文档。</p>
+        </div>
+        <div class="page-narrow">
+          <figure class="plate-bleed" data-reveal="scale">
+            <img src="/assets/img/plate-gate.svg" loading="lazy" alt="图纸：闸门开合两态，能自动跑的都必须跑绿才放行" width="800" height="600" decoding="async">
+            <figcaption class="plate-caption"><b>图 01 · 闸门的两态</b>闸门只在全部检查跑绿时开：派生资源同步、逐脚本语法检查、存储与动画回归；任一失败就停在当前改动上，不带病提交。</figcaption>
+          </figure>
+        </div>
+        <div class="page-narrow">
+          <div class="boundary-grid">
+            <div class="boundary-col" data-reveal>
+              <span class="k">闸门 / CHECKS</span>
+              <h3>能自动跑的，都自动化</h3>
+              <ul>
+                <li><span class="mark">+</span><b>check 无依赖闸门</b>：派生资源同步、逐脚本语法检查、存储/数据/动画性能回归</li>
+                <li><span class="mark">+</span><b>Electron 套件</b>：数据语义、皮肤与布局矩阵、降级动效、持久化回滚、故障注入、端到端</li>
+                <li><span class="mark">+</span><b>真机回归</b>：在 Android 设备上把主路径再走一遍</li>
+              </ul>
+            </div>
+            <div class="boundary-col" data-reveal>
+              <span class="k">文档 / DOCS</span>
+              <h3>做过的决定，写下原因</h3>
+              <ul>
+                <li><span class="mark">+</span><b>docs 00–10 编号文档</b>：索引、架构、构建与测试、路线与决策、交接、功能清单、测试索引、安卓存储桥</li>
+                <li><span class="mark">+</span><b>CHANGELOG</b>：每个版本改了什么，按时间排开</li>
+                <li><span class="mark">+</span><b>archive</b>：归档旧文档，索引仍能找到去处</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-sec proj-sec--last sys-cta" id="scope" data-od-id="ledger-scope">
+      <div class="container">
+        <div class="sys-cta-grid">
+          <div data-reveal>
+            <h2 class="display">只有 Android 正式发版，<br>源码<em>锁在私有仓库</em><span class="dot">。</span></h2>
+            <p class="lead">目前只有 Android 8.0+ 正式发版，iOS 还没开工。仓库就在 GitHub 上，但设成了私有：源码访客读不到，APK 只挂在私有仓库的 Releases 页（README 上的版本徽章和「APK on the Releases page」指的都是那一处）。点不开不等于不存在——只是这一页没有访客能按的下载按钮。</p>
+            <div class="sys-cta-actions">
+              <a class="btn btn-primary" href="/#projects">看全部项目
+                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+              <a class="btn btn-ghost" href="/#subscribe">订阅更新
+                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+              </a>
+            </div>
+            <p class="sys-cta-note">如果之后转成公开仓库，会通过订阅更新告知；在那之前，本页所述以 README 实读为准，不承诺下载。</p>
+          </div>
+          <div class="sys-cta-meta" data-reveal="right">
+            <span><b>平台</b> / Android 8.0+（iOS 未开工）</span>
+            <span><b>形态</b> / 单一 APK</span>
+            <span><b>云</b> / 无</span>
+            <span><b>仓库</b> / GitHub 私有</span>
+          </div>
+        </div>
+        <div class="last-updated">Last updated <time datetime="2026-11-20">2026.11.20</time></div>
+        <nav class="postnav" aria-label="项目导览">
+          <a rel="prev" href="/projects/localotp.html">
+            <span class="dir">← Nº 02 · localotp</span><span class="ttl">localotp · 验证码只在这台电脑里</span></a>
+          <a href="/#projects"><span class="dir">全部</span><span class="ttl">INDEX →</span></a>
+          <a rel="next" href="/projects/work-companion.html">
+            <span class="dir">Nº 04 · work-companion →</span><span class="ttl">work-companion：别让答应过的事散在对话里</span></a>
+        </nav>
+      </div>
+    </section>
+    </div><!-- /proj-flow：页内目录的 sticky 落位范围到这里为止 -->
+  </main>
+
+  <footer data-od-id="footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="brand" aria-label="Edboy 首页">
+            <span class="brand-mark" aria-hidden="true">E</span>
+            <span>Edboy</span>
+          </a>
+          <p>edboy 的项目小站：陈列五个自建仓库，开源工具、私有仓库、以及本站本身。纸感杂志风，本地优先。</p>
+        </div>
+        <div class="foot-col">
+          <h5>项目</h5>
+          <ul>
+            <li><a href="/projects/localotp.html">localotp</a></li>
+            <li><a href="/projects/tiny-ledger.html">tiny-ledger</a></li>
+            <li><a href="/projects/work-companion.html">work-companion</a></li>
+            <li><a href="/projects/finance-daily-v5.html">finance-daily-v5</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>本页</h5>
+          <ul>
+            <li><a href="#what">是什么</a></li>
+            <li><a href="#why">解决什么</a></li>
+            <li><a href="#highlights">亮点</a></li>
+            <li><a href="#data">数据安全</a></li>
+            <li><a href="#verify">验证与文档</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>关于</h5>
+          <ul>
+            <li><a href="/#about">关于这个小站</a></li>
+            <li><a href="/#about">技术栈</a></li>
+            <li><a href="https://github.com/EDboy-616">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>订阅</h5>
+          <ul>
+            <li><a href="/#subscribe">更新节奏</a></li>
+            <li><a href="/feed.xml">RSS 订阅</a></li>
+            <li><a href="https://github.com/EDboy-616">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 edboy · 自建项目小站</span>
+        <span class="right"><span>本页描述以 README 实读为准；仓库是 GitHub 上的私有仓库，不提供下载。</span><span><span class="pulse"></span>纸与耐心</span></span>
+      </div>
+      <div class="foot-mega" aria-hidden="true">
+        <div class="word">Edboy<span class="dot">.</span></div>
+        <div class="tagline">自建项目 · 本地优先 · 单一真源 · 可审计</div>
+      </div>
+    </div>
+  </footer>
+  <button class="to-top" type="button" aria-label="返回顶部" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
+</div>
+
+<script src="/assets/atelier.js?v=20261126-1" defer></script>
+</body>
+</html>

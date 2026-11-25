@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>localotp · 只在本机的验证码保管库 — Edboy</title>
+<meta name="description" content="localotp：本机离线的 TOTP 双重验证码保管库。Tauri 2 + Rust + TypeScript，AES-256-GCM 加密，主口令解锁，桌面端断网也能出码。仓库在 GitHub 上是私有的，不对外可见、不提供下载。">
+<meta name="author" content="edboy">
+<meta name="theme-color" content="#f4edda">
+<link rel="canonical" href="https://EDboy-616.github.io/projects/localotp.html">
+<link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<!-- 页内只剩五条底座 atelier.css 还没有的规则，每条都标了它该归谁；底座补齐后本段可整块删。
+     1) .system-hero：详情页首屏的上下留白交给 .proj-hero（58/66），要先归零全局 section{padding:118px 0}；
+     2) ≥881px 把 .sys-gate-grid 从公共样式的 repeat(3,1fr) 改成 8/4 不等分，首张跨两行、右列放两张；
+        （≤880px 仍走公共样式的单列，所以这两条一起写在 min-width 里，不覆盖移动端断点。）
+     3) .page-note：详情页自有的说明块（1px 顶虚线 + 10.5px mono），替掉原先借用的首页项目区计数组件；
+     4) 末节套了 .page-narrow（780 窄栏）之后，公共的 .sys-head 两栏（1.15fr/.85fr）会把 60px 的 h2
+        挤成「给不了下 / 载。」这种孤字断行，窄栏里改回单列。
+     规格条 .meta-strip、状态表 .repo-table.is-status、目录 .page-toc（含 .proj-flow / .toc-rail 轨道）、
+     首屏文案列 .proj-hero-copy 纵排、导览 .postnav 都走公共定义，页内不复制第二套。 -->
+<style>
+.system-hero{padding:30px 0 0}
+.page-narrow .sys-head{grid-template-columns:1fr;gap:22px}
+@media (min-width:881px){
+  .sys-gate-grid{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
+  .sys-gate-grid>.sys-gate:first-child{grid-row:span 2}
+}
+.page-note{margin-top:28px;border-top:1px dashed var(--line);padding-top:16px;font-family:var(--mono);font-size:10.5px;line-height:1.9;letter-spacing:.03em;color:var(--ink-faint)}
+.page-note b{display:block;margin-bottom:8px;color:var(--ink);letter-spacing:.14em}
+.page-note .tail{display:block;margin-top:10px;color:var(--ink-mute)}
+</style>
+<noscript><style>
+  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
+  .to-top{display:none!important}
+  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
+</style></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"首页","item":"https://EDboy-616.github.io/"},
+{"@type":"ListItem","position":2,"name":"项目","item":"https://EDboy-616.github.io/#projects"},
+{"@type":"ListItem","position":3,"name":"Nº 02 · localotp"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · 私有仓库</span></div>
+<div class="side-rail left" aria-hidden="true"><span class="rail-text">离线 · 加密 · 不出本机 · 不可找回</span></div>
+
+<div class="shell">
+  <div class="top-sentinel" aria-hidden="true"></div>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><b>EDBOY / PROJECTS</b></span>
+      <span class="mid">
+        <span>自建仓库 · <b class="coral">私有仓库</b></span>
+        <span>Tauri 2 · Rust · TypeScript</span>
+      </span>
+      <span class="right">
+        <span><span class="pulse"></span>私有仓库</span>
+        <span>中文</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="dock" id="siteNav">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="Edboy 首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>Edboy</span>
+        <span class="brand-meta"><b>项目小站</b>自建仓库 · 本机优先</span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="/#projects" aria-current="page">项目</a></li>
+          <li><a href="/#updates">更新</a></li>
+          <li><a href="/#about">关于</a></li>
+          <li><a href="/#subscribe">订阅</a></li>
+          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <div class="nav-side">
+        <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
+      <ul>
+        <li><a href="/#projects">项目</a></li>
+        <li><a href="/#updates">更新</a></li>
+        <li><a href="/#about">关于</a></li>
+        <li><a href="/#subscribe">订阅</a></li>
+      </ul>
+      <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 头部区：三级页首屏骨架（8/4 不等分 + 通栏规格条） -->
+    <section class="system-hero" id="s-01">
+      <div class="container">
+        <nav class="crumbs" aria-label="面包屑">
+          <a href="/" class="mid">首页</a>
+          <span class="sep mid" aria-hidden="true">•</span>
+          <a href="/#projects">项目</a>
+          <span class="sep" aria-hidden="true">•</span>
+          <span aria-current="page">Nº 02 · localotp</span>
+        </nav>
+        <div class="sec-rule">
+          <span class="roman">I.</span>
+          <span class="meta-grp"><span>项目 / PROJECT</span><span class="dot-mark">•</span><span>Nº 02</span><span class="dot-mark">•</span><span>桌面端 · 私有仓库</span></span>
+          <span>001 / 008</span>
+        </div>
+        <div class="proj-hero">
+          <div class="proj-hero-copy">
+            <a class="back-link" href="/#projects"><span class="arw" aria-hidden="true">←</span>全部项目</a>
+            <span class="label" data-reveal>本机离线 · TOTP 保管库</span>
+            <h1 class="display" data-reveal>验证码<em>只</em><br>在这台电脑里<span class="dot">。</span></h1>
+            <p class="lead" data-reveal>一个只跑在自己机器上的双重验证码保管库。第一次保存时设主口令，之后重启解锁即用——不建账号、不上云、断网也出码。工程强度最高的一版，只是仓库设成了私有，源码不对外可见。</p>
+            <div class="sys-confirm" data-reveal>
+              <span class="tag">公开状态</span>
+              <p>这个仓库挂在 GitHub 上，但设成了私有：源码不对外可见，v0.5.0 的 tag 与 Release（NSIS / 中文 MSI / 免安装 exe，仅 Windows x86_64）也只挂在私有仓库里，不提供下载。所以本页不放指向该仓库或 Releases 的链接——放了访客也点不开。想聊实现走 <a href="/#subscribe">订阅区</a> 里的 RSS 或 <a href="https://github.com/EDboy-616">GitHub 主页</a>。</p>
+            </div>
+            <div class="hero-actions" data-reveal>
+              <a class="btn btn-primary" href="/#subscribe">订阅更新
+                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+          <figure class="proj-plate" data-reveal="scale">
+            <img src="/assets/img/proj-otp.svg" alt="localotp 主界面示意：双栏大码、剩余秒数与复制按钮" width="768" height="960" decoding="async">
+            <figcaption><b>图 01 · 本机主界面示意</b><span>AES-256-GCM · 离线</span></figcaption>
+          </figure>
+        </div>
+        <div class="meta-strip" data-reveal style="--strip-cols:6">
+          <div><span class="k">版本</span><b class="v">v0.5.0<small>tag 只挂私有仓库</small></b></div>
+          <div><span class="k">语言</span><b class="v">Rust + Tauri 2<small>TypeScript 前端</small></b></div>
+          <div><span class="k">平台</span><b class="v">Windows<small>x86_64 主开发</small></b></div>
+          <div><span class="k">许可证</span><b class="v">私有<small>未随仓库公开授权条款</small></b></div>
+          <div><span class="k">更新日</span><b class="v">2026.11.25</b></div>
+          <div><span class="k">公开状态</span><b class="v">私有仓库<small>不承诺近期公开</small></b></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proj-flow">
+      <div class="toc-rail">
+        <nav class="page-toc" aria-label="页内目录">
+          <a href="#s-02">002 · 它是什么</a>
+          <a href="#s-03">003 · 否决掉什么</a>
+          <a href="#s-04">004 · 怎么用</a>
+          <a href="#s-05">005 · 工程三关</a>
+          <a href="#s-06">006 · 平台状态</a>
+          <a href="#s-07">007 · 能力边界</a>
+          <a href="#s-08">008 · 公开状态</a>
+        </nav>
+      </div>
+
+    <!-- 一、是什么 -->
+    <section class="proj-sec sys-risk" id="s-02">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">II.</span>
+          <span class="meta-grp"><span>是什么 / WHAT IT IS</span><span class="dot-mark">•</span><span>Nº 02 · localotp</span></span>
+          <span>002 / 008</span>
+        </div>
+        <div class="page-narrow">
+          <div class="sys-risk-copy">
+            <span class="label">功能</span>
+            <h2>一个离线的双重验证码保管库<span class="dot">。</span></h2>
+            <p class="lead">本机、离线、加密的 TOTP 保管库。第一次实际保存条目时设主口令，之后重启应用输主口令解锁即用。主界面是「大码双栏」：六位验证码、剩余秒数、复制操作在同一屏上，不用翻页找。</p>
+            <ul class="risk-list">
+              <li><span class="n">01</span><div><b>本地加密保管</b><p>密钥条目全部以密文存在本机一个文件里，主口令只在解锁时进内存，用完即清。</p></div></li>
+              <li><span class="n">02</span><div><b>大码出码</b><p>支持 SHA1 / SHA256 / SHA512、6–8 位、自定义周期的 TOTP 出码，断网也能算。</p></div></li>
+              <li><span class="n">03</span><div><b>导入与备份</b><p>可导入 Aegis JSON、Google Authenticator 迁移链接，识别本地二维码图片，也能导出完整的 <code>.lotp</code> 快照。</p></div></li>
+              <li><span class="n">04</span><div><b>桌面壳层</b><p>托盘常驻、开机自启、全局热键呼出，失焦或隐藏窗口时自动上锁。</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 二、解决什么问题（反白否决区：三级页专属记号） -->
+    <section class="proj-sec sys-veto" id="s-03">
+      <div class="container">
+        <div class="panel">
+          <div class="sys-veto-rule">
+            <span class="roman">III.</span>
+            <span>解决什么问题 / WHY &nbsp;·&nbsp; 否决掉的东西，才说明它是什么</span>
+            <span>003 / 008</span>
+          </div>
+          <h2>验证码这件事，<em>不该</em>经过任何人<span class="dot">。</span></h2>
+          <p class="lead">它要解决的不是「更方便」，而是把 2FA 从云端和手机里拿回来，只留在自己这台电脑上。为此它宁可放弃几样看起来很实用的功能。</p>
+          <div class="veto-rows">
+            <div class="veto-row">
+              <span class="n">一</span>
+              <div><h3>不做账号、不同步、不上传</h3></div>
+              <p>2FA 一上云，第三方就同时握有了你的账号和它的验证码，两道门变成一道。所以这里没有账号体系，没有同步通道，没有任何上传路径。</p>
+            </div>
+            <div class="veto-row">
+              <span class="n">二</span>
+              <div><h3>主口令明确不可恢复</h3></div>
+              <p>「口令丢了想找回」在这个领域只有一条路——留后门。与其偷偷留，不如把「找不回」写在界面上，让你第一次就清楚代价。</p>
+            </div>
+            <div class="veto-row">
+              <span class="n">三</span>
+              <div><h3>桌面端断网也能出码</h3></div>
+              <p>手机不在身边、没信号、没电就登不进去，是这个场景最卡人的一刻。桌面端离线算码，把这条依赖也切断。</p>
+            </div>
+          </div>
+          <blockquote class="veto-quote">安全工具的诚实，是把<span class="mark">「找不回」</span>这件事写在界面上。</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 三、怎么用（sec-rule 减频：本节不再挂页码，编号见右侧目录） -->
+    <section class="proj-sec" id="s-04">
+      <div class="container">
+        <div class="sys-head">
+          <div>
+            <span class="label">日常使用</span>
+            <h2>装上、加条目、设口令、解锁<span class="dot">。</span></h2>
+          </div>
+          <p class="lead">不联网、不注册。下面四步是普通用户的全部动作；技术侧的命令放在最后，只说明作者自己怎么把关，不引导你去 clone。</p>
+        </div>
+        <div class="proj-steps">
+          <div class="method-step">
+            <span class="num">I.</span>
+            <h4>装到本机<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>Windows 上有三种产物：NSIS 安装器、中文 MSI、免安装 exe。三项都还没做代码签名（Authenticode 均为 NotSigned），所以下载后 Windows 会弹未知发布者提示；MSI 的覆盖升级靠固定的 UpgradeCode 与 allowDowngrades=false，装过旧版直接装新版即可。</p>
+          </div>
+          <div class="method-step">
+            <span class="num">II.</span>
+            <h4>加条目<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>点右上角的加号，填名称、账号、密钥；服务方给了恢复码就一起填进去。</p>
+          </div>
+          <div class="method-step">
+            <span class="num">III.</span>
+            <h4>首次保存设主口令<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <p>第一次真正保存时设主口令，设定后保管库以密文落盘在 <code>%APPDATA%\dev.localotp.desktop\vault.lotp</code>。</p>
+          </div>
+          <div class="method-step">
+            <span class="num">IV.</span>
+            <h4>日常解锁</h4>
+            <p>以后每次启动先输主口令解锁；窗口失焦或隐藏就自动上锁，界面回到等待解锁的状态。</p>
+          </div>
+        </div>
+        <div class="method-foot">
+          <span class="left"><span class="ring" aria-hidden="true"></span>作者自用的验证闸门</span>
+          <span class="right">本地跑 <code>pnpm check:env</code>、<code>pnpm verify</code>、<code>pnpm tauri build</code> 三道检查后才出包——列举它们只为说明发布前把关流程，不是让访客去自行构建。</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 四、亮点三关：8/4 不等分双列（首张跨两行），不再三等分 -->
+    <section class="proj-sec sys-gates" id="s-05">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">V.</span>
+          <span class="meta-grp"><span>亮点三关 / CRAFT</span><span class="dot-mark">•</span><span>工程上真正较真的地方</span></span>
+          <span>005 / 008</span>
+        </div>
+        <div class="sys-head">
+          <div>
+            <span class="label">为什么值得单独讲</span>
+            <h2>加密、结构、对拍，三关都过<span class="dot">。</span></h2>
+          </div>
+          <p class="lead">这版最花力气的不是界面，而是它把「安全工具不能出错」这件事拆成三层约束，每一层都有对应的验证手段。</p>
+        </div>
+        <div class="sys-gate-grid">
+          <article class="sys-gate" data-reveal>
+            <figure><img src="/assets/img/plate-lock.svg" loading="lazy" alt="加密落盘示意：口令派生、AAD、原子写与备份轮换" width="800" height="600" decoding="async"></figure>
+            <span class="k">第一关 · 加密</span>
+            <h3>加密不是贴上去的</h3>
+            <p class="sub">Crypto at rest</p>
+            <ul>
+              <li>AES-256-GCM 加密，密钥用 scrypt 派生，且 KDF 参数纳入 AAD。</li>
+              <li>临时文件写入 + 原子发布 + <code>.bak</code> 轮换；首次建库独占创建、不覆盖已有文件。</li>
+              <li>恢复码只随完整 <code>.lotp</code> 保存，不进日志、不进搜索、不随跨应用导出。</li>
+              <li>复制出来的验证码默认 15 秒后被覆盖。</li>
+            </ul>
+            <p class="verdict"><span>口令派生 → 落盘</span><b>全程密文</b></p>
+          </article>
+          <article class="sys-gate" data-reveal>
+            <figure><img src="/assets/img/plate-gate.svg" loading="lazy" alt="结构约束示意：核心层不碰平台 API，schema 为权威" width="800" height="600" decoding="async"></figure>
+            <span class="k">第二关 · 结构</span>
+            <h3>结构约束写死在代码里</h3>
+            <p class="sub">Hard boundaries</p>
+            <ul>
+              <li><code>src/core/*.ts</code> 不 import 任何平台 API，时钟与随机数都从参数注入。</li>
+              <li>Rust 侧只吃不透明 JSON，格式权威在 <code>core/schema.ts</code>。</li>
+              <li>格式变化必须向后兼容，遇到不支持的版本明确报错而不是猜。</li>
+            </ul>
+            <p class="verdict"><span>核心层 ↔ 平台</span><b>单向依赖</b></p>
+          </article>
+          <article class="sys-gate" data-reveal>
+            <figure><img src="/assets/img/plate-pipeline.svg" loading="lazy" alt="两套实现对拍示意：TS 与 Rust 契约测试比对公开向量" width="800" height="600" decoding="async"></figure>
+            <span class="k">第三关 · 对拍</span>
+            <h3>两套实现互相对拍</h3>
+            <p class="sub">Cross-check</p>
+            <ul>
+              <li>TypeScript 内存后端与 Rust 真文件后端跑同一套契约测试。</li>
+              <li><code>scripts/selftest.mjs</code> 是独立第二套实现，对拍 RFC 6238 / 4226 公开测试向量。</li>
+              <li><code>tools/*.ps1</code> 在真窗口里验首启、锁定、恢复码、托盘热键与发版验收。</li>
+            </ul>
+            <p class="verdict"><span>两条实现</span><b>同向量比对</b></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 五、平台状态（sec-rule 减频：本节不挂页码） -->
+    <section class="proj-sec" id="s-06">
+      <div class="container">
+        <div class="sys-head">
+          <div>
+            <span class="label">跨端现状</span>
+            <h2>Windows 能用，其余在编译层<span class="dot">。</span></h2>
+          </div>
+          <p class="lead">桌面端先做 Windows，其它平台目前只到「核心能编译通过」，还没有可交付的应用。</p>
+        </div>
+        <table class="repo-table is-status">
+          <caption>localotp · 平台推进状态（截至 v0.5.0）</caption>
+          <thead>
+            <tr><th scope="col">平台</th><th scope="col">状态</th><th scope="col">推进到哪一步</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Windows</th>
+              <td><span class="st">主开发</span></td>
+              <td>桌面端完整：保管库、托盘、自启、热键、安装包都已就位，是当前唯一可日常使用的平台。</td>
+            </tr>
+            <tr>
+              <th scope="row">macOS</th>
+              <td><span class="st wait">内核已验</span></td>
+              <td>核心与加密在 macOS 上验证通过，但还没有发布对应的应用产物。</td>
+            </tr>
+            <tr>
+              <th scope="row">Android</th>
+              <td><span class="st wait">编译通过</span></td>
+              <td>仅 <code>lotp-store</code>、<code>lotp-aegis</code> 两个 crate 做了多 target 编译并成功，无 UI。</td>
+            </tr>
+            <tr>
+              <th scope="row">iOS</th>
+              <td><span class="st none">待工具链</span></td>
+              <td>同上仅到编译层，再往前需要 Apple 签名与真机工具链才能推进。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 六、边界 -->
+    <section class="proj-sec sys-boundary" id="s-07">
+      <div class="container">
+        <div class="sec-rule">
+          <span class="roman">VII.</span>
+          <span class="meta-grp"><span>边界 / BOUNDARIES</span><span class="dot-mark">•</span><span>做什么，不做什么</span></span>
+          <span>007 / 008</span>
+        </div>
+        <div class="sys-head">
+          <div>
+            <span class="label">能力边界</span>
+            <h2>写清楚它刻意不碰的东西<span class="dot">。</span></h2>
+          </div>
+          <p class="lead">很多「缺的功能」是有意的取舍。下面左列是当前支持的，右列是不在路线图上、或明确拒绝的。</p>
+        </div>
+        <div class="boundary-grid">
+          <div class="boundary-col">
+            <span class="k">支持 / In scope</span>
+            <h3>这版做到</h3>
+            <ul>
+              <li><span class="mark">[✓]</span>离线 TOTP 出码：SHA1 / SHA256 / SHA512，6–8 位，自定义周期</li>
+              <li><span class="mark">[✓]</span>导入 Aegis JSON、Google Authenticator 迁移链接、本地二维码图片（PNG / JPG）</li>
+              <li><span class="mark">[✓]</span>完整 <code>.lotp</code> 快照备份与恢复</li>
+              <li><span class="mark">[✓]</span>托盘、开机自启、全局热键、失焦与隐藏即锁</li>
+              <li><span class="mark">[✓]</span>AES-256-GCM + scrypt 加密，剪贴板默认 15 秒覆盖</li>
+            </ul>
+          </div>
+          <div class="boundary-col no">
+            <span class="k">不在路线图 / Out of scope</span>
+            <h3>刻意不做</h3>
+            <ul>
+              <li><span class="mark">[×]</span>不支持 HOTP / Steam 令牌，非标算法一律不做</li>
+              <li><span class="mark">[×]</span>不做摄像头扫码，只读本地 PNG / JPG 图片</li>
+              <li><span class="mark">[×]</span>无云同步、无账号、无遥测统计、无崩溃上报</li>
+              <li><span class="mark">[×]</span>无「忘记口令找回」——主口令无法找回，恢复码不能解密主库</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 七、公开状态说明（末节 72px；sec-rule 减频：本节不挂页码） -->
+    <section class="proj-sec proj-sec--last" id="s-08">
+      <div class="container page-narrow">
+        <div class="sys-head">
+          <div>
+            <span class="label">关于这个仓库</span>
+            <h2>能讲实现，给不了下载<span class="dot">。</span></h2>
+          </div>
+          <p class="lead">这一节就是免得你在页面里到处找不存在的按钮。</p>
+        </div>
+        <div class="page-note">
+          <b>私有仓库，不对外可见</b>
+          <p>仓库就在 GitHub 上，但设成了 private：源码只有作者能读，v0.5.0 的 tag 与 Release（NSIS / 中文 MSI / 免安装 exe）也只挂在私有仓库里，访客点不开，不提供下载。本页因此不放任何指向该仓库或 Releases 的可点链接。想聊实现细节，走 <a href="/#subscribe">订阅区</a> 的 RSS 或 <a href="https://github.com/EDboy-616">GitHub 主页</a>；可演示截图，但不发安装包。</p>
+          <span class="tail">状态 · 私有仓库 · 不承诺近期公开</span>
+        </div>
+        <div class="last-updated">Last updated <time datetime="2026-11-25">2026.11.25</time></div>
+        <nav class="postnav" aria-label="项目导览">
+          <a rel="prev" href="/projects/finance-daily-v5.html"><span class="dir">← 上一篇 / Nº 01</span><span class="ttl">finance-daily-v5 · 数字不许编</span></a>
+          <a rel="next" href="/projects/tiny-ledger.html"><span class="dir">下一篇 / Nº 03 →</span><span class="ttl">tiny-ledger · 账本不出门</span></a>
+        </nav>
+      </div>
+    </section>
+    </div><!-- /proj-flow：页内目录的 sticky 落位范围到这里为止 -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="brand" aria-label="Edboy 首页">
+            <span class="brand-mark" aria-hidden="true">E</span>
+            <span>Edboy</span>
+          </a>
+          <p>edboy 的自建项目小站：开源工具与私有仓库的陈列。这里是其中一个——本机离线的验证码保管库 localotp。</p>
+        </div>
+        <div class="foot-col">
+          <h5>项目</h5>
+          <ul>
+            <li><a href="/#projects">全部项目</a></li>
+            <li><a href="/#updates">更新</a></li>
+            <li><a href="/#about">技术栈</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>本页</h5>
+          <ul>
+            <li><a href="#s-02">localotp 是什么</a></li>
+            <li><a href="#s-08">公开状态说明</a></li>
+            <li><a href="/projects/tiny-ledger.html">下一篇 tiny-ledger</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>关于</h5>
+          <ul>
+            <li><a href="/#about">关于这个小站</a></li>
+            <li><a href="/#subscribe">订阅更新</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>订阅</h5>
+          <ul>
+            <li><a href="/feed.xml">RSS 订阅</a></li>
+            <li><a href="https://github.com/EDboy-616">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 edboy · 自建项目小站</span>
+        <span class="right"><span>本页项目是 GitHub 上的私有仓库：不对外可见，不提供下载。</span><span><span class="pulse"></span>纸与耐心</span></span>
+      </div>
+      <div class="foot-mega" aria-hidden="true">
+        <div class="word">Edboy<span class="dot">.</span></div>
+        <div class="tagline">项目小站 · 开源工具 · 私有仓库</div>
+      </div>
+    </div>
+  </footer>
+  <button class="to-top" type="button" aria-label="返回顶部" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
+</div>
+
+<script src="/assets/atelier.js?v=20261126-1" defer></script>
+</body>
+</html>

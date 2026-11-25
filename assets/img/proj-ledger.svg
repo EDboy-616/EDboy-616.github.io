@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="tiny-ledger 卡面：手机四页矩阵与环形分类">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
+<style>
+.paper{fill:#f4edda}
+.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.dash{stroke-dasharray:3 5}
+.fill-i{fill:#15140f}
+.fill-i-soft{fill:#15140f;fill-opacity:.5}
+.fill-c{fill:#b4462f}
+.fill-c-soft{fill:#b4462f;fill-opacity:.12}
+.tx-i{fill:#15140f}
+.tx-m{fill:#5a5448}
+.tx-c{fill:#b4462f}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
+.mono-l{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:.12em}
+.serif{font-family:Georgia,'Songti SC','SimSun',serif}
+.card{fill:#faf5e6;fill-opacity:.7;stroke:#15140f;stroke-opacity:.4;stroke-width:1}
+.card-c{fill:#faf5e6;fill-opacity:.7;stroke:#b4462f;stroke-opacity:.55;stroke-width:1}
+.bar{fill:#15140f;fill-opacity:.16}
+.bar-c{fill:#b4462f;fill-opacity:.28}
+.chip{fill:#15140f;fill-opacity:.85}
+.chip-tx{fill:#f4edda}
+@media (prefers-reduced-motion: no-preference){
+.anim-fade{animation:afade .8s ease both}
+.d1{animation-delay:.14s}
+.d2{animation-delay:.28s}
+.d3{animation-delay:.42s}
+.d4{animation-delay:.56s}
+}
+@keyframes afade{from{opacity:0}to{opacity:1}}
+</style>
+<rect width="400" height="500" class="paper"/><rect width="400" height="500" fill="url(#g)"/>
+<g class="frame"><path d="M16 34V16H34"/><path d="M366 16H384V34"/><path d="M16 466V484H34"/><path d="M366 484H384V466"/></g>
+<text x="24" y="30" class="mono tx-i">PL. 04 / TINY LEDGER</text><text x="24" y="45" class="mono tx-m">tiny-ledger · 离线记账</text>
+<rect x="48" y="78" width="130" height="170" rx="12" class="card"/>
+<text x="60" y="100" class="mono tx-i">记账</text>
+<path class="ln-soft" d="M60 108h106"/>
+<path class="bar" d="M60 122h106v6h-106z"/>
+<path class="ln-soft" d="M60 142h90"/>
+<path class="ln-soft" d="M60 160h90"/>
+<path class="ln-soft" d="M60 178h90"/>
+<rect x="218" y="78" width="130" height="170" rx="12" class="card"/>
+<text x="230" y="100" class="mono tx-i">流水</text>
+<path class="ln-soft" d="M230 108h106"/>
+<circle cx="236" cy="124" r="4" class="ln-soft"/>
+<path class="ln-soft" d="M248 127h88"/>
+<circle cx="236" cy="146" r="4" class="ln-soft"/>
+<path class="ln-soft" d="M248 149h88"/>
+<circle cx="236" cy="168" r="4" class="fill-c"/>
+<path class="ln-soft" d="M248 171h88"/>
+<circle cx="236" cy="190" r="4" class="ln-soft"/>
+<path class="ln-soft" d="M248 193h88"/>
+<circle cx="236" cy="212" r="4" class="ln-soft"/>
+<path class="ln-soft" d="M248 215h88"/>
+<rect x="48" y="274" width="130" height="170" rx="12" class="card"/>
+<text x="60" y="296" class="mono tx-i">统计</text>
+<path class="ln-soft" d="M60 304h106"/>
+<circle cx="113" cy="378" r="36" class="ln-soft" fill="none"/>
+<circle cx="113" cy="378" r="36" class="ln-c" fill="none" stroke-dasharray="56 229" stroke-dashoffset="0" stroke-width="4"/>
+<circle cx="113" cy="378" r="36" fill="none" stroke-width="4" class="ln" stroke-dasharray="34 229" stroke-dashoffset="-56"/>
+<circle cx="113" cy="378" r="36" fill="none" stroke-width="4" class="ln" stroke-dasharray="24 229" stroke-dashoffset="-90"/>
+<circle cx="113" cy="378" r="26" class="ln-soft" fill="none"/>
+<rect x="218" y="274" width="130" height="170" rx="12" class="card"/>
+<text x="230" y="296" class="mono tx-i">我的</text>
+<path class="ln-soft" d="M230 304h106"/>
+<rect x="230" y="318" width="106" height="16" class="bar"/>
+<rect x="230" y="342" width="106" height="16" class="bar"/>
+<rect x="230" y="366" width="106" height="16" class="bar"/>
+<rect x="230" y="390" width="106" height="16" class="bar"/>
+<text x="30" y="482" class="mono tx-m">四页结构 / 环形分类 / 无服务端</text>
+</svg>

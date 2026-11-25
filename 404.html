@@ -5,31 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>这个页面不存在 · Edboy</title>
-<meta name="theme-color" content="#f4edda" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
-<!-- 尽早应用配色，避免刷新时闪白 -->
-<script>(function(){var r=document.documentElement,p='auto';try{var s=localStorage.getItem('edboy-theme');if(s==='light'||s==='dark'||s==='auto')p=s}catch(e){}var m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null,sd=!!(m&&m.matches),d=p==='dark'||(p==='auto'&&sd),swap=p!=='auto'&&((p==='dark')!==sd);r.setAttribute('data-theme',d?'dark':'light');r.setAttribute('data-theme-pref',p);if(swap)r.setAttribute('data-theme-swap','');var ms=document.querySelectorAll('meta[name="theme-color"]');if(ms.length){ms[0].removeAttribute('media');ms[0].setAttribute('content',d?'#14120e':'#f4edda');for(var i=1;i<ms.length;i++)ms[i].parentNode.removeChild(ms[i])}})();</script>
+<meta name="theme-color" content="#f4edda">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261117-7">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<noscript><style>
+  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
+  .to-top{display:none!important}
+  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
+</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
 <div class="shell">
+  <div class="top-sentinel" aria-hidden="true"></div>
+
+  <header class="dock" id="siteNav">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="Edboy 首页">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span>Edboy</span>
+        <span class="brand-meta"><b>项目小站</b>自建仓库 · 本机优先</span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="/#projects">项目</a></li>
+          <li><a href="/#updates">更新</a></li>
+          <li><a href="/#about">关于</a></li>
+          <li><a href="/#subscribe">订阅</a></li>
+          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+      <div class="nav-side">
+        <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
+      <ul>
+        <li><a href="/#projects">项目</a></li>
+        <li><a href="/#updates">更新</a></li>
+        <li><a href="/#about">关于</a></li>
+        <li><a href="/#subscribe">订阅</a></li>
+      </ul>
+      <a class="nav-cta" href="https://github.com/EDboy-616">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
   <main id="main">
     <section class="article-top">
       <div class="container">
         <div class="sec-rule">
           <span class="roman">404</span>
           <span class="meta-grp"><span>未找到 / NOT FOUND</span><span class="dot-mark">•</span><span>EDBOY</span></span>
-          <span>—</span>
+          <span>404</span>
         </div>
+        <nav class="crumbs" aria-label="面包屑">
+          <a href="/" class="mid">首页</a>
+          <span class="sep mid" aria-hidden="true">•</span>
+          <span aria-current="page">404 未找到</span>
+        </nav>
         <div class="article-head">
           <span class="label">页面不存在</span>
           <h1 class="article-title">这一页<em>不在</em>这里<span class="dot">。</span></h1>
-          <p class="article-meta">可能是链接写错了，也可能是手记改过地址</p>
+          <p class="article-meta">可能是链接写错了，也可能是项目页换了地址</p>
         </div>
       </div>
     </section>
@@ -37,13 +78,62 @@
     <section class="article-sec">
       <div class="container">
         <article class="article-body">
-          <p>你要找的页面没有找到。从下面回到手记列表，或者直接看最近的一篇。</p>
-          <p><a class="btn btn-primary" href="/#notes">回到手记列表</a></p>
+          <p>你要找的页面没有找到。回到项目陈列，看五个自建仓库（四个有详情页）。</p>
+          <p><a class="btn btn-primary" href="/#projects">回到项目列表</a> <a class="btn btn-ghost" href="/#projects">看开源的两个仓库 →</a></p>
+          <p><a class="back-link" href="/"><span class="arw" aria-hidden="true">←</span>回首页看五个仓库</a></p>
         </article>
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="brand" aria-label="Edboy 首页">
+            <span class="brand-mark" aria-hidden="true">E</span>
+            <span>Edboy</span>
+          </a>
+          <p>手写 HTML 的项目小站。工具做在本机，公开的放在 GitHub。</p>
+        </div>
+        <div class="foot-col">
+          <h5>项目</h5>
+          <ul>
+            <li><a href="/projects/finance-daily-v5.html">金融日报 Skill</a></li>
+            <li><a href="/projects/localotp.html">本机 TOTP 保管库</a></li>
+            <li><a href="/projects/tiny-ledger.html">本机记账</a></li>
+            <li><a href="/projects/work-companion.html">承诺跟踪 Skill</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>阅读</h5>
+          <ul>
+            <li><a href="/#projects">全部项目</a></li>
+            <li><a href="/#updates">近况</a></li>
+            <li><a href="/#about">关于我</a></li>
+            <li><a href="/#subscribe">订阅与数据来源</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>订阅</h5>
+          <ul>
+            <li><a href="/feed.xml">RSS ↗</a></li>
+            <li><a href="https://github.com/EDboy-616">GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 edboy · 独立开发</span>
+        <span class="right"><span>公开 ≠ 开源 ≠ MIT：3 个仓库公开可读，其中两件工具带 MIT，另 2 个是私有仓库。</span><span><span class="pulse"></span>本机优先</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="返回顶部" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
 </div>
 
+<script src="/assets/atelier.js?v=20261126-1" defer></script>
 </body>
 </html>
