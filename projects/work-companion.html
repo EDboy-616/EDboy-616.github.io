@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>work-companion · 别让答应过的事散在对话里 · Edboy</title>
 <meta name="description" content="一个纯提示词的 Agent Skill：把你亲口说的承诺、任务和要盯的跟进记到对话之外的清单文件里，相对日期当场换算成绝对日期。无服务端、不联网，数据只留本机。19 个安装目标，MIT 协议。">
 <meta name="author" content="edboy">
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://EDboy-616.github.io/projects/work-companion.html">
 <link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-12">
 <style>
 /* 本页局部补丁。底座已经给过的一律不再重复，这里只留两类东西：
    ① 底座没有对应规则的行内细节（写在 :where() 里，特异性 0，底座一旦正式定义就让路）；
    ② 与本页结构绑定、不该全站通用的坐标（写成正式规则，注释写明为什么不能进底座）。
    本页原有三条只服务旧首屏骨架的补丁，随首屏改用 .proj-hero 一起删掉了。 */
-:where(.risk-list code,.method-step code,.sys-confirm code,.sys-gate code){font-family:var(--mono);font-size:.85em;padding:.1em .38em;background:var(--paper-warm);border-radius:3px;color:inherit}
+:where(.update-list code,.method-step code,.sys-confirm code,.sys-gate code){font-family:var(--mono);font-size:12px;padding:.1em .38em;background:var(--paper-warm);border-radius:3px;color:inherit}
 /* 正文里的链接：全站只在导航和卡片里定义过链接样式，正文这一段是空的 */
-:where(.article-body a){color:var(--coral-ink);text-decoration:none;border-bottom:1px solid var(--coral-ink);padding-bottom:1px}
+:where(.article-body a){color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:1px}
 /* 通栏图版的上下留白。margin-inline 由底座 .plate-bleed 负责（atelier.css 同名规则），
    这里只补一个没有边距值的轴向，不跟它抢，所以写在 :where() 里。 */
 :where(.plate-bleed){margin-block:44px 0}
@@ -38,35 +38,17 @@
    只有链接吃点击，规则见 atelier.css 的「三级页右侧 sticky 目录」段。本页不再重复定义，也删掉了 .toc-list 那层
    只服务于零高度轨道的包裹元素。 */
 </style>
-<noscript><style>
-  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
-  .to-top{display:none!important}
-  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
-</style></noscript>
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · PROJECT Nº 04</span></div>
-<div class="side-rail left" aria-hidden="true"><span class="rail-text">纯提示词 · 无服务端 · 数据留本机</span></div>
+
 
 <div class="shell">
   <div class="top-sentinel" aria-hidden="true"></div>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span><b>EDBOY / 2026</b></span>
-      <span class="mid">
-        <span>项目 <b class="coral">work-companion</b></span>
-        <span>Agent Skill · 开源</span>
-      </span>
-      <span class="right">
-        <span><span class="pulse"></span>MIT 协议</span>
-        <span>中文</span>
-      </span>
-    </div>
-  </div>
 
-  <header class="dock" id="siteNav">
+  <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
       <a href="/" class="brand" aria-label="Edboy 首页">
         <span class="brand-mark" aria-hidden="true">E</span>
@@ -79,23 +61,25 @@
           <li><a href="/#updates">更新</a></li>
           <li><a href="/#about">关于</a></li>
           <li><a href="/#subscribe">订阅</a></li>
-          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects" aria-current="page">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <main id="main">
@@ -175,7 +159,7 @@
             <p>本体是一段<em>纯提示词</em>：一份 <code>SKILL.md</code>，装进任何遵循 <a href="https://agentskills.io/specification" rel="noopener">Agent Skills 规范</a>的 agent 就能用。要解决的问题只有一个——你在这轮交代的事，下一轮就被上下文滚走了。它把那句话从对话里摘出来，落到一个固定位置：主目录下的 <code>work-companion/commitments.md</code>，不改名、不换位置。</p>
             <p>清单不会写进你当前的项目目录，跨项目共用一份，在哪个仓库里干活读到的都是它。两台电脑不同步，各写各的——这是明确的取舍，不是还没做。</p>
           </div>
-          <ul class="risk-list">
+          <ul class="update-list">
             <li><span class="n">01</span><div><b>当场记下</b><p>你亲口说出承诺、自己的任务，或明确要求盯着某个跟进时，才写进清单。只有这一轮真的写进去了，它才说「我记下了」。</p></div></li>
             <li><span class="n">02</span><div><b>相对日期当场换算</b><p>11 月 16 日（周一）说「周五要交个方案」，落成 <code>2026-11-20</code>。有歧义就反问一次，只问一次，不猜。</p></div></li>
             <li><span class="n">03</span><div><b>被问就列全</b><p>你问「我有什么没做的」，它分「你要做的」和「等对方」两列列完，段内按到期日排。作废的不列，删掉的连提都不提。</p></div></li>
@@ -233,23 +217,23 @@
           <div class="proj-steps">
             <div class="method-step" data-reveal style="--reveal-delay:0ms">
               <div class="num">01</div>
-              <h4>装 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>装 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>一条 <code>npx skills add</code>，或跑仓库里的 install.sh / install.ps1，或在 Claude Code 里添加插件市场。</p>
               <div class="code-block"><code>npx skills add EDboy-616/work-companion</code></div>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:90ms">
               <div class="num">02</div>
-              <h4>正常说话 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>正常说话 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>「周五之前把报告发给他」。它换算出日期、写进清单，并把清单路径告诉你一次。</p>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:180ms">
               <div class="num">03</div>
-              <h4>随时问 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>随时问 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>「我有什么没做的」。要做的与等对方的分两列列全，段内按到期日排。</p>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:270ms">
               <div class="num">04</div>
-              <h4>收尾</h4>
+              <h3>收尾</h3>
               <p>你说「先这样」。有到期项时它在回复末尾提一句；没有就什么都不说。</p>
             </div>
           </div>
@@ -404,7 +388,7 @@ cd work-companion
           <p>手写 HTML 的项目小站。工具做在本机，公开的放在 GitHub。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/projects/finance-daily-v5.html">金融日报 Skill</a></li>
             <li><a href="/projects/localotp.html">本机 TOTP 保管库</a></li>
@@ -413,7 +397,7 @@ cd work-companion
           </ul>
         </div>
         <div class="foot-col">
-          <h5>阅读</h5>
+          <h2 class="foot-head">阅读</h2>
           <ul>
             <li><a href="/#projects">全部项目</a></li>
             <li><a href="/#updates">近况</a></li>
@@ -422,7 +406,7 @@ cd work-companion
           </ul>
         </div>
         <div class="foot-col">
-          <h5>源码</h5>
+          <h2 class="foot-head">源码</h2>
           <ul>
             <li><a href="https://github.com/EDboy-616/finance-daily-v5" rel="noopener">finance-daily-v5 ↗</a></li>
             <li><a href="https://github.com/EDboy-616/work-companion" rel="noopener">work-companion ↗</a></li>
@@ -430,7 +414,7 @@ cd work-companion
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/feed.xml">RSS ↗</a></li>
             <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub ↗</a></li>
@@ -453,6 +437,6 @@ cd work-companion
   </button>
 </div>
 
-<script src="/assets/atelier.js?v=20261126-1" defer></script>
+<script src="/assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>

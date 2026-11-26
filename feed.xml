@@ -12,12 +12,12 @@
   <atom:link href="https://EDboy-616.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
-    <title>2026.11.26 · 只留浅色 + Dock 常驻 + 详情页换骨架</title>
+    <title>2026.11.26 · 暖白编辑式视觉改版</title>
     <link>https://EDboy-616.github.io/#updates</link>
-    <guid isPermaLink="true">https://EDboy-616.github.io/?ref=rss#updates</guid>
+    <guid isPermaLink="true">https://EDboy-616.github.io/?ref=rss-redesign#updates</guid>
     <pubDate>Thu, 26 Nov 2026 12:00:00 GMT</pubDate>
     <category>站内</category>
-    <description>四件事一起收口：一、拆掉深色模式与顶部三态配色开关，全站只保留浅色；二、导航改成常驻 Dock，向下滚动不再收起，滚过顶栏（topbar）后才切半透亚克力态；三、右下角加「回到顶部」按钮，长页滚动一屏后淡入；四、四个项目详情页换骨架——窄栏正文、首屏下方通栏规格条、面包屑返回入口、上下篇改语义 rel=prev/next 且缺侧留空，不再连成环。</description>
+    <description>保留项目站的信息架构与全部功能，把视觉语言换成暖白、terracotta 与衬线标题的编辑式系统；导航改为原生 details 降级，详情页、SVG 图纸、静态检查器与响应式验收同步重整。</description>
   </item>
 
   <item>
@@ -59,7 +59,7 @@
   <item>
     <title>本站改版：从交易手记换成项目小站</title>
     <link>https://EDboy-616.github.io/#updates</link>
-    <guid isPermaLink="true">https://EDboy-616.github.io/?ref=rss#updates</guid>
+    <guid isPermaLink="true">https://EDboy-616.github.io/?ref=rss-site-pivot#updates</guid>
     <pubDate>Wed, 25 Nov 2026 12:00:00 GMT</pubDate>
     <category>站内</category>
     <description>旧的交易手记内容全部下线，首页改成五个自建仓库的陈列页；配图全部重画，纸底、印章、浅色视觉体系保持不变。</description>

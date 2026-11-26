@@ -1,40 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edboy · 开源项目与工具</title>
 <meta name="description" content="edboy 的 GitHub 项目小站：本地优先的工具与 Agent Skill。5 个自建仓库里 3 个公开可读，其中 2 个开源工具带 MIT，另 2 个是私有仓库。">
 <meta name="author" content="edboy">
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://EDboy-616.github.io/">
 <link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/atelier.css?v=20261126-1">
-<noscript><style>[data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}.to-top{display:none!important}@media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}</style></noscript>
+<link rel="stylesheet" href="assets/atelier.css?v=20261126-12">
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · 独立开发</span></div>
-<div class="side-rail left" aria-hidden="true"><span class="rail-text">本地 · 离线 · 可交接 · 少依赖 · MIT</span></div>
+
 
 <div class="shell">
   <div class="top-sentinel" aria-hidden="true"></div>
-  <div class="topbar" data-od-id="topbar">
-    <div class="container topbar-inner">
-      <span><b>EDBOY / 2026</b></span>
-      <span class="mid">
-        <span>归档于 <b class="coral">开源工具 · Agent Skill · 私有仓库</b></span>
-      </span>
-      <span class="right">
-        <span><span class="pulse"></span>有更新就推</span>
-        <span>中文</span>
-      </span>
-    </div>
-  </div>
 
   <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
@@ -52,20 +39,22 @@
         </ul>
       </nav>
       <div class="nav-side">
-        <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <main id="main">
@@ -189,12 +178,12 @@
           <p class="meta">↳ <a class="link-cta" href="/feed.xml">feed.xml（RSS 2.0） <span aria-hidden="true">↗</span></a></p>
           <p class="lead">不定时发，只记真发生了的事：版本、边界改动、还有这次改版。同步进 feed.xml，订了 RSS 就能看到。</p>
         </div>
-        <ul class="risk-list" data-reveal>
+        <ul class="update-list" data-reveal>
           <li><span class="n">01</span><div><b>2026.11.25 · localotp 0.5.0</b><p>Windows 安装包可以双击装了；保管层做了两套后端，各自带契约测试。</p><a class="link-cta" href="/projects/localotp.html" aria-label="看详情：localotp 0.5.0">看详情 <span aria-hidden="true">→</span></a></div></li>
           <li><span class="n">02</span><div><b>2026.11.20 · tiny-ledger 5.11.21</b><p>导入前先校验格式并自动备份；一旦写入失败就整次回滚，不再留下半张账本。</p><a class="link-cta" href="/projects/tiny-ledger.html" aria-label="看详情：tiny-ledger 5.11.21">看详情 <span aria-hidden="true">→</span></a></div></li>
           <li><span class="n">03</span><div><b>2026.11.16 · work-companion</b><p>README 补上「刻意不做什么」表，写清砍掉的特性与原因；安装目标到 19 个宿主。</p><a class="link-cta" href="/projects/work-companion.html" aria-label="看详情：work-companion">看详情 <span aria-hidden="true">→</span></a></div></li>
           <li><span class="n">04</span><div><b>2026.11.14 · finance-daily-v5</b><p>接入 agentskills.io 开放规范，安装目标到 15 个；三条数据铁律写进 SKILL.md。</p><a class="link-cta" href="/projects/finance-daily-v5.html" aria-label="看详情：finance-daily-v5">看详情 <span aria-hidden="true">→</span></a></div></li>
-          <li><span class="n">05</span><div><b>2026.11.25 · 本站改版</b><p>旧的交易手记内容下线，首页改成项目陈列；图纸全部重画，纸感视觉体系不动。</p><a class="link-cta" href="https://github.com/EDboy-616/EDboy-616.github.io" aria-label="看源码：本站仓库">看源码 <span aria-hidden="true">↗</span></a></div></li>
+          <li><span class="n">05</span><div><b>2026.11.25 · 本站改版</b><p>首页继续做项目陈列；视觉语言换成暖白编辑式，图纸与交互同步重整。</p><a class="link-cta" href="https://github.com/EDboy-616/EDboy-616.github.io" aria-label="看源码：本站仓库">看源码 <span aria-hidden="true">↗</span></a></div></li>
         </ul>
       </div>
     </section>
@@ -272,7 +261,7 @@
           <p>手写 HTML 的项目小站。工具做在本机，公开的放在 GitHub。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/projects/finance-daily-v5.html">金融日报 Skill</a></li>
             <li><a href="/projects/localotp.html">本机 TOTP 保管库</a></li>
@@ -281,7 +270,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>关于</h5>
+          <h2 class="foot-head">关于</h2>
           <ul>
             <li><a href="/#about">关于我</a></li>
             <li><a href="/#updates">近况</a></li>
@@ -289,7 +278,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>源码</h5>
+          <h2 class="foot-head">源码</h2>
           <ul>
             <li><a href="https://github.com/EDboy-616/finance-daily-v5">finance-daily-v5 ↗</a></li>
             <li><a href="https://github.com/EDboy-616/work-companion">work-companion ↗</a></li>
@@ -297,7 +286,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/feed.xml">RSS ↗</a></li>
             <li><a href="https://github.com/EDboy-616">GitHub ↗</a></li>
@@ -321,6 +310,6 @@
 </div>
 
 
-<script src="assets/atelier.js?v=20261126-1" defer></script>
+<script src="assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>

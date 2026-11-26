@@ -1,29 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="本站卡面：纸面页面结构线框，手写 HTML 无构建">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="768" height="960" role="img" aria-label="本站卡面：暖白编辑式页面结构线框，手写 HTML 无构建">
 <defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path class="grid" d="M20 0H0V20"/></pattern></defs>
 <style>
-.paper{fill:#f4edda}
-.grid{stroke:#15140f;stroke-opacity:.05;fill:none}
-.frame{fill:none;stroke:#15140f;stroke-opacity:.55;stroke-width:1}
-.ln{fill:none;stroke:#15140f;stroke-opacity:.8;stroke-width:1.1}
-.ln-soft{fill:none;stroke:#15140f;stroke-opacity:.36;stroke-width:.9}
-.ln-c{fill:none;stroke:#b4462f;stroke-width:1.5}
+.paper{fill:#fafaf7}
+.grid{stroke:#1a1916;stroke-opacity:.05;fill:none}
+.frame{fill:none;stroke:#1a1916;stroke-opacity:.55;stroke-width:1}
+.ln{fill:none;stroke:#1a1916;stroke-opacity:.8;stroke-width:1.1}
+.ln-soft{fill:none;stroke:#1a1916;stroke-opacity:.36;stroke-width:.9}
+.ln-c{fill:none;stroke:#a34c33;stroke-width:1.5}
 .dash{stroke-dasharray:3 5}
-.fill-i{fill:#15140f}
-.fill-i-soft{fill:#15140f;fill-opacity:.5}
-.fill-c{fill:#b4462f}
-.fill-c-soft{fill:#b4462f;fill-opacity:.12}
-.tx-i{fill:#15140f}
-.tx-m{fill:#5a5448}
-.tx-c{fill:#b4462f}
+.fill-i{fill:#1a1916}
+.fill-i-soft{fill:#1a1916;fill-opacity:.5}
+.fill-c{fill:#a34c33}
+.fill-c-soft{fill:#a34c33;fill-opacity:.12}
+.tx-i{fill:#1a1916}
+.tx-m{fill:#6b6964}
+.tx-c{fill:#a34c33}
 .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5px;letter-spacing:.09em}
 .mono-l{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:.12em}
 .serif{font-family:Georgia,'Songti SC','SimSun',serif}
-.card{fill:#faf5e6;fill-opacity:.7;stroke:#15140f;stroke-opacity:.4;stroke-width:1}
-.card-c{fill:#faf5e6;fill-opacity:.7;stroke:#b4462f;stroke-opacity:.55;stroke-width:1}
-.bar{fill:#15140f;fill-opacity:.16}
-.bar-c{fill:#b4462f;fill-opacity:.28}
-.chip{fill:#15140f;fill-opacity:.85}
-.chip-tx{fill:#f4edda}
+.card{fill:#ffffff;fill-opacity:.7;stroke:#1a1916;stroke-opacity:.4;stroke-width:1}
+.card-c{fill:#ffffff;fill-opacity:.7;stroke:#a34c33;stroke-opacity:.55;stroke-width:1}
+.bar{fill:#1a1916;fill-opacity:.16}
+.bar-c{fill:#a34c33;fill-opacity:.28}
+.chip{fill:#1a1916;fill-opacity:.85}
+.chip-tx{fill:#fafaf7}
 @media (prefers-reduced-motion: no-preference){
 .anim-fade{animation:afade .8s ease both}
 .d1{animation-delay:.14s}
@@ -47,7 +47,7 @@
 <rect x="122" y="204" width="44" height="40" class="ln-soft" fill="none"/>
 <rect x="174" y="204" width="44" height="40" class="ln-soft" fill="none"/>
 <rect x="226" y="204" width="44" height="40" class="ln-soft" fill="none"/>
-<text x="122" y="262" class="mono tx-c">focus</text>
+<text x="122" y="262" class="mono tx-c">filter</text>
 <rect x="122" y="270" width="156" height="46" class="bar-c"/>
 <text x="122" y="334" class="mono tx-c">updates</text>
 <path class="ln-soft" d="M122 344h156"/>
@@ -60,7 +60,7 @@
 <path class="ln-c dash" d="M290 214h34"/>
 <text x="330" y="217" class="mono tx-m" text-anchor="middle">卡片网格</text>
 <path class="ln-c dash" d="M290 340h34"/>
-<text x="330" y="343" class="mono tx-m" text-anchor="middle">更新 .risk-list</text>
+<text x="330" y="343" class="mono tx-m" text-anchor="middle">更新 .update-list</text>
 <path class="ln-soft" d="M70 130h-40M70 214h-40M70 340h-40"/>
-<text x="30" y="470" class="mono tx-m">三态配色 · E. 印章 · 无外部依赖</text>
+<text x="30" y="470" class="mono tx-m">单一浅色 · E. 印章 · 无外部依赖</text>
 </svg>

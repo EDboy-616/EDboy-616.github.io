@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>金融日报 · 数字不许编。 · Edboy 项目</title>
 <meta name="description" content="finance-daily-v5：一个跨宿主 Agent Skill。对 AI agent 说一句「金融日报」，它采集公开行情、检索权威媒体，产出 13 个固定板块的报刊风日报。硬行情走零依赖的 Python 标准库脚本，取不到就撤下或标「待核」，禁止编造数字。">
 <meta name="author" content="edboy">
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://EDboy-616.github.io/projects/finance-daily-v5.html">
 <link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-12">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
 {"@type":"ListItem","position":1,"name":"首页","item":"https://EDboy-616.github.io/"},
@@ -25,45 +25,27 @@
    页内目录 .page-toc、节间距 .proj-sec、文末导览 .last-updated + .postnav
    全部走 atelier.css 的公共定义，这里只补公共样式没覆盖的本页局部刻度。 */
 /* 四步横条破栏后每列也只有约 270px 宽，命令块在本页收紧一档字号与上间距，其余用公共定义 */
-.method-step .code-block{margin-top:12px;font-size:11.5px}
+.method-step .code-block{margin-top:12px;font-size:12px}
 /* 全站只给 .article-body code 上了行内代码样式，这几个区块的行内代码补同一套 */
-.risk-list code,.sys-gate code,.boundary-col code{font-family:var(--mono);font-size:.85em;padding:.1em .38em;background:var(--paper-warm);border-radius:3px}
+.update-list code,.sys-gate code,.boundary-col code{font-family:var(--mono);font-size:12px;padding:.1em .38em;background:var(--paper-warm);border-radius:3px}
 /* 反白区块固定色：.sys-veto 面板永远是深底浅字的设计，不跟任何配色变量走，
    所以里面的行内代码块写死纸色半透底 + --night-fg 文字 */
-.sys-veto code{font-family:var(--mono);font-size:.85em;padding:.1em .38em;border-radius:3px;background:rgba(250,245,230,.12);color:var(--night-fg)}
+.sys-veto code{font-family:var(--mono);font-size:12px;padding:.1em .38em;border-radius:3px;background:rgba(250,245,230,.12);color:var(--night-fg)}
 /* 规格条在本页要通栏压在首屏底线之上，所以让它横跨首屏的 8:4 两列 */
 .proj-hero>.meta-strip{grid-column:1/-1;margin-top:34px}
 /* 首屏的「← 全部项目」独占一行、页内目录的 .proj-flow / .toc-rail 轨道都已收进底座
    （atelier.css 的 .proj-hero-copy 段与「三级页右侧 sticky 目录」段），本页不再手抄补丁。 */
 </style>
-<noscript><style>
-  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
-  .to-top{display:none!important}
-  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
-</style></noscript>
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · PROJECT Nº 01</span></div>
-<div class="side-rail left" aria-hidden="true"><span class="rail-text">公开数据 · 可核来源 · 标准库取数</span></div>
+
 
 <div class="shell">
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span><b>EDBOY / 2026</b></span>
-      <span class="mid">
-        <span>项目 <b class="coral">finance-daily-v5</b></span>
-        <span>Agent Skill · 开源</span>
-      </span>
-      <span class="right">
-        <span><span class="pulse"></span>MIT 协议</span>
-        <span>中文</span>
-      </span>
-    </div>
-  </div>
 
-  <header class="dock" id="siteNav">
+  <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
       <a href="/" class="brand" aria-label="Edboy 首页">
         <span class="brand-mark" aria-hidden="true">E</span>
@@ -76,23 +58,25 @@
           <li><a href="/#updates">更新</a></li>
           <li><a href="/#about">关于</a></li>
           <li><a href="/#subscribe">订阅</a></li>
-          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <div class="top-sentinel" aria-hidden="true"></div>
@@ -166,7 +150,7 @@
             <p>它由两部分组成：一份给 agent 读的 <code>SKILL.md</code>，和一组取数脚本。<code>SKILL.md</code> 把流程写死——取数、复核、排版、按宿主能力交付；<code>scripts/fetch_public.py</code> 负责硬行情，只用 Python 标准库，不需要 API Key，也不接付费数据源。</p>
             <p>版面固定为 13 个板块：价格速览条、头版、宏观与政策、国际与央行、汇率、行业扫描、资金流向、机构观点、今日关注、数据说明、页脚等。板块固定不是为了好看，是为了让今天的日报能跟昨天的日报逐栏对齐——版式一变，比较就失效了。</p>
           </div>
-          <ul class="risk-list" data-reveal>
+          <ul class="update-list" data-reveal>
             <li><span class="n">01</span><div><b>一个 Agent Skill</b><p>遵循 agentskills.io 开放规范。<code>SKILL.md</code> 是唯一事实源，各宿主的适配文件由 <code>build_adapters.py</code> 从它生成，不手改生成物。</p></div></li>
             <li><span class="n">02</span><div><b>零 API Key</b><p>行情走公开接口：新浪报价、美国财政部 CSV、CNBC 公开价。渲染 3x 长图才另需 playwright、pillow 与 chromium；缺依赖就只交 HTML，不擅自装包。</p></div></li>
             <li><span class="n">03</span><div><b>15 个安装目标</b><p>14 个可由脚本安装——Claude Code、Codex CLI、Copilot、Gemini CLI、Qwen Code、Cursor 等；第 15 个是纯对话宿主（GPTs、Kimi、豆包一类），只能粘贴系统提示词。</p></div></li>
@@ -220,25 +204,25 @@
             <div class="proj-steps">
               <div class="method-step" data-reveal style="--reveal-delay:0ms">
                 <div class="num">01</div>
-                <h4>装 Skill <span class="arrow-r" aria-hidden="true">→</span></h4>
+                <h3>装 Skill <span class="arrow-r" aria-hidden="true">→</span></h3>
                 <p>先用 <code>install.py --list</code> 看 15 个落点，再挑一个装进当前项目，或者装到个人级目录。</p>
                 <pre class="code-block"><code>python scripts/install.py --target claude</code></pre>
               </div>
               <div class="method-step" data-reveal style="--reveal-delay:90ms">
                 <div class="num">02</div>
-                <h4>说触发词 <span class="arrow-r" aria-hidden="true">→</span></h4>
+                <h3>说触发词 <span class="arrow-r" aria-hidden="true">→</span></h3>
                 <p>注入式宿主里说这四个字就自动跑完整流程；走原生 skills 目录的宿主需要显式调用，或者用 <code>gh skill install</code>。</p>
                 <pre class="code-block"><code>金融日报<span class="c">   # 对装了它的 agent 说</span></code></pre>
               </div>
               <div class="method-step" data-reveal style="--reveal-delay:180ms">
                 <div class="num">03</div>
-                <h4>等产出 <span class="arrow-r" aria-hidden="true">→</span></h4>
+                <h3>等产出 <span class="arrow-r" aria-hidden="true">→</span></h3>
                 <p>能跑命令就有 HTML，装了 Playwright 就多一张 3x 长图。缺什么降什么档，并在页面里注明。</p>
                 <pre class="code-block"><code>outputs/market_news_20261112.html<span class="c">  # 网页必交</span></code></pre>
               </div>
               <div class="method-step" data-reveal style="--reveal-delay:270ms">
                 <div class="num">04</div>
-                <h4>核来源</h4>
+                <h3>核来源</h3>
                 <p>产出同时落一份结构化 JSON，每个字段带 <code>src</code> 与 <code>status</code>。对某个数字有疑问，先看这里；想单独验数据源连通性就自己跑一遍脚本。</p>
                 <pre class="code-block"><code>python scripts/fetch_public.py --date 2026-11-12 --out-dir ./raw</code></pre>
               </div>
@@ -351,7 +335,7 @@
             <h2 class="display">改一处，<em>闸门</em>就响一声<span class="dot">。</span></h2>
             <p class="lead">这个仓库会被别的 agent 接手，所以规矩写在 CI 里，不写在记忆里。</p>
           </div>
-          <ul class="risk-list" data-reveal>
+          <ul class="update-list" data-reveal>
             <li><span class="n">01</span><div><b>GitHub Actions 自检闸门</b><p><code>.github/workflows/verify.yml</code> 在 ubuntu 与 windows 双矩阵上跑：规范校验、适配层漂移检查、四个脚本 smoke、claude.ai 上传包打包。README 顶部的 CI 徽章就指向这个 workflow。</p></div></li>
             <li><span class="n">02</span><div><b>MIT 协议</b><p>仓库根目录有 LICENSE，GitHub 上登记的许可证是 MIT。可以自用、可以改、可以拿去再做一份适配，只要保留版权声明。</p></div></li>
             <li><span class="n">03</span><div><b>HANDOFF.md 交接文档</b><p>写给接手的 agent：项目状态、架构约定、验证方法、待办事项。README 开头一条 NOTE 直接指过去。</p></div></li>
@@ -386,7 +370,7 @@
           <p>edboy 的 GitHub 项目小站。陈列 5 个自建仓库，其中 2 个开源工具；每个值得讲的项目单独一页，写清做什么、不做什么、怎么验。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/#projects">全部项目</a></li>
             <li><a href="/projects/finance-daily-v5.html">金融日报</a></li>
@@ -394,14 +378,14 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>更新</h5>
+          <h2 class="foot-head">更新</h2>
           <ul>
             <li><a href="/#updates">更新记录</a></li>
             <li><a href="/#about">关于</a></li>
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/feed.xml">RSS 订阅</a></li>
             <li><a href="/#subscribe">订阅方式</a></li>
@@ -409,7 +393,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>说明</h5>
+          <h2 class="foot-head">说明</h2>
           <ul>
             <li><a href="/404.html">找不到页面</a></li>
             <li><a href="/#about">作者与边界</a></li>
@@ -432,6 +416,6 @@
   </button>
 </div>
 
-<script src="/assets/atelier.js?v=20261126-1" defer></script>
+<script src="/assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>

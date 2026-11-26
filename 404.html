@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>这个页面不存在 · Edboy</title>
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
-<noscript><style>
-  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
-  .to-top{display:none!important}
-  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
-</style></noscript>
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-12">
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -22,7 +18,7 @@
 <div class="shell">
   <div class="top-sentinel" aria-hidden="true"></div>
 
-  <header class="dock" id="siteNav">
+  <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
       <a href="/" class="brand" aria-label="Edboy 首页">
         <span class="brand-mark" aria-hidden="true">E</span>
@@ -31,27 +27,29 @@
       </a>
       <nav class="desktop-nav" aria-label="主导航">
         <ul class="nav-links">
-          <li><a href="/#projects">项目</a></li>
+          <li><a href="/#projects" aria-current="page">项目</a></li>
           <li><a href="/#updates">更新</a></li>
           <li><a href="/#about">关于</a></li>
           <li><a href="/#subscribe">订阅</a></li>
-          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <main id="main">
@@ -79,7 +77,7 @@
       <div class="container">
         <article class="article-body">
           <p>你要找的页面没有找到。回到项目陈列，看五个自建仓库（四个有详情页）。</p>
-          <p><a class="btn btn-primary" href="/#projects">回到项目列表</a> <a class="btn btn-ghost" href="/#projects">看开源的两个仓库 →</a></p>
+          <p><a class="btn btn-primary" href="/#projects">回到项目列表</a> <a class="btn btn-ghost" href="https://github.com/EDboy-616/finance-daily-v5">finance-daily-v5 ↗</a> <a class="btn btn-ghost" href="https://github.com/EDboy-616/work-companion">work-companion ↗</a></p>
           <p><a class="back-link" href="/"><span class="arw" aria-hidden="true">←</span>回首页看五个仓库</a></p>
         </article>
       </div>
@@ -97,7 +95,7 @@
           <p>手写 HTML 的项目小站。工具做在本机，公开的放在 GitHub。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/projects/finance-daily-v5.html">金融日报 Skill</a></li>
             <li><a href="/projects/localotp.html">本机 TOTP 保管库</a></li>
@@ -106,7 +104,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>阅读</h5>
+          <h2 class="foot-head">阅读</h2>
           <ul>
             <li><a href="/#projects">全部项目</a></li>
             <li><a href="/#updates">近况</a></li>
@@ -115,7 +113,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/feed.xml">RSS ↗</a></li>
             <li><a href="https://github.com/EDboy-616">GitHub ↗</a></li>
@@ -134,6 +132,6 @@
   </button>
 </div>
 
-<script src="/assets/atelier.js?v=20261126-1" defer></script>
+<script src="/assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>

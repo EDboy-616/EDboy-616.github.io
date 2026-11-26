@@ -1,35 +1,36 @@
 # Edboy · 开源项目小站
 
-一个手写 HTML 的静态站：首页是纸感杂志式长页，陈列作者自建的 5 个仓库
+一个手写 HTML 的静态站：首页是暖白编辑式长页，陈列作者自建的 5 个仓库
 （3 个公开可读，其中 2 个开源工具带 MIT；2 个 GitHub 私有仓库），每个值得讲的项目
 有一页独立详情。无构建工具、无框架、无 Google Fonts（国内加载不出来），全站只有系统字体。
 
 > **接着开发先看 [`从这里继续.md`](从这里继续.md)** —— 写给作者本人的继续指南：
 > 改哪里、怎么加项目页、发布链路怎么走。技术细节见本文件。
 
-固定导航六项，每个页面都要和它一致：
-**项目 `/#projects` · 精选 `/#focus` · 更新 `/#updates` · 技术栈 `/#stack` · 关于 `/#about` · 订阅 `/#subscribe`**。
+固定导航四项，每个页面都要和它一致：
+**项目 `/#projects` · 更新 `/#updates` · 关于 `/#about` · 订阅 `/#subscribe`**。
 
 ## 文件结构
 
 ```
 .
-├── index.html          首页（封面 / 项目 / 精选 / 怎么做 / 更新 / 技术栈 / 关于 / 订阅）
+├── index.html          首页（封面 / 项目 / 更新 / 关于 / 订阅）
 ├── projects/
 │   ├── finance-daily-v5.html   金融日报 Agent Skill 详情页（开源）
 │   ├── work-companion.html     工作伴侣 Agent Skill 详情页（开源）
 │   ├── localotp.html           本机 TOTP 保管库 详情页（私有仓库）
 │   └── tiny-ledger.html        轻量记账 详情页（私有仓库）
 ├── 404.html            找不到页面时显示
-├── feed.xml            RSS 订阅源（5 条条目，绝对 URL）
+├── feed.xml            RSS 订阅源（6 条条目，绝对 URL）
 ├── favicon.ico         旧浏览器兜底图标（16 / 32 / 48）
 ├── assets/
 │   ├── atelier.css     全站样式，换配色改顶部 :root 变量；首页用 .lab*，
 │   │                   详情页统一 .proj-*（.proj-hero / .proj-sec / .proj-plate 等）
 │   ├── atelier.js      滚动渐显、导航亚克力常驻、项目筛选、回到顶部
-│   ├── favicon.svg     站点图标（墨色底 + 纸色 E.），另有 32px PNG 与 apple-touch 尺寸
+│   ├── favicon.svg     站点图标（深墨底 + 米白 E.），另有 32px PNG 与 apple-touch 尺寸
 │   └── img/            12 张图纸 SVG（首页首屏 cover.svg + 项目页 proj-*.svg 等），
-│                       单套浅色、无强制配色副本
+│                       单套暖白浅色、无强制配色副本
+├── tools/check-site.mjs 静态检查器（页面、资源、SEO、导览、缓存版本、RSS、SVG 术语）
 ├── 开工前先双击这个.bat        开工：从 GitHub 拉最新
 ├── 发布博客.bat                收工：推回 GitHub，一两分钟后线上生效
 ├── 在家第一次用-双击这个.bat    新电脑首次配置
@@ -61,7 +62,7 @@
 
 新配图做成 SVG 放进 `assets/img/`：全站只有浅色一套，配色直接写在 SVG 文件开头的 `<style>` 里，
 **不再存 `xxx-light.svg` / `xxx-dark.svg` 副本，也不要在 `<style>` 里写 `prefers-color-scheme`**——
-系统深色下页面保持纸色，图纸跟着不变黑。
+系统深色下页面保持暖白，图纸跟着不变黑。
 **首屏之外**的图片一律写 `loading="lazy"`；首页的 `cover.svg` 与各详情页首屏的
 `proj-*.svg` 不写 lazy（要第一时间出来），只写 `decoding="async"`。
 `width` / `height` 照 SVG 文件自带的固有尺寸写：`proj-*.svg` 是 768×960（4:5）、
@@ -76,7 +77,7 @@
   `proj-*.svg`（其余区块滚动到才取）。全站只有浅色一套，每页每张图都只引一份 base SVG，
   页面里不会并排放两套。
 - **改 `atelier.css` / `atelier.js` 必须全站同步 `?v=`**，版本号统一定为
-  **`v=20261126-1`**；漏改某一页，那一页的读者会继续看到旧缓存。
+  **`v=20261126-12`**；漏改某一页，那一页的读者会继续看到旧缓存。
   详情页与 `404.html` 引用样式一律写绝对路径 `/assets/`；只有 `index.html` 用相对路径
   `assets/`，为的是直接双击也能看。
 
@@ -86,6 +87,12 @@
 
 ```bash
 py -m http.server 8123
+```
+
+改完先跑静态检查，再开浏览器看页面：
+
+```bash
+node tools/check-site.mjs
 ```
 
 这台机器上 `python` 是 Microsoft Store 的占位程序，跑 `python -m http.server` 会报

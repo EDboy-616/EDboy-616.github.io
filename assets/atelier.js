@@ -5,6 +5,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   /* 减弱动效偏好（prefers-reduced-motion）完全由 CSS 负责，见 atelier.css 里
      @media (prefers-reduced-motion:reduce) 那条块：html{scroll-behavior:auto} 让程序化
      滚动退化为瞬移，[data-reveal] 直接显形并去掉过渡。JS 这边不再读该偏好。 */
@@ -15,26 +17,24 @@
      实测两块都在进屏 58px 时显形），矮块保留 12% 原手感。高度在挂观察器时量一次
      （内容后续被图片撑高的块，触发点会略偏晚，不影响最终显形）。 */
   var revealItems = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-  var REVEAL_RATIO = 0.12;
-  var TALL_FRAC = 0.6;
   if (!('IntersectionObserver' in window)) {
     revealItems.forEach(function (el) { el.dataset.revealed = 'true'; });
   } else {
     revealItems.forEach(function (el) {
-      var h = el.getBoundingClientRect().height || 1;
-      var t = h > window.innerHeight * TALL_FRAC ? 0 : REVEAL_RATIO;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          /* 双条件：isIntersecting 在某些浏览器的首帧回调里只看「有没有相交」，
-             不看阈值，补一道 ratio 判断保证按 t 起跳 */
-          if (entry.isIntersecting && entry.intersectionRatio >= t) {
+          if (entry.isIntersecting) {
             entry.target.dataset.revealed = 'true';
             io.disconnect();
           }
         });
-      }, { threshold: t, rootMargin: '0px 0px -6% 0px' });
+      }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
       io.observe(el);
     });
+    /* 锚点跳转或快速滚动可能越过某些元素；兜底显形，避免正文永久不可见。 */
+    window.setTimeout(function () {
+      revealItems.forEach(function (el) { el.dataset.revealed = 'true'; });
+    }, 2500);
   }
 
   /* ---- Dock：常驻顶栏，只做「贴住视口顶之后转亚克力」这一件事 ----
@@ -44,11 +44,10 @@
      所以量出来用，并在 resize 时重算；取不到（窄屏 .topbar 退场、高度为 0）就退回 38。
      滚动方向判定与「收起 / 展开」逻辑已删：Dock 永不消失，pointer-events 永不为 none。 */
   var nav = document.getElementById('siteNav');
-  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.querySelector('.mobile-nav');
   var mobileMenu = document.getElementById('mobileMenu');
   var topbar = document.querySelector('.topbar');
   var dockEdge = 38;
-  var menuOpen = false;
 
   function measureDockEdge() {
     if (!topbar) return;
@@ -68,32 +67,26 @@
   }
 
   function setMenu(open) {
-    if (!mobileMenu || !navToggle) return;
-    menuOpen = open;
-    mobileMenu.hidden = !open;
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.textContent = open ? '关闭' : '目录';
-    if (open) {
-      var first = mobileMenu.querySelector('a');
-      if (first) first.focus();
-    }
+    if (!mobileNav || !mobileMenu) return;
+    mobileNav.open = open;
   }
-  if (navToggle && mobileMenu) {
-    navToggle.addEventListener('click', function () { setMenu(mobileMenu.hidden); });
-    Array.prototype.forEach.call(mobileMenu.querySelectorAll('a'), function (a) {
-      a.addEventListener('click', function () { setMenu(false); });
+  if (mobileNav && mobileMenu) {
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
     });
     document.addEventListener('click', function (e) {
-      if (!menuOpen) return;
-      if (mobileMenu.contains(e.target) || navToggle.contains(e.target)) return;
-      setMenu(false);
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 880 && menuOpen) setMenu(false);
-      syncNav();
+      if (mobileNav.open && !mobileNav.contains(e.target)) setMenu(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menuOpen) { setMenu(false); navToggle.focus(); }
+      if (e.key === 'Escape' && mobileNav.open) {
+        setMenu(false);
+        var summary = mobileNav.querySelector('summary');
+        if (summary) summary.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 880 && mobileNav.open) setMenu(false);
+      syncNav();
     });
   }
 
@@ -168,7 +161,7 @@
 
   /* ---- 页内目录高亮（只有挂了 .page-toc 的三级长页会命中）----
      观察每个 section[id]，把「标题刚滚过 Dock 下沿」的那一节标成当前项。 */
-  var toc = document.querySelector('.page-toc');
+  var toc = document.querySelector('.toc-rail .page-toc');
   if (toc && ('IntersectionObserver' in window)) {
     var tocLinks = {};
     Array.prototype.forEach.call(toc.querySelectorAll('a[href^="#"]'), function (a) {

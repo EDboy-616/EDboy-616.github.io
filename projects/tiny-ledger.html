@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>账本不出门 · tiny-ledger · Edboy</title>
 <meta name="description" content="tiny-ledger：单人手机记账应用。一份 UI 源同时跑在 Android 与桌面，没有一行网络代码，账本只写本机。">
 <meta name="author" content="edboy">
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://EDboy-616.github.io/projects/tiny-ledger.html">
 <link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
-<noscript><style>
-  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
-  .to-top{display:none!important}
-  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
-</style></noscript>
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-12">
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
 {"@type":"ListItem","position":1,"name":"首页","item":"https://EDboy-616.github.io/"},
@@ -28,24 +24,10 @@
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · 项目小站</span></div>
-<div class="side-rail left" aria-hidden="true"><span class="rail-text">自建 · 本地优先 · 单一真源 · 可审计</span></div>
+
 
 <div class="shell">
   <div class="top-sentinel" aria-hidden="true"></div>
-  <div class="topbar" data-od-id="topbar">
-    <div class="container topbar-inner">
-      <span><b>EDBOY / 2026</b></span>
-      <span class="mid">
-        <span>项目 / <b class="coral">tiny-ledger</b></span>
-        <span>移动端 · 私有仓库 · Nº 03</span>
-      </span>
-      <span class="right">
-        <span><span class="pulse"></span>数据只写本机</span>
-        <span>中文</span>
-      </span>
-    </div>
-  </div>
 
   <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
@@ -56,27 +38,29 @@
       </a>
       <nav class="desktop-nav" aria-label="主导航">
         <ul class="nav-links">
-          <li><a href="/#projects">项目</a></li>
+          <li><a href="/#projects" aria-current="page">项目</a></li>
           <li><a href="/#updates">更新</a></li>
           <li><a href="/#about">关于</a></li>
           <li><a href="/#subscribe">订阅</a></li>
-          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <main id="main">
@@ -227,22 +211,22 @@
           <div class="proj-steps">
             <div class="method-step" data-reveal style="--reveal-delay:0ms">
               <div class="num">01</div>
-              <h4>装到手机 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>装到手机 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>以 APK 侧载安装；覆盖安装需要和已装版本用同一证书。</p>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:90ms">
               <div class="num">02</div>
-              <h4>首次引导 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>首次引导 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>默认从空账本开始，示例数据在引导里可选装，用来熟悉界面。</p>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:180ms">
               <div class="num">03</div>
-              <h4>日常四页 <span class="arrow-r" aria-hidden="true">→</span></h4>
+              <h3>日常四页 <span class="arrow-r" aria-hidden="true">→</span></h3>
               <p>记账 → 流水 → 统计 → 我的。录入走记账，回看走流水与统计。</p>
             </div>
             <div class="method-step" data-reveal style="--reveal-delay:270ms">
               <div class="num">04</div>
-              <h4>备份与迁移</h4>
+              <h3>备份与迁移</h3>
               <p>可导出 JSON 备份恢复，或导出 CSV/XLSX；导入前自动备份，写失败全量回滚。</p>
             </div>
           </div>
@@ -327,7 +311,7 @@
             </div>
             <p class="lead" data-reveal="right">数据不出机器，意味着没有云端那份兜底。下面五条，是把"只存本机"这件事做扎实的部分。</p>
           </div>
-          <ul class="risk-list" data-reveal>
+          <ul class="update-list" data-reveal>
             <li><span class="n">01</span><div><b>自动备份</b><p>私有目录保留最近 3 份日快照；Downloads 目录会尝试再放 3 份。</p></div></li>
             <li><span class="n">02</span><div><b>手动导出</b><p>可导出 JSON 备份用于恢复，或导出 CSV / XLSX 用于外部查看。</p></div></li>
             <li><span class="n">03</span><div><b>导入守卫</b><p>导入前校验格式、自动备份当前数据；一旦写入失败，全量回滚。</p></div></li>
@@ -428,7 +412,7 @@
           <p>edboy 的项目小站：陈列五个自建仓库，开源工具、私有仓库、以及本站本身。纸感杂志风，本地优先。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/projects/localotp.html">localotp</a></li>
             <li><a href="/projects/tiny-ledger.html">tiny-ledger</a></li>
@@ -437,7 +421,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>本页</h5>
+          <h2 class="foot-head">本页</h2>
           <ul>
             <li><a href="#what">是什么</a></li>
             <li><a href="#why">解决什么</a></li>
@@ -447,7 +431,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>关于</h5>
+          <h2 class="foot-head">关于</h2>
           <ul>
             <li><a href="/#about">关于这个小站</a></li>
             <li><a href="/#about">技术栈</a></li>
@@ -455,7 +439,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/#subscribe">更新节奏</a></li>
             <li><a href="/feed.xml">RSS 订阅</a></li>
@@ -478,6 +462,6 @@
   </button>
 </div>
 
-<script src="/assets/atelier.js?v=20261126-1" defer></script>
+<script src="/assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>

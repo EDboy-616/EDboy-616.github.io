@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-zcode-design>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>localotp · 只在本机的验证码保管库 — Edboy</title>
 <meta name="description" content="localotp：本机离线的 TOTP 双重验证码保管库。Tauri 2 + Rust + TypeScript，AES-256-GCM 加密，主口令解锁，桌面端断网也能出码。仓库在 GitHub 上是私有的，不对外可见、不提供下载。">
 <meta name="author" content="edboy">
-<meta name="theme-color" content="#f4edda">
+<meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://EDboy-616.github.io/projects/localotp.html">
 <link rel="alternate" type="application/rss+xml" title="Edboy · 开源项目与工具" href="/feed.xml">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/atelier.css?v=20261126-1">
+<link rel="stylesheet" href="/assets/atelier.css?v=20261126-12">
 <!-- 页内只剩五条底座 atelier.css 还没有的规则，每条都标了它该归谁；底座补齐后本段可整块删。
      1) .system-hero：详情页首屏的上下留白交给 .proj-hero（58/66），要先归零全局 section{padding:118px 0}；
      2) ≥881px 把 .sys-gate-grid 从公共样式的 repeat(3,1fr) 改成 8/4 不等分，首张跨两行、右列放两张；
@@ -29,15 +29,11 @@
   .sys-gate-grid{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
   .sys-gate-grid>.sys-gate:first-child{grid-row:span 2}
 }
-.page-note{margin-top:28px;border-top:1px dashed var(--line);padding-top:16px;font-family:var(--mono);font-size:10.5px;line-height:1.9;letter-spacing:.03em;color:var(--ink-faint)}
-.page-note b{display:block;margin-bottom:8px;color:var(--ink);letter-spacing:.14em}
-.page-note .tail{display:block;margin-top:10px;color:var(--ink-mute)}
+.page-note{margin-top:28px;border-top:1px dashed var(--border);padding-top:16px;font-family:var(--mono);font-size:14px;line-height:1.7;letter-spacing:.03em;color:var(--muted)}
+.page-note b{display:block;margin-bottom:8px;color:var(--fg);letter-spacing:.14em}
+.page-note .tail{display:block;margin-top:10px;color:var(--muted)}
 </style>
-<noscript><style>
-  [data-reveal]{opacity:1!important;translate:0 0!important;scale:1!important;transition:none!important}
-  .to-top{display:none!important}
-  @media (max-width:880px){.nav-toggle{display:none!important}.mobile-menu[hidden]{display:block!important}}
-</style></noscript>
+<noscript><style>[data-reveal]{opacity:1!important;translate:none!important;scale:none!important;transition:none!important}.to-top{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
 {"@type":"ListItem","position":1,"name":"首页","item":"https://EDboy-616.github.io/"},
@@ -48,26 +44,10 @@
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="side-rail right" aria-hidden="true"><span class="rail-text">EDBOY · 私有仓库</span></div>
-<div class="side-rail left" aria-hidden="true"><span class="rail-text">离线 · 加密 · 不出本机 · 不可找回</span></div>
-
 <div class="shell">
   <div class="top-sentinel" aria-hidden="true"></div>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span><b>EDBOY / PROJECTS</b></span>
-      <span class="mid">
-        <span>自建仓库 · <b class="coral">私有仓库</b></span>
-        <span>Tauri 2 · Rust · TypeScript</span>
-      </span>
-      <span class="right">
-        <span><span class="pulse"></span>私有仓库</span>
-        <span>中文</span>
-      </span>
-    </div>
-  </div>
 
-  <header class="dock" id="siteNav">
+  <header class="dock" id="siteNav" data-od-id="nav">
     <div class="container nav-inner">
       <a href="/" class="brand" aria-label="Edboy 首页">
         <span class="brand-mark" aria-hidden="true">E</span>
@@ -80,24 +60,25 @@
           <li><a href="/#updates">更新</a></li>
           <li><a href="/#about">关于</a></li>
           <li><a href="/#subscribe">订阅</a></li>
-          <li><a href="https://github.com/EDboy-616" rel="noopener">GitHub</a></li>
         </ul>
       </nav>
       <div class="nav-side">
         <a class="nav-cta" href="/#subscribe">订阅更新 <span class="arrow" aria-hidden="true">→</span></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+        <details class="mobile-nav">
+          <summary aria-label="打开导航目录">目录</summary>
+          <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+            <ul>
+              <li><a href="/#projects">项目</a></li>
+              <li><a href="/#updates">更新</a></li>
+              <li><a href="/#about">关于</a></li>
+              <li><a href="/#subscribe">订阅</a></li>
+            </ul>
+            <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
+          </nav>
+        </details>
       </div>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航" hidden>
-      <ul>
-        <li><a href="/#projects">项目</a></li>
-        <li><a href="/#updates">更新</a></li>
-        <li><a href="/#about">关于</a></li>
-        <li><a href="/#subscribe">订阅</a></li>
-      </ul>
-      <a class="nav-cta" href="https://github.com/EDboy-616" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="nav-cta" href="/feed.xml">RSS <span class="arrow" aria-hidden="true">↗</span></a>
-    </nav>
   </header>
 
   <main id="main">
@@ -174,7 +155,7 @@
             <span class="label">功能</span>
             <h2>一个离线的双重验证码保管库<span class="dot">。</span></h2>
             <p class="lead">本机、离线、加密的 TOTP 保管库。第一次实际保存条目时设主口令，之后重启应用输主口令解锁即用。主界面是「大码双栏」：六位验证码、剩余秒数、复制操作在同一屏上，不用翻页找。</p>
-            <ul class="risk-list">
+            <ul class="update-list">
               <li><span class="n">01</span><div><b>本地加密保管</b><p>密钥条目全部以密文存在本机一个文件里，主口令只在解锁时进内存，用完即清。</p></div></li>
               <li><span class="n">02</span><div><b>大码出码</b><p>支持 SHA1 / SHA256 / SHA512、6–8 位、自定义周期的 TOTP 出码，断网也能算。</p></div></li>
               <li><span class="n">03</span><div><b>导入与备份</b><p>可导入 Aegis JSON、Google Authenticator 迁移链接，识别本地二维码图片，也能导出完整的 <code>.lotp</code> 快照。</p></div></li>
@@ -231,22 +212,22 @@
         <div class="proj-steps">
           <div class="method-step">
             <span class="num">I.</span>
-            <h4>装到本机<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <h3>装到本机<span class="arrow-r" aria-hidden="true">→</span></h3>
             <p>Windows 上有三种产物：NSIS 安装器、中文 MSI、免安装 exe。三项都还没做代码签名（Authenticode 均为 NotSigned），所以下载后 Windows 会弹未知发布者提示；MSI 的覆盖升级靠固定的 UpgradeCode 与 allowDowngrades=false，装过旧版直接装新版即可。</p>
           </div>
           <div class="method-step">
             <span class="num">II.</span>
-            <h4>加条目<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <h3>加条目<span class="arrow-r" aria-hidden="true">→</span></h3>
             <p>点右上角的加号，填名称、账号、密钥；服务方给了恢复码就一起填进去。</p>
           </div>
           <div class="method-step">
             <span class="num">III.</span>
-            <h4>首次保存设主口令<span class="arrow-r" aria-hidden="true">→</span></h4>
+            <h3>首次保存设主口令<span class="arrow-r" aria-hidden="true">→</span></h3>
             <p>第一次真正保存时设主口令，设定后保管库以密文落盘在 <code>%APPDATA%\dev.localotp.desktop\vault.lotp</code>。</p>
           </div>
           <div class="method-step">
             <span class="num">IV.</span>
-            <h4>日常解锁</h4>
+            <h3>日常解锁</h3>
             <p>以后每次启动先输主口令解锁；窗口失焦或隐藏就自动上锁，界面回到等待解锁的状态。</p>
           </div>
         </div>
@@ -432,7 +413,7 @@
           <p>edboy 的自建项目小站：开源工具与私有仓库的陈列。这里是其中一个——本机离线的验证码保管库 localotp。</p>
         </div>
         <div class="foot-col">
-          <h5>项目</h5>
+          <h2 class="foot-head">项目</h2>
           <ul>
             <li><a href="/#projects">全部项目</a></li>
             <li><a href="/#updates">更新</a></li>
@@ -440,7 +421,7 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>本页</h5>
+          <h2 class="foot-head">本页</h2>
           <ul>
             <li><a href="#s-02">localotp 是什么</a></li>
             <li><a href="#s-08">公开状态说明</a></li>
@@ -448,14 +429,14 @@
           </ul>
         </div>
         <div class="foot-col">
-          <h5>关于</h5>
+          <h2 class="foot-head">关于</h2>
           <ul>
             <li><a href="/#about">关于这个小站</a></li>
             <li><a href="/#subscribe">订阅更新</a></li>
           </ul>
         </div>
         <div class="foot-col">
-          <h5>订阅</h5>
+          <h2 class="foot-head">订阅</h2>
           <ul>
             <li><a href="/feed.xml">RSS 订阅</a></li>
             <li><a href="https://github.com/EDboy-616">GitHub</a></li>
@@ -477,6 +458,6 @@
   </button>
 </div>
 
-<script src="/assets/atelier.js?v=20261126-1" defer></script>
+<script src="/assets/atelier.js?v=20261126-12" defer></script>
 </body>
 </html>
